@@ -1,9 +1,9 @@
 {
   "name": "matriz-institucional",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
-  "description": "Site institucional e portf\u00f3lio da MATRIZ. Nome legado do reposit\u00f3rio: dataforge-portfolio.",
+  "description": "Portfólio e site institucional da MATRIZ: sites personalizados, sistemas financeiros e automação.",
   "scripts": {
     "dev": "node server.mjs",
     "build": "python3 scripts/build.py",

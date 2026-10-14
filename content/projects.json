@@ -60,7 +60,12 @@
     "image_height": 908,
     "image_alt": "Referência visual de um painel de operação com a marca fictícia Bolos & Massas.",
     "image_note": "Referência visual adaptada do painel de operação de Nossas Delícias. Não representa a interface atual do ClientFlow.",
-    "image_kind": "concept"
+    "image_kind": "concept",
+    "group": "gestao",
+    "use": "Agenda e relacionamento com clientes",
+    "client_summary": "Protótipo de organização de clientes, agenda, serviços e orçamentos em uma só interface.",
+    "display_status": "Protótipo",
+    "image_webp": "assets/previews/clientflow-concept.webp"
   },
   {
     "repo": "decisionforge-ai",
@@ -118,7 +123,11 @@
       "app/main.py",
       "pyproject.toml"
     ],
-    "listed": true
+    "listed": true,
+    "group": "dados",
+    "use": "Análise de dados e inteligência artificial",
+    "client_summary": "Uma demonstração para explorar dados, identificar padrões e apoiar análises.",
+    "display_status": "Demonstração"
   },
   {
     "repo": "nossas-delicias-site",
@@ -181,7 +190,12 @@
     "image_width": 1898,
     "image_height": 854,
     "image_alt": "Página inicial de Nossas Delícias com catálogo e personalização de bolos.",
-    "image_note": "Captura da interface fornecida pelo autor do projeto."
+    "image_note": "Captura da interface fornecida pelo autor do projeto.",
+    "group": "web",
+    "use": "Catálogo e pedidos para confeitaria",
+    "client_summary": "Uma plataforma que reúne catálogo, pedidos e montagem de bolos para uma confeitaria.",
+    "display_status": "Em evolução",
+    "image_webp": "assets/previews/nossas-delicias.webp"
   },
   {
     "repo": "curtailment-intelligence",
@@ -239,7 +253,11 @@
       "app/services/optimizer.py",
       "docs/PROJECT_STATUS.md"
     ],
-    "listed": true
+    "listed": true,
+    "group": "dados",
+    "use": "Dados aplicados à energia",
+    "client_summary": "Uma demonstração de análise e simulação de geração renovável com dados sintéticos.",
+    "display_status": "Demonstração"
   },
   {
     "repo": "projeto_academia",
@@ -299,7 +317,11 @@
       "src/lib/attention.ts",
       "prisma/schema.prisma"
     ],
-    "listed": true
+    "listed": true,
+    "group": "gestao",
+    "use": "Gestão e treinos para academias",
+    "client_summary": "Um projeto para conectar a administração, os professores e os alunos de uma academia.",
+    "display_status": "Versão inicial"
   },
   {
     "repo": "finance-manager",
@@ -364,7 +386,12 @@
     "image_height": 911,
     "image_alt": "Painel financeiro com organização, usuário e valores substituídos por exemplos.",
     "image_note": "Interface financeira anonimizada. A edição pública do repositório tem escopo reduzido.",
-    "image_kind": "anonymized"
+    "image_kind": "anonymized",
+    "group": "gestao",
+    "use": "Gestão financeira",
+    "client_summary": "Uma base de gestão para organizar receitas, despesas, contas e permissões de acesso.",
+    "display_status": "Edição de portfólio",
+    "image_webp": "assets/previews/finance-manager-anon.webp"
   },
   {
     "repo": "bakery-manager",
@@ -420,7 +447,11 @@
       "main.py",
       "demo/small-business-pricing-manager-demo.xlsx"
     ],
-    "listed": true
+    "listed": true,
+    "group": "dados",
+    "use": "Custos, preços e margem",
+    "client_summary": "Uma planilha demonstrativa que conecta insumos, receitas, formação de preços e vendas.",
+    "display_status": "Planilha demonstrativa"
   },
   {
     "repo": "csv-sales-analyzer",
@@ -477,7 +508,11 @@
       "src/analyzer.py",
       "requirements.txt"
     ],
-    "listed": true
+    "listed": true,
+    "group": "dados",
+    "use": "Análise de vendas",
+    "client_summary": "Um projeto para transformar arquivos de vendas em indicadores, filtros e relatórios.",
+    "display_status": "Demonstração"
   },
   {
     "repo": "coffee_five_site",
@@ -538,7 +573,11 @@
     "image_height": 926,
     "image_alt": "Captura do cardápio Coffee Five com navegação, fotografia, busca e filtros por categoria.",
     "image_note": "Proposta de redesign, sem afirmação de contratação ou aprovação comercial. Capturada em 08/09/2026; conteúdo e preços pertencem à demonstração.",
-    "listed": true
+    "listed": true,
+    "group": "web",
+    "use": "Site e cardápio para cafeteria",
+    "client_summary": "Uma proposta de site com a identidade da cafeteria e um cardápio fácil de explorar.",
+    "display_status": "Proposta de site"
   },
   {
     "repo": "projeto-petshop",
@@ -598,7 +637,12 @@
     "image_width": 1884,
     "image_height": 983,
     "image_alt": "Página inicial de Pata & Companhia com serviços e cuidados para pets.",
-    "image_note": "Captura da interface fornecida pelo autor do projeto."
+    "image_note": "Captura da interface fornecida pelo autor do projeto.",
+    "group": "web",
+    "use": "Loja e agendamento para pet shop",
+    "client_summary": "Produtos, carrinho e agendamento em uma demonstração de experiência para pet shops.",
+    "display_status": "Demonstração de interface",
+    "image_webp": "assets/previews/pata-companhia.webp"
   },
   {
     "repo": "institutional-site-template",

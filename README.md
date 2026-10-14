@@ -1,92 +1,59 @@
 # MATRIZ
 
-**Tecnologia que transforma negócios em possibilidades.**
+Sites personalizados, sistemas financeiros e automação para a rotina do seu negócio.
 
-Sistemas · Automação · Dados · Inteligência.
+**Site:** https://gabrielsantanabr.github.io/matriz/
 
-Site institucional da MATRIZ, com soluções, projetos, repertório público e contato. A tecnologia parte do problema da operação: conectar processos, organizar dados e construir produtos utilizáveis.
+Portfólio estático em HTML, CSS e JavaScript nativo, com fontes locais e sem dependências de execução. Os templates e metadados são gerados por Python. O nome `dataforge-portfolio` aparece apenas em documentação histórica e caminhos de compatibilidade.
 
-**Site:** https://gabrielsantanabr.github.io/dataforge-portfolio/
+## Experiência
 
-`dataforge-portfolio` é o nome legado do repositório. A marca pública é **MATRIZ**; o nome do repositório e o endereço do GitHub Pages foram preservados.
+A home mantém a identidade da MATRIZ e organiza a apresentação em serviços, gestão financeira, projetos, possibilidades de produtos, etapas do trabalho e dúvidas de contratação. Os benefícios são descritos em linguagem de negócio, com convites para conversar ao longo da navegação.
 
-## Soluções
+O portfólio permite filtrar dez projetos por sites e lojas, sistemas e gestão ou planilhas e dados. SICMA aparece separadamente como projeto em desenvolvimento. Código e informações de arquitetura permanecem disponíveis em áreas expansíveis. Exercícios de cursos e forks não integram a seleção comercial.
 
-- **Sistemas:** gestão, CRMs, financeiros, portais, SaaS e workflows.
-- **Automação:** integrações, processamento, ETL, planilhas e rotinas.
-- **Dados:** dashboards, BI, indicadores, modelagem, qualidade e análise.
-- **Inteligência:** previsão, classificação, segmentação, anomalias e IA aplicada.
+As páginas dos projetos preservam os limites e as fontes da inspeção original. Elas não afirmam contratação por marcas citadas, produção comprovada ou funcionalidades além da evidência. Recursos de novos projetos são definidos na proposta.
 
-Sites e produtos web, APIs, MVPs e evolução de infraestrutura complementam essas frentes. O trabalho é contratado sob escopo: diagnóstico, desenvolvimento, validação e evolução. Não há preços automáticos para sistemas complexos.
+## Marca e imagens
 
-## Projetos e evidências
+A logo oficial PNG foi preservada sem alteração, com checksum conferido na auditoria.
 
-A inspeção de 08/09/2026 identificou 26 repositórios públicos. A revisão de 09/09 seleciona dez projetos de produto e o SICMA, apresentado separadamente como desenvolvimento inicial. Exercícios da DIO, práticas introdutórias, forks e repositórios sem implementação ficam fora da seleção comercial. O inventário histórico completo permanece na documentação, sem inventar clientes, métricas ou uso em produção.
-
-| Projeto | Página | Estágio verificado |
-| --- | --- | --- |
-| ClientFlow | `clientflow.html` | Protótipo frontend; erro de inicialização registrado |
-| DecisionForge AI | `decisionforge-ai.html` | Demo de análise de dados e ML |
-| Nossas Delícias | `nossas-delicias.html` | Plataforma Django em evolução |
-| Curtailment Intelligence | `curtailment-intelligence.html` | Demo com dados sintéticos |
-| Movimento | `movimento.html` | MVP na branch `feat/mvp` |
-| Finance Manager | `gestao-financeira.html` | Edição pública reduzida |
-| Pricing & Sales Manager | `precificacao-vendas.html` | Demo em Excel |
-| Sales Intelligence | `analise-vendas.html` | Dashboard e CLI de análise |
-| Coffee Five | `coffee-five.html` | Proposta de site e cardápio |
-| Pata & Companhia | `pata-companhia.html` | MVP de interface |
-| SICMA | `sicma.html` | Estrutura inicial Java / Spring Boot; implementação futura |
-
-Nexa Institucional (`site-institucional-painel.html`) e RiftPilot (`riftpilot.html`) mantêm suas URLs antigas com `noindex`, fora dos destaques e do sitemap. `project.html?id=...` mantém os oito redirecionamentos antigos por lista permitida. Os principais anchors antigos da home também continuam disponíveis.
-
-Os textos e as fontes ficam em `content/projects.json`. `docs/repository-audit.json` registra branches, revisões e arquivos consultados. A inspeção de código não equivale a certificação, contratação ou comprovação de produção. A captura do Coffee Five veio da interface real do repositório. As imagens de Pata & Companhia e Nossas Delícias foram fornecidas pelo usuário e copiadas integralmente. Finance Manager usa uma captura anonimizada, com nomes e valores genéricos. ClientFlow usa uma referência visual adaptada do painel de Nossas Delícias, rebatizada como Bolos & Massas e identificada como referência no card e na página; ela não comprova funcionalidades implementadas no protótipo. A procedência e as alterações estão em `docs/preview-provenance.json`.
-
-## Identidade
-
-A logo PNG fornecida pelo usuário em 09/09/2026 substitui o SVG anterior no cabeçalho, hero, rodapé, favicon, ícone Apple, manifesto e metadados sociais. O arquivo de 1254×1254 foi copiado sem alteração; o teste verifica seu SHA-256 conforme `docs/brand-provenance.json`. O nome MATRIZ continua como texto separado.
-
-| Cor | Valor | Uso |
-| --- | --- | --- |
-| Carbon Black | `#0A0B0D` | Fundo principal |
-| Graphite | `#15171A` | Superfícies |
-| Forge White | `#F2F1ED` | Texto e seção de evidências |
-| Steel | `#8C949D` | Informação secundária |
-| Ember | `#FF402E` | Energia da marca |
-| Hot Ember | `#FF8A45` | CTAs e destaques |
-
-Space Grotesk, Inter e IBM Plex Mono são servidas localmente em WOFF2, com `font-display: swap`. As licenças OFL estão em `assets/fonts/`. Todos os usos da marca apontam para o mesmo PNG oficial, aproveitando o cache do navegador.
-
-## Stack e estrutura
-
-HTML semântico, CSS responsivo e JavaScript nativo. Nenhuma dependência de execução ou biblioteca de animação. Python gera os arquivos estáticos e reúne o contato em um único script local; Node fornece o servidor local e os testes de contato.
-
-| Caminho | Finalidade |
+| Cor | Valor |
 | --- | --- |
-| `index.html` | Home enxuta, seleção visual e contato por necessidade |
-| `prices.html` / `contact.html` | Serviços sob escopo e contato |
-| `privacy.html` / `security.html` | Práticas de privacidade e segurança |
-| `repertoire.html` | Portfólio selecionado, SICMA e repositórios com filtros |
-| `scripts/render.py` | Fonte dos templates e metadados |
-| `content/projects.json` | Fonte editorial dos projetos |
-| `assets/brand/` | Logo, favicons e social preview |
-| `assets/css/` / `assets/js/` / `assets/fonts/` | Recursos locais |
-| `tests/audit.py` | Integridade, marca, SEO, segurança e assets |
-| `tests/contact.test.mjs` | Validação, payload, respostas e timeout |
-| `tests/browser/` | Ferramentas locais de teste de viewport e formulário |
-| `dist/` | Saída publicável, gerada e ignorada pelo Git |
+| Carbon Black | `#0A0B0D` |
+| Graphite | `#15171A` |
+| Forge White | `#F2F1ED` |
+| Steel | `#8C949D` |
+| Ember | `#FF402E` |
+| Hot Ember | `#FF8A45` |
 
-## Execução local
+Space Grotesk, Inter e IBM Plex Mono são servidas localmente. As licenças OFL estão em `assets/fonts/`.
 
-Requisitos: **Node 22+ e Python 3.12+**. Não é necessário instalar pacotes.
+As capturas de Nossas Delícias e Pata & Companhia foram fornecidas pelo autor. Coffee Five é uma captura da proposta de site. Finance Manager usa dados anonimizados. ClientFlow usa uma referência visual adaptada e identificada, que não comprova implementação no protótipo. Os PNGs originais foram mantidos; os WebPs usados nas páginas têm todos os pixels idênticos aos respectivos PNGs. Procedência em `docs/preview-provenance.json`.
+
+## Desenvolvimento
+
+Requisitos: Node 22+ e Python 3.12+. Não é necessário instalar pacotes.
 
 ```bash
 npm run render
 npm run dev
 ```
 
-Abra `http://localhost:4173/`. Ao alterar os templates ou os dados, execute `npm run render`. Os HTML gerados permanecem versionados para facilitar inspeção e preservar os caminhos anteriores.
+Ao alterar `scripts/render.py` ou `content/projects.json`, execute `npm run render`. Os HTML gerados ficam versionados. `npm run build` gera a saída publicável em `dist/`.
 
-## Testes
+| Caminho | Finalidade |
+| --- | --- |
+| `scripts/render.py` | Templates, conteúdo da home e metadados |
+| `content/projects.json` | Evidências, estágios e descrições dos projetos |
+| `assets/css/matriz.css` | Identidade, layouts e breakpoints |
+| `assets/js/site.js` | Menu, filtros e movimento acessível |
+| `assets/js/contact-core.js` | Validação e transporte do contato |
+| `assets/js/contact.js` | Contexto, campos e tratamento do formulário |
+| `tests/` | Auditoria e testes de comportamento |
+| `docs/validation.md` | Validação atual e registros históricos |
+
+## Verificações
 
 ```bash
 npm test
@@ -94,30 +61,26 @@ npm run build
 python3 tests/audit.py --dist
 ```
 
-As verificações anteriores foram adaptadas à MATRIZ: arquivos obrigatórios, sintaxe JS, referências e anchors, IDs, semântica, CSP, atributos seguros, curadoria do portfólio, serviços, formulário, SEO e padrões de credenciais. Novos testes protegem a logo, favicons, fontes e saída pública.
+A auditoria verifica 22 páginas, 17 URLs indexáveis, links, fragmentos, semântica, metadados, CSP, campos, assets e preservação da logo. Os nove testes Node cobrem contato, respostas inválidas, timeout, categoria financeira, movimento reduzido e filtros do portfólio.
 
-O contato é testado com transporte simulado: validação, campos opcionais, payload permitido, sucesso explícito, resposta inválida, erro, limite de tentativas e timeout. Isso não atesta recebimento de email na caixa de destino.
+Nesta revisão de 14/10/2026, o navegador de QA não estava disponível. Breakpoints foram revisados no código; as capturas de setembro representam a versão anterior. Não foi enviado contato externo real. A validação do transporte é simulada e não confirma recebimento na caixa de email.
 
-Para QA de layout, abra `/__qa/` no servidor local. O painel cria viewports de 360, 375, 390, 430, 768, 1366, 1440 e 1920 pixels em um iframe. Os cenários locais de contato usam identificador de teste e bloqueiam conexões e submissões externas por CSP. Esse painel e os mocks são excluídos da publicação. A medição é de viewport CSS no Chromium; não substitui testes em aparelhos físicos ou em outros motores.
+## Contato e segurança
 
-A rodada de validação e seus limites estão em [`docs/validation.md`](docs/validation.md).
+O formulário existente usa Web3Forms. Nome, email, tipo de projeto e descrição são obrigatórios; empresa, WhatsApp e investimento são opcionais. O visitante pode selecionar “Ainda não sei / Quero orientação”. Links de serviços e projetos levam o interesse ao formulário.
 
-## Contato, segurança e privacidade
+Há limites de campos, honeypot, prevenção de envio simultâneo, intervalo entre tentativas e timeout. Falhas preservam os campos; a confirmação depende de sucesso explícito do serviço. Sem JavaScript, o POST nativo permanece disponível.
 
-O serviço Web3Forms existente foi mantido. Seu identificador público direciona formulários e não concede acesso administrativo. Não há credenciais privilegiadas no frontend. Nome, email, tipo de projeto e descrição são obrigatórios; empresa, WhatsApp e orçamento são opcionais.
-
-O cliente aplica limites, validação, honeypot, bloqueio de envio simultâneo, intervalo de 15 segundos e timeout de 12 segundos. Falhas preservam os campos. A página de sucesso é aberta somente após resposta explícita de sucesso do serviço. Sem JavaScript, o formulário usa o POST nativo para o mesmo serviço.
-
-Não há analytics, pixels de marketing ou fontes remotas. O armazenamento de sessão mantém apenas o horário da tentativa, sem persistir a mensagem. Consulte `SECURITY.md` e as páginas de privacidade e segurança para controles e limites da plataforma.
+O identificador público do formulário não concede acesso administrativo. Não há credenciais privilegiadas no frontend, analytics próprios ou fontes remotas. A sessão guarda apenas o horário da última tentativa. Consulte `SECURITY.md`, `privacy.html` e `security.html` para os controles e limites existentes.
 
 ## Publicação e recuperação
 
-O workflow `.github/workflows/pages.yml` valida antes de publicar a `main`. Somente o conteúdo de `dist/` entra no artifact do GitHub Pages; testes, mocks, documentação, fontes de geração e configuração ficam de fora. `dist/dataforge-portfolio/` contém os caminhos de compatibilidade usados pela página 404 em hospedagens por subdiretório.
+O workflow `.github/workflows/pages.yml` repete os testes, gera `dist/`, audita o pacote e publica a `main` no GitHub Pages. Fontes de geração, documentação e ferramentas de teste não integram a saída publicada. Canonicals, sitemap e URLs de compartilhamento apontam para `/matriz/`. Os caminhos de compatibilidade de `/matriz/` e do antigo nome são preservados no pacote.
 
-A referência **`backup/pre-matriz-2026-09-07`** preserva o estado anterior, no commit `1f74f08ce8d7b300ab5ffff7b72e354afc70ff83`. Uma recuperação deve partir dessa referência e ser revisada antes de uma nova publicação; não exige renomear o repositório.
+**Backup desta revisão:** `backup/portfolio-2026-10-14`, commit `82a28c7984b38094eaca9db1d556e7c2e471d235`. A branch preserva a versão antiga e foi criada antes das alterações. Uma restauração deve ser publicada como um novo commit para preservar o histórico.
 
-Canonical, Open Graph e sitemap usam o endereço real do GitHub Pages. `.openai/hosting.json` identifica também a visualização privada complementar do mesmo projeto; não altera o endereço público canônico.
+Os registros históricos e a referência `backup/pre-matriz-2026-09-07` continuam documentados. A configuração de visualização complementar existente não foi alterada.
 
-## Licenças e atribuições
+## Atribuições
 
-As fontes possuem licenças OFL incluídas. A logo oficial e os materiais de marca foram fornecidos pelo responsável pelo projeto. Capturas e referências mantêm o contexto e os créditos dos projetos. Este repositório não atribui uma nova licença geral nem direitos sobre marcas de terceiros.
+Marca e materiais foram fornecidos pelo responsável pelo projeto. Referências visuais mantêm o contexto das respectivas páginas. Este repositório não concede direitos sobre marcas de terceiros nem atribui uma nova licença geral.

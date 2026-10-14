@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /dataforge-portfolio/thanks.html
-Disallow: /dataforge-portfolio/project.html
-Sitemap: https://gabrielsantanabr.github.io/dataforge-portfolio/sitemap.xml
+Disallow: /matriz/thanks.html
+Disallow: /matriz/project.html
+Sitemap: https://gabrielsantanabr.github.io/matriz/sitemap.xml

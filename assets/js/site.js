@@ -42,6 +42,25 @@
     if (status) status.textContent = `${count} ${count === 1 ? 'repositório' : 'repositórios'}${filter === 'Todos' ? '' : ` · ${filter}`}`;
   }));
 
+  const projectButtons = [...document.querySelectorAll('[data-project-filter]')];
+  const projectCards = [...document.querySelectorAll('#portfolio-projects [data-project-group]')];
+  projectButtons.forEach(button => button.addEventListener('click', () => {
+    const group = button.dataset.projectFilter;
+    projectButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    let count = 0;
+    projectCards.forEach(card => {
+      card.hidden = group !== 'Todos' && card.dataset.projectGroup !== group;
+      if (!card.hidden) {
+        count += 1;
+        // A card hidden during observation must be readable when shown again.
+        card.classList.remove('is-pending');
+        card.classList.add('is-visible');
+      }
+    });
+    const status = document.getElementById('project-count');
+    if (status) status.textContent = `${count} ${count === 1 ? 'projeto' : 'projetos'}${group === 'Todos' ? '' : ` · ${button.textContent.trim()}`}`;
+  }));
+
   const counters = [...document.querySelectorAll('[data-count]')];
   const runningCounters = new Map();
   let counterObserver;

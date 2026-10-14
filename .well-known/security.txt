@@ -1,6 +1,6 @@
-Contact: https://gabrielsantanabr.github.io/dataforge-portfolio/contact.html
+Contact: https://gabrielsantanabr.github.io/matriz/contact.html
 Contact: https://www.linkedin.com/in/gabriel-santana-b3654622a/
-Canonical: https://gabrielsantanabr.github.io/dataforge-portfolio/.well-known/security.txt
+Canonical: https://gabrielsantanabr.github.io/matriz/.well-known/security.txt
 Preferred-Languages: pt-BR, en
 Expires: 2027-09-01T00:00:00Z
-Policy: https://gabrielsantanabr.github.io/dataforge-portfolio/security.html
+Policy: https://gabrielsantanabr.github.io/matriz/security.html

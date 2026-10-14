@@ -33,5 +33,17 @@
       ],
       "sha256": "2ca878f17d3ae1d5db34a313a4c197975d5e8e19350a674854737253532953db"
     }
-  ]
+  ],
+  "encodings": {
+    "date": "2026-10-14",
+    "format": "WebP lossless",
+    "source": "Arquivos PNG originais preservados no mesmo diretório.",
+    "verification": "Cada derivado foi comparado ao original em RGBA: dimensões e todos os pixels idênticos.",
+    "files": [
+      "assets/previews/clientflow-concept.webp",
+      "assets/previews/finance-manager-anon.webp",
+      "assets/previews/nossas-delicias.webp",
+      "assets/previews/pata-companhia.webp"
+    ]
+  }
 }

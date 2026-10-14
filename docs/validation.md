@@ -1,3 +1,33 @@
+# Revisão de apresentação e contato — 14/10/2026
+
+## Resultado
+
+A identidade foi preservada: arquivo oficial da logo sem alteração, fundo Carbon Black, superfícies Graphite, branco e tons Ember / Hot Ember. A home mantém “Seu negócio. Próximo nível.” e torna explícitos sites personalizados, sistemas financeiros e automação.
+
+- Três frentes de serviço explicadas em linguagem de negócio.
+- Seção financeira com a captura anonimizada do Finance Manager.
+- Projetos com descrição da utilidade e estágio de desenvolvimento preservado.
+- Exemplos de catálogo/pedidos, agenda/clientes, custos/precificação e painéis/relatórios.
+- Portfólio visual com filtros independentes dos filtros de código.
+- Perguntas sobre contratação, preço, prazo, celular e continuidade.
+- Contato com categoria financeira, opção de orientação e contexto do interesse. Provedor e controles de envio preservados.
+- Canonicals, URLs sociais, sitemap, robots, segurança e fallback da 404 corrigidos para `/matriz/`.
+- Derivados WebP lossless das capturas; os PNGs e seus pixels foram preservados.
+
+## Verificações
+
+`npm test`, `npm run build` e `python3 tests/audit.py --dist` passaram. A auditoria cobre 22 páginas, 17 URLs indexáveis, 11 repositórios selecionados, links, anchors, metadados, CSP, assets, campos e o checksum da logo. Os nove testes Node cobrem contato, erros de transporte, timeout, categoria financeira, movimento reduzido e filtros do portfólio.
+
+Os 22 documentos HTML também passaram em verificação de fechamento e aninhamento de tags. Os quatro WebPs foram comparados em RGBA aos PNGs de origem, com igualdade exata de todos os pixels.
+
+Esta revisão não teve QA de navegador: a capacidade `control-browser` não estava disponível neste ambiente. Os breakpoints foram revisados no CSS, mas não foram medidos em um navegador nem em aparelhos físicos. Não foi enviado contato real ao Web3Forms. As capturas de QA de setembro abaixo documentam somente a versão antiga; não representam esta revisão. Não há métricas que comprovem aumento de conversão.
+
+## Recuperação
+
+`backup/portfolio-2026-10-14` preserva integralmente a versão anterior em `82a28c7984b38094eaca9db1d556e7c2e471d235`. O backup foi criado no GitHub antes das alterações. Uma recuperação pode ser publicada como um novo commit, preservando o histórico.
+
+---
+
 # Revisão final: limpeza, imagens e mobile — 09/09/2026
 
 A limpeza inicial foi publicada na `main` em `302e4ff29b0bdb6508eebbd397beb9a694a87769`. Esta revisão aplica os novos materiais enviados pelo usuário e os achados visuais seguintes. Nenhum repositório dos projetos apresentados nem banco de dados foi modificado.

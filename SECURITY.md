@@ -4,7 +4,7 @@ Este documento descreve o site institucional estático, não a segurança de cad
 
 ## Relatar uma vulnerabilidade
 
-Use https://gabrielsantanabr.github.io/dataforge-portfolio/contact.html?service=evolucao ou o LinkedIn indicado no rodapé. Informe a URL, o comportamento e passos mínimos para reprodução. Não envie credenciais, dados privados ou informações pessoais de terceiros. Não há prazo de resposta ou programa de recompensa anunciado.
+Use https://gabrielsantanabr.github.io/matriz/contact.html?service=evolucao ou o LinkedIn indicado no rodapé. Informe a URL, o comportamento e passos mínimos para reprodução. Não envie credenciais, dados privados ou informações pessoais de terceiros. Não há prazo de resposta ou programa de recompensa anunciado.
 
 ## Controles implementados
 

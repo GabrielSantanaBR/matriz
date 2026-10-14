@@ -10,8 +10,9 @@ for name in ['assets','.well-known'] :shutil.copytree(root/name,dist/name)
 for name in ['robots.txt','sitemap.xml','site.webmanifest','.nojekyll']:shutil.copy2(root/name,dist/name)
 # Root-relative fallback paths preserve deep-link 404 rendering on project Pages.
 # The private preview also accepts these same public asset paths.
-compat=dist/'dataforge-portfolio';compat.mkdir()
-shutil.copytree(root/'assets',compat/'assets')
-for p in root.glob('*.html'):shutil.copy2(p,compat/p.name)
-shutil.copy2(root/'site.webmanifest',compat/'site.webmanifest')
+for prefix in ['matriz','dataforge-portfolio']:
+    compat=dist/prefix;compat.mkdir()
+    shutil.copytree(root/'assets',compat/'assets')
+    for p in root.glob('*.html'):shutil.copy2(p,compat/p.name)
+    shutil.copy2(root/'site.webmanifest',compat/'site.webmanifest')
 print('Static site built in dist/. No source, tests, configuration or credentials are published.')

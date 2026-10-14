@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / 'dist' if '--dist' in sys.argv else ROOT
-BASE = 'https://gabrielsantanabr.github.io/dataforge-portfolio/'
+BASE = 'https://gabrielsantanabr.github.io/matriz/'
 failures = []
 def require(condition, message):
     if not condition: failures.append(message)
@@ -42,10 +42,10 @@ def local_target(source, value):
     parsed = urlsplit(value)
     if parsed.scheme or parsed.netloc:
         if not value.startswith(BASE): return None, parsed.fragment
-        path = PUBLIC / unquote(parsed.path.removeprefix('/dataforge-portfolio/'))
+        path = PUBLIC / unquote(parsed.path.removeprefix('/matriz/'))
     else:
         raw = unquote(parsed.path)
-        if raw.startswith('/dataforge-portfolio/'): path = PUBLIC / raw.removeprefix('/dataforge-portfolio/')
+        if raw.startswith('/matriz/'): path = PUBLIC / raw.removeprefix('/matriz/')
         elif raw.startswith('/'): path = PUBLIC / raw.lstrip('/')
         else: path = source.parent / raw if raw else source
     if path.is_dir(): path /= 'index.html'
@@ -157,5 +157,6 @@ if '--dist' in sys.argv:
     for forbidden in ['tests','scripts','docs','content','.git','.env','server.mjs','package.json','README.md']:
         require(not (PUBLIC/forbidden).exists(), f'Source included in public output: {forbidden}')
     require((PUBLIC/'dataforge-portfolio/assets/brand/logo-matriz.png').exists(), 'Deep 404 compatibility assets missing')
+    require((PUBLIC/'matriz/assets/brand/logo-matriz.png').exists(), 'Current Pages 404 compatibility assets missing')
 if failures: raise SystemExit('Release audit failed:\n'+'\n'.join(failures))
 print(f'Release audit passed: {len(pages)} pages, 11 selected repositories, 10 featured cases, 17 sitemap URLs; links, anchors, SEO, CSP, form, original logo and assets verified.')

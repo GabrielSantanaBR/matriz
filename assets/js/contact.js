@@ -9,6 +9,12 @@ if (form) {
   const requestedService = params.get('service');
   const mapped = Object.hasOwn(SERVICE_LABELS,requestedService) ? requestedService : (Object.hasOwn(LEGACY_SERVICES,requestedService) ? LEGACY_SERVICES[requestedService] : undefined);
   if (mapped) form.elements.service.value = mapped;
+  const interest = document.getElementById('contact-interest');
+  const updateInterest = () => {
+    if (interest) interest.textContent = form.elements.service.selectedOptions[0]?.textContent || 'Vamos descobrir juntos o que você precisa.';
+  };
+  form.elements.service.addEventListener('change', updateInterest);
+  if (mapped) updateInterest();
   const project = cleanText(params.get('project'),100), plan = cleanText(params.get('plan'),60);
   if (project || plan) form.elements.message.value = `Tenho interesse em ${project || 'uma solução'}${plan ? `, com ${plan} como referência` : ''}. Gostaria de conversar sobre o escopo. `;
   const attemptKey = 'matriz-contact-attempt';
