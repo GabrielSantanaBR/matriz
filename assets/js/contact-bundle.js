@@ -2,7 +2,7 @@
 (() => {
 'use strict';
 const SERVICE_LABELS = Object.freeze({sistemas:'Sistema',financeiro:'Sistema financeiro',automacao:'Automação',dados:'Dados / BI',ia:'Inteligência Artificial',web:'Site personalizado / Loja online',api:'API / Backend',mvp:'MVP',evolucao:'Evolução tecnológica',outro:'Ainda não sei / Quero orientação'});
-const LEGACY_SERVICES = Object.freeze({clientflow:'sistemas',finance:'sistemas',custom:'mvp',vertical:'mvp',landing:'web',site:'web','site-panel':'web',commerce:'web',spreadsheet:'automacao',data:'dados',ai:'ia',deploy:'evolucao',security:'evolucao',analytics:'dados',other:'outro'});
+const LEGACY_SERVICES = Object.freeze({clientflow:'sistemas',finance:'financeiro',custom:'mvp',vertical:'mvp',landing:'web',site:'web','site-panel':'web',commerce:'web',spreadsheet:'automacao',data:'dados',ai:'ia',deploy:'evolucao',security:'evolucao',analytics:'dados',other:'outro'});
 const cleanText = (value, max = 2500) => String(value ?? '').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g,' ').replace(/[ \t]{3,}/g,' ').trim().slice(0,max);
 function validateFields(fields) {
   const errors = {};
@@ -32,27 +32,35 @@ async function sendContact(payload, {fetchImpl = fetch, timeoutMs = 12000} = {})
 const form = document.getElementById('secure-contact-form');
 if (form) {
   form.dataset.enhanced = 'true';
+  form.noValidate = true;
   const status = document.getElementById('form-status');
   const button = form.querySelector('[type=submit]');
   const buttonLabel = [...button.childNodes].map(node => node.cloneNode(true));
   const params = new URLSearchParams(location.search);
   const requestedService = params.get('service');
   const mapped = Object.hasOwn(SERVICE_LABELS,requestedService) ? requestedService : (Object.hasOwn(LEGACY_SERVICES,requestedService) ? LEGACY_SERVICES[requestedService] : undefined);
-  if (mapped) form.elements.service.value = mapped;
+  if (mapped && !form.elements.service.value) form.elements.service.value = mapped;
   const interest = document.getElementById('contact-interest');
   const updateInterest = () => {
-    if (interest) interest.textContent = form.elements.service.selectedOptions[0]?.textContent || 'Vamos descobrir juntos o que você precisa.';
+    if (interest) interest.textContent = form.elements.service.value ? form.elements.service.selectedOptions[0]?.textContent : 'Vamos descobrir juntos o que você precisa.';
   };
   form.elements.service.addEventListener('change', updateInterest);
-  if (mapped) updateInterest();
+  updateInterest();
   const project = cleanText(params.get('project'),100), plan = cleanText(params.get('plan'),60);
-  if (project || plan) form.elements.message.value = `Tenho interesse em ${project || 'uma solução'}${plan ? `, com ${plan} como referência` : ''}. Gostaria de conversar sobre o escopo. `;
+  if ((project || plan) && !form.elements.message.value) form.elements.message.value = `Tenho interesse em ${project || 'uma solução'}${plan ? `, com ${plan} como referência` : ''}. Gostaria de conversar sobre o escopo. `;
+  const count = document.getElementById('message-length');
+  const updateLength = () => { if (count) count.textContent = `${form.elements.message.value.length.toLocaleString('pt-BR')} / 2.500`; };
+  form.elements.message.addEventListener('input', updateLength);
+  updateLength();
   const attemptKey = 'matriz-contact-attempt';
   const getLast = () => { try { return Number(sessionStorage.getItem(attemptKey)) || 0; } catch { return 0; } };
   const saveLast = value => { try { sessionStorage.setItem(attemptKey,String(value)); } catch { /* Private mode can disable storage. */ } };
   let lastAttempt = getLast();
   let sending = false;
   const message = (text, state) => { status.textContent=text; status.dataset.state=state; };
+  addEventListener('online', () => {
+    if (status.dataset.state === 'offline') message('A conexão voltou. Você pode tentar enviar novamente.','ready');
+  });
   const clearError = event => {
     if (!event.target.name) return;
     event.target.removeAttribute('aria-invalid');
@@ -78,7 +86,9 @@ if (form) {
       form.elements[Object.keys(errors)[0]]?.focus();
       message('Confira os campos indicados antes de enviar.','error'); return;
     }
-    if (Date.now()-lastAttempt < 15000) { message('Aguarde alguns segundos antes de tentar novamente.','error'); return; }
+    if (navigator.onLine === false) { message('Você está sem conexão. Seus campos continuam aqui; envie quando a conexão voltar.','offline'); return; }
+    const remaining = Math.ceil((15000-(Date.now()-lastAttempt))/1000);
+    if (remaining > 0) { message(`Aguarde ${remaining} ${remaining === 1 ? 'segundo' : 'segundos'} antes de tentar novamente.`,'error'); return; }
     lastAttempt=Date.now();saveLast(lastAttempt);sending=true;
     button.disabled=true;button.textContent='Enviando…';form.setAttribute('aria-busy','true');
     message('Enviando sua mensagem.','pending');

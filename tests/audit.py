@@ -15,9 +15,11 @@ def require(condition, message):
 class Page(HTMLParser):
     def __init__(self, path):
         super().__init__(convert_charrefs=True)
-        self.path, self.ids, self.nodes, self.text = path, set(), [], []
+        self.path, self.ids, self.nodes, self.text, self.stack = path, set(), [], [], []
         self.feed(path.read_text())
+        require(not self.stack, f'{path.name}: unclosed tags {self.stack}')
     def handle_starttag(self, tag, attrs):
+        if tag not in {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}: self.stack.append(tag)
         a = dict(attrs)
         self.nodes.append((tag, a))
         if a.get('id'):
@@ -28,7 +30,12 @@ class Page(HTMLParser):
         if tag == 'a' and a.get('target') == '_blank':
             require({'noopener','noreferrer'} <= set(a.get('rel','').split()), f'{self.path.name}: unprotected external link')
         if tag == 'img': require(all(k in a for k in ['alt','width','height']), f'{self.path.name}: image needs alt/dimensions')
-    def handle_startendtag(self, tag, attrs): self.handle_starttag(tag, attrs)
+    def handle_endtag(self, tag):
+        require(bool(self.stack) and self.stack[-1] == tag, f'{self.path.name}: invalid closing tag {tag}')
+        if self.stack and self.stack[-1] == tag: self.stack.pop()
+    def handle_startendtag(self, tag, attrs):
+        self.handle_starttag(tag, attrs)
+        if self.stack and self.stack[-1] == tag: self.stack.pop()
     def handle_data(self, text): self.text.append(text)
     def matching(self, tag, **attrs):
         return [a for t,a in self.nodes if t == tag and all(a.get(k) == v for k,v in attrs.items())]
@@ -57,7 +64,7 @@ for name, page in pages.items():
     require(page.matching('a',href='#main-content'), f'{name}: skip link')
     expected = BASE + ('' if name == 'index.html' else name)
     require(page.matching('link',rel='canonical',href=expected), f'{name}: canonical')
-    for key in ['description','twitter:title','twitter:description','twitter:image','twitter:card']:
+    for key in ['description','twitter:title','twitter:description','twitter:image','twitter:card','twitter:image:alt']:
         require(any(a.get('content') for a in page.matching('meta',name=key)), f'{name}: {key}')
     for key in ['og:title','og:description','og:image','og:image:alt','og:site_name']:
         require(any(a.get('content') for a in page.matching('meta',property=key)), f'{name}: {key}')
@@ -73,6 +80,12 @@ for name, page in pages.items():
         require(directives.get(key) == ('https://api.web3forms.com' if name == 'contact.html' else "'none'"), f'{name}: CSP {key}')
     require('upgrade-insecure-requests' in directives, f'{name}: HTTPS policy')
     for tag,a in page.nodes:
+        if tag == 'img' and a.get('srcset'):
+            require(a.get('sizes'), f'{name}: responsive image needs sizes')
+            for candidate in a['srcset'].split(','):
+                image,descriptor=candidate.strip().split()
+                target,_=local_target(page.path,image)
+                require(target is not None and target.exists() and re.fullmatch(r'\d+w',descriptor), f'{name}: invalid responsive image {candidate}')
         for attribute in ['href','src','action']:
             value = a.get(attribute)
             if value is None: continue
@@ -138,8 +151,23 @@ logo=PUBLIC/provenance['file']
 data=logo.read_bytes()
 require(hashlib.sha256(data).hexdigest()==provenance['sha256'], 'The supplied logo must be preserved byte-for-byte')
 require(data[:8]==b'\x89PNG\r\n\x1a\n' and struct.unpack('>II',data[16:24])==tuple(provenance['dimensions']), 'Logo dimensions')
+derived=json.loads((ROOT/'docs/site-asset-provenance.json').read_text())
+require(derived['originalLogoSha256']==provenance['sha256'], 'Responsive assets must derive from the supplied logo')
+for item in derived['assets']:
+    data=(PUBLIC/item['file']).read_bytes()
+    require(hashlib.sha256(data).hexdigest()==item['sha256'], f'Altered responsive asset: {item["file"]}')
+    require(item['bytes']==len(data), f'Asset size mismatch: {item["file"]}')
 for page in pages.values():
-    require(page.matching('meta',property='og:image',content=BASE+provenance['file']), 'Sharing image must use the supplied logo')
+    require(page.matching('meta',property='og:image',content=BASE+'assets/brand/matriz-share.png'), 'Sharing image must use the brand artwork')
+    require(page.matching('meta',property='og:image:width',content='1200') and page.matching('meta',property='og:image:height',content='630'), 'Share artwork dimensions')
+    if any('data-preview' in a for t,a in page.nodes):
+        require(page.matching('dialog',id='preview-dialog'), f'{page.path.name}: missing native image viewer')
+        require(page.matching('button',id='preview-close'), f'{page.path.name}: viewer needs a close button')
+        require(page.matching('button',id='preview-zoom'), f'{page.path.name}: viewer needs zoom control')
+        require(any(a.get('src','').startswith('assets/js/preview.js?') or '/matriz/assets/js/preview.js?' in a.get('src','') for a in page.matching('script')), f'{page.path.name}: missing preview enhancement')
+    require(any(a.get('src','').startswith('assets/js/site.js?v=') or '/matriz/assets/js/site.js?v=' in a.get('src','') for a in page.matching('script')), f'{page.path.name}: version shared JS to invalidate stale caches')
+require('Java 17, Spring Boot e Gradle' not in ' '.join(pages['sicma.html'].text), 'SICMA must not describe the retired Java scaffold')
+require(pages['sicma.html'].matching('img',src='assets/previews/demo-sicma.webp'), 'SICMA needs its current educational preview')
 for old in ['logo-matriz.svg','favicon.svg','social-matriz.png']:
     require(not (PUBLIC/'assets/brand'/old).exists(), 'Obsolete brand asset remains: '+old)
 for font in (PUBLIC/'assets/fonts').glob('*.woff2'): require(font.read_bytes()[:4] == b'wOF2', f'{font.name}: invalid WOFF2')

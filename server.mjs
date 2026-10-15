@@ -37,8 +37,8 @@ createServer(async (req, res) => {
         .replace('form-action https://api.web3forms.com', "form-action 'none'")
         .replace('action="https://api.web3forms.com/submit"', 'action="/__qa/disabled"')
         .replace(/name="access_key" value="[^"]+"/, 'name="access_key" value="matriz-local-test"')
-        .replace('<script src="/assets/js/site.js"', '<script src="/__qa/mock-contact.js"></script><script src="/assets/js/site.js"')
-        .replace('<main id="main-content">', '<main id="main-content"><p id="qa-mode" role="note">Teste local: envio externo bloqueado.</p>'));
+        .replace('<script src="/assets/js/site.js', '<script src="/__qa/mock-contact.js"></script><script src="/assets/js/site.js')
+        .replace('<main id="main-content" tabindex="-1">', '<main id="main-content" tabindex="-1"><p id="qa-mode" role="note">Teste local: envio externo bloqueado.</p>'));
     }
     res.writeHead(200, {'Content-Type':types[extname(file)] || 'application/octet-stream','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});
     res.end(body);

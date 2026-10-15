@@ -1,0 +1,116 @@
+{
+  "builder": "scripts/site-assets.mjs",
+  "originalLogo": "assets/brand/logo-matriz.png",
+  "originalLogoSha256": "6ee207cb5973681103b8954d5ebed0f5faac04b1f1e97827e5be9276fddb6827",
+  "method": "Redimensionamento e codificação lossless. Arte social nativa composta com a logo original, sem geração por IA.",
+  "assets": [
+    {
+      "file": "assets/brand/logo-matriz-96.webp",
+      "source": "assets/brand/logo-matriz.png",
+      "description": "Logo oficial redimensionada, com transparência e codificação lossless.",
+      "width": 96,
+      "height": 96,
+      "bytes": 5092,
+      "sha256": "4c81fddef31ca45abcc563293c0bb4a72b86f0a010485bebd7447002ee6a1d87"
+    },
+    {
+      "file": "assets/brand/logo-matriz-800.webp",
+      "source": "assets/brand/logo-matriz.png",
+      "description": "Logo oficial redimensionada, com transparência e codificação lossless.",
+      "width": 800,
+      "height": 800,
+      "bytes": 129114,
+      "sha256": "a39848452dfdccb043e0c850d2652d6cb6db5c64c17e27688d4a1bd7931ceff6"
+    },
+    {
+      "file": "assets/brand/icon-32.png",
+      "source": "assets/brand/logo-matriz.png",
+      "description": "Ícone derivado da logo oficial, sem redesenho.",
+      "width": 32,
+      "height": 32,
+      "bytes": 1346,
+      "sha256": "7ec1195384d37fb9e8981ee7a432e7b0554f062cb2285c1df3f0defba37cc194"
+    },
+    {
+      "file": "assets/brand/icon-180.png",
+      "source": "assets/brand/logo-matriz.png",
+      "description": "Ícone derivado da logo oficial, sem redesenho.",
+      "width": 180,
+      "height": 180,
+      "bytes": 18239,
+      "sha256": "0995a440b7d4d7cb0d269bea94ae20152e84f522a0a0977892a148294513b24c"
+    },
+    {
+      "file": "assets/brand/icon-192.png",
+      "source": "assets/brand/logo-matriz.png",
+      "description": "Ícone derivado da logo oficial, sem redesenho.",
+      "width": 192,
+      "height": 192,
+      "bytes": 19949,
+      "sha256": "4458777a51a07abb34631ed5b33dd2228ae62268d3e70c23d45e9012b5d132d8"
+    },
+    {
+      "file": "assets/brand/matriz-share.png",
+      "source": "assets/brand/logo-matriz.png",
+      "description": "Arte de compartilhamento composta por código, com a logo oficial e mensagem do site.",
+      "width": 1200,
+      "height": 630,
+      "bytes": 105633,
+      "sha256": "869a6fbfd4f21da0ed691afbaa607166fbc32075a251eb99fa42f1db5012a3b8"
+    },
+    {
+      "file": "assets/previews/finance-manager-anon-480.webp",
+      "source": "assets/previews/finance-manager-anon.webp",
+      "description": "Prévia responsiva redimensionada com codificação lossless; original preservado.",
+      "width": 480,
+      "height": 253,
+      "bytes": 81958,
+      "sha256": "1550ead06146a98f0060b54317fcdf2d3fe455229a5ccea9e79d664f121ffc77"
+    },
+    {
+      "file": "assets/previews/finance-manager-anon-960.webp",
+      "source": "assets/previews/finance-manager-anon.webp",
+      "description": "Prévia responsiva redimensionada com codificação lossless; original preservado.",
+      "width": 960,
+      "height": 506,
+      "bytes": 317388,
+      "sha256": "8dafed17b509c0c7f64b94be571b1593f8edf22b539aef6ec676a0243ab7e934"
+    },
+    {
+      "file": "assets/previews/nossas-delicias-480.webp",
+      "source": "assets/previews/nossas-delicias.webp",
+      "description": "Prévia responsiva redimensionada com codificação lossless; original preservado.",
+      "width": 480,
+      "height": 216,
+      "bytes": 30606,
+      "sha256": "70c752be11418bed3b1d9653e92300e18f9864890128370f0955698d5d784846"
+    },
+    {
+      "file": "assets/previews/nossas-delicias-960.webp",
+      "source": "assets/previews/nossas-delicias.webp",
+      "description": "Prévia responsiva redimensionada com codificação lossless; original preservado.",
+      "width": 960,
+      "height": 432,
+      "bytes": 103258,
+      "sha256": "92527724404239736557f23b7395bdcd005f7939e27e56277bde919db03ea7ed"
+    },
+    {
+      "file": "assets/previews/pata-companhia-480.webp",
+      "source": "assets/previews/pata-companhia.webp",
+      "description": "Prévia responsiva redimensionada com codificação lossless; original preservado.",
+      "width": 480,
+      "height": 250,
+      "bytes": 24536,
+      "sha256": "1555891ac5f8f72fe53a3b69b24bf5baba69e453eb7e6cf93570c5c6465b8cd6"
+    },
+    {
+      "file": "assets/previews/pata-companhia-960.webp",
+      "source": "assets/previews/pata-companhia.webp",
+      "description": "Prévia responsiva redimensionada com codificação lossless; original preservado.",
+      "width": 960,
+      "height": 501,
+      "bytes": 72036,
+      "sha256": "19c9c617e54cb86b37ac0fc6c3504619fb5a9d9a714b87dd6c582bb4d9916338"
+    }
+  ]
+}

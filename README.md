@@ -37,6 +37,12 @@ As seis prévias comerciais possuem composições próprias: planilha e calculad
 
 O builder `scripts/product-previews.mjs` usa Sharp do runtime de autoria e produz as imagens já versionadas. O build normal do site não precisa desse renderizador. `content/demo-preview-data.json` registra as entradas do relatório de vendas. A procedência e os modelos dos demais exemplos constam da documentação.
 
+As prévias podem ser ampliadas em um visualizador nativo, com zoom, fechamento por Escape/botão e link para o original. Sem JavaScript ou suporte a diálogo, os links originais continuam funcionando. O menu móvel mantém uma alternativa sem JavaScript e isola o conteúdo de fundo quando aberto.
+
+`scripts/site-assets.mjs` gera os ícones, as versões responsivas das imagens e a arte de compartilhamento, preservando os originais. O cabeçalho usa uma logo WebP de 5.092 bytes, em vez do PNG de 441.201 bytes. A procedência está em `docs/site-asset-provenance.json`. CSS e JavaScript recebem identificadores de conteúdo para atualização do cache.
+
+O formulário apresenta os erros junto aos campos, revela informações opcionais inválidas, indica o número de caracteres e orienta tentativas offline ou repetidas. Uma falha preserva o texto; uma confirmação de sucesso é necessária antes de mostrar a página de agradecimento. Não são armazenados rascunhos com dados pessoais.
+
 ## Desenvolvimento
 
 Requisitos: Node 22+ e Python 3.12+. Não é necessário instalar pacotes.

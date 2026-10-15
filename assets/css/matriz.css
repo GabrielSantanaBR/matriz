@@ -210,3 +210,56 @@
 .case.demo-preview:hover .case-visual img{transform:none}
 .case.demo-preview .preview-description{font-size:12px;color:var(--steel)}
 .sicma-preview-section{max-width:850px;padding-bottom:50px}
+
+/* Small interaction details stay usable with keyboard, touch and script fallback. */
+html{scrollbar-gutter:stable}
+body.preview-open{overflow:hidden}
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.menu-toggle:not([data-enhanced]){display:none}
+.filters:not([data-enhanced]){display:none}
+.main-nav a,.footer-links>a{min-height:44px;display:inline-flex;align-items:center}
+.breadcrumb a{display:inline-flex;align-items:center;min-height:44px}
+.breadcrumb{align-items:center}
+.field select[aria-invalid=true]{border-color:var(--hot)}
+.message-guidance{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+.message-guidance .help{flex:1}
+.message-length{font:12px var(--mono);color:var(--steel);white-space:nowrap}
+.form-status[data-state=offline]{color:#ffbca0}
+.contact-alternative{border-top:1px solid var(--line);margin-top:28px;padding-top:22px}
+.contact-alternative p{font-size:14px;margin-bottom:8px}
+.preview-dialog{display:none;inset:16px;margin:auto;width:min(1280px,calc(100% - 32px));max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);padding:22px;background:var(--carbon);color:var(--white);border:1px solid #66605a;border-radius:3px;overflow:auto}
+.preview-dialog[open]{display:flex;flex-direction:column;gap:16px}
+.preview-dialog::backdrop{background:#000d}
+.preview-header{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-shrink:0;position:sticky;top:0;z-index:1;background:var(--carbon)}
+.preview-header h2{font-size:23px;overflow-wrap:anywhere}
+.preview-close{display:flex;align-items:center;gap:16px;min-height:48px;flex-shrink:0;padding:8px 14px;background:var(--graphite);border:1px solid var(--line);color:var(--white)}
+.preview-close span{font-size:24px;line-height:1}
+.preview-stage{display:grid;place-items:center;overflow:auto;min-height:120px;min-width:0;flex:1;background:#15171a;overscroll-behavior:contain}
+.preview-stage:focus-visible{outline:2px solid var(--hot);outline-offset:-3px}
+.preview-stage img{width:auto;height:auto;max-width:100%;max-height:calc(100vh - 250px);max-height:calc(100dvh - 250px);object-fit:contain}
+.preview-stage.is-zoomed{display:block}
+.preview-stage.is-zoomed img{max-width:none;max-height:none;width:auto;height:auto}
+.preview-load-status{font-size:14px;color:var(--muted)}
+.preview-load-status:empty{display:none}
+.preview-footer{display:flex;justify-content:space-between;gap:24px;align-items:center;flex-shrink:0}
+.preview-footer>p{font-size:12px;max-width:690px;line-height:1.7}
+.preview-actions{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.preview-actions .button,.preview-actions .text-link{font-size:13px;min-height:44px;white-space:nowrap}
+.preview-actions .button{padding:9px 14px}
+@media(max-width:960px){
+  .main-nav:not([data-enhanced]){position:static;display:flex;flex-direction:row;flex-wrap:wrap;gap:6px 20px;width:100%;padding:0 0 16px;overflow:visible}
+  .main-nav:not([data-enhanced]) a{font-family:var(--body);font-size:14px;padding:3px 0;border:0}
+  .header-inner:has(.main-nav:not([data-enhanced])){height:auto;min-height:76px;flex-wrap:wrap;padding-top:12px}
+  .preview-footer{flex-direction:column;align-items:stretch;gap:12px}
+  .preview-actions{justify-content:space-between}
+}
+@media(max-width:680px){
+  .preview-dialog{inset:8px;width:calc(100% - 16px);max-height:calc(100vh - 16px);max-height:calc(100dvh - 16px);padding:14px;gap:12px}
+  .preview-header h2{font-size:19px}
+  .preview-header{gap:12px}
+  .preview-close{font-size:13px;gap:10px;padding-inline:10px}
+  .preview-stage img{max-height:calc(100vh - 290px);max-height:calc(100dvh - 290px)}
+  .message-guidance{flex-wrap:wrap;gap:5px}
+  .message-guidance .help{flex-basis:100%}
+}
+@media(max-width:380px){.header-inner{gap:12px}.brand img{width:40px;height:40px}.brand strong{font-size:22px;letter-spacing:.08em}}

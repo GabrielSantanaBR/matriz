@@ -1,3 +1,24 @@
+# Experiência do cliente e acabamento técnico — 14/10/2026
+
+Revisão solicitada após a aprovação das seis prévias. A identidade visual e os pixels dessas imagens foram preservados. Foram identificados e corrigidos pontos concretos da experiência:
+
+- Visualizador interno para as prévias e capturas, com zoom em tamanho natural, abertura do original, botão de fechamento, Escape nativo, recuperação do foco e mensagens de carregamento/falha. Cliques com modificadores e navegadores sem diálogo mantêm a navegação original.
+- Menu móvel com bloqueio do conteúdo de fundo, foco circular, Escape e foco na seção de destino. Navegação e filtros têm alternativas quando JavaScript não executa. A seção da home em leitura pode ser indicada no menu.
+- Validação do contato junto aos campos, inclusive abertura do grupo opcional quando o telefone é inválido. Contagem de caracteres, estado offline, retomada da conexão e prazo concreto de nova tentativa. Conteúdo já escrito é preservado diante de parâmetros de URL e falhas. A política de privacidade abre em outra aba para preservar a conversa.
+- Canal alternativo de contato identificado pelo nome e pelo LinkedIn existente, sem inventar telefone, prazo de resposta ou atendimento.
+- Logo do cabeçalho: 441.201 para 5.092 bytes (98,8% menos bytes nesse arquivo), mantendo o PNG oficial intacto. Logo maior, ícones e imagens responsivas possuem arquivos próprios. Não há medição de redução do tempo de carregamento; a seleção das variantes depende da largura e densidade da tela. Variantes maiores que o original foram omitidas.
+- Arte de compartilhamento 1200×630 em fundo escuro, com a logo oficial e a mensagem existente. Metadados social/alt e ícones adequados; fontes críticas locais pré-carregadas. CSS e JS possuem versão pelo hash para evitar uso de versões antigas em cache.
+- SICMA: removida a página antiga de Java/Spring Boot, que contradizia o registro e a prévia atuais. A página agora usa os dados do portal educativo já existentes no portfólio. Fontes de código foram mantidas dentro da área técnica recolhível.
+- Breadcrumbs como navegação nomeada, links externos identificados para tecnologia assistiva, alvos de toque e espaços de foco, ajustes para cabeçalho estreito e diálogo com rolagem em telas baixas.
+
+Validação: 14 testes Node passaram, incluindo cinco novos cenários de menu, visualização, campos opcionais, ausência de conexão, conteúdo preservado, falha, intervalo e reenvio confirmado. Requisições de contato foram simuladas; nenhuma mensagem real foi enviada. `npm test`, `npm run build`, `python3 tests/audit.py --dist` e `git diff --check` passaram. A auditoria agora também verifica fechamento de tags, fontes/arquivos, variantes responsivas, arte de compartilhamento, hashes e componentes do visualizador. Os arquivos públicos são separados do código e dos testes.
+
+A arte social foi inspecionada visualmente. Esta rodada não teve QA de navegador: a capacidade control-browser não está disponível no ambiente gerenciado. Os testes de interação usam fixtures de eventos/DOM em Node e não substituem uma inspeção visual no navegador ou em aparelhos físicos. Não foi verificada a entrega real de mensagens pelo Web3Forms, nem a atualização do cache de cards em aplicativos de terceiros.
+
+Backup: `backup/pre-client-experience-2026-10-14`, commit `ad193aa3d0bcabbf77f9b1538c93775073b2c2d0`.
+
+---
+
 # Seis prévias com composições próprias — 15/10/2026
 
 O usuário pediu diferenciar as seis demonstrações comerciais, que repetiam a estrutura de cartões e painéis. Cada imagem agora apresenta uma atividade específica do produto:

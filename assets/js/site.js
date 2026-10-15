@@ -4,16 +4,28 @@
   const menuButton = document.querySelector('.menu-toggle');
   const nav = document.getElementById('main-nav');
   const mobile = matchMedia('(max-width: 960px)');
+  menuButton?.setAttribute('data-enhanced', 'true');
+  nav?.setAttribute('data-enhanced', 'true');
+  const background = [document.getElementById('main-content'), document.querySelector('.site-footer')].filter(Boolean);
   const setMenu = (open, returnFocus = false) => {
     nav?.classList.toggle('is-open', open);
     document.body.classList.toggle('menu-open', open);
     menuButton?.setAttribute('aria-expanded', String(open));
     menuButton?.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    background.forEach(element => { element.inert = open && mobile.matches; });
     if (returnFocus) menuButton?.focus();
   };
   menuButton?.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
   nav?.addEventListener('click', (event) => {
-    if (event.target.closest('a')) setMenu(false);
+    const link = event.target.closest('a');
+    if (!link) return;
+    setMenu(false);
+    const url = new URL(link.href, location.href);
+    const normalize = path => path.replace(/index\.html$/, '');
+    if (url.origin === location.origin && normalize(url.pathname) === normalize(location.pathname) && url.hash) {
+      const target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+      if (target) { target.setAttribute('tabindex', '-1'); target.focus({preventScroll: true}); }
+    }
   });
   document.addEventListener('keydown', (event) => {
     if (menuButton?.getAttribute('aria-expanded') !== 'true') return;
@@ -26,9 +38,29 @@
     }
   });
   mobile.addEventListener('change', () => setMenu(false));
+  const sectionLinks = [...(nav?.querySelectorAll('a[href*="#"]') || [])];
+  if (sectionLinks.length && document.querySelector('.page-home')) {
+    const markSection = id => sectionLinks.forEach(link => {
+      if (new URL(link.href, location.href).hash === `#${id}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    markSection(location.hash.slice(1));
+    addEventListener('hashchange', () => markSection(location.hash.slice(1)));
+    if ('IntersectionObserver' in window) {
+      const sections = new IntersectionObserver(entries => {
+        const visible = entries.filter(entry => entry.isIntersecting).sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible.length) markSection(visible[0].target.id);
+      }, {rootMargin:'-15% 0px -65% 0px'});
+      sectionLinks.forEach(link => {
+        const section = document.getElementById(new URL(link.href, location.href).hash.slice(1));
+        if (section) sections.observe(section);
+      });
+    }
+  }
   document.querySelectorAll('[data-year]').forEach(el => { el.textContent = String(new Date().getFullYear()); });
 
   const buttons = [...document.querySelectorAll('[data-filter]')];
+  document.querySelectorAll('.filters').forEach(group => group.setAttribute('data-enhanced', 'true'));
   const repositories = [...document.querySelectorAll('.repo-row')];
   buttons.forEach(button => button.addEventListener('click', () => {
     const filter = button.dataset.filter;

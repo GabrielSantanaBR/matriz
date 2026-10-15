@@ -1,5 +1,5 @@
 export const SERVICE_LABELS = Object.freeze({sistemas:'Sistema',financeiro:'Sistema financeiro',automacao:'Automação',dados:'Dados / BI',ia:'Inteligência Artificial',web:'Site personalizado / Loja online',api:'API / Backend',mvp:'MVP',evolucao:'Evolução tecnológica',outro:'Ainda não sei / Quero orientação'});
-export const LEGACY_SERVICES = Object.freeze({clientflow:'sistemas',finance:'sistemas',custom:'mvp',vertical:'mvp',landing:'web',site:'web','site-panel':'web',commerce:'web',spreadsheet:'automacao',data:'dados',ai:'ia',deploy:'evolucao',security:'evolucao',analytics:'dados',other:'outro'});
+export const LEGACY_SERVICES = Object.freeze({clientflow:'sistemas',finance:'financeiro',custom:'mvp',vertical:'mvp',landing:'web',site:'web','site-panel':'web',commerce:'web',spreadsheet:'automacao',data:'dados',ai:'ia',deploy:'evolucao',security:'evolucao',analytics:'dados',other:'outro'});
 export const cleanText = (value, max = 2500) => String(value ?? '').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g,' ').replace(/[ \t]{3,}/g,' ').trim().slice(0,max);
 export function validateFields(fields) {
   const errors = {};
