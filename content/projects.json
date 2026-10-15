@@ -512,7 +512,32 @@
     "group": "dados",
     "use": "Análise de vendas",
     "client_summary": "Um projeto para transformar arquivos de vendas em indicadores, filtros e relatórios.",
-    "display_status": "Demonstração"
+    "display_status": "Demonstração",
+    "image": "assets/previews/sales-revenue_by_product.png",
+    "image_webp": "assets/previews/sales-revenue_by_product.webp",
+    "image_width": 1000,
+    "image_height": 600,
+    "image_alt": "Gráfico de receita em reais por produto, gerado pelo Sales Intelligence com o CSV de demonstração.",
+    "image_note": "Gráfico de receita por produto gerado pela execução real do projeto com dados de demonstração. Não é uma captura do dashboard Streamlit.",
+    "image_kind": "output",
+    "gallery": [
+      {
+        "image": "assets/previews/sales-quantity_by_product.png",
+        "image_webp": "assets/previews/sales-quantity_by_product.webp",
+        "image_width": 1000,
+        "image_height": 600,
+        "image_alt": "Gráfico de unidades vendidas por produto, gerado pelo Sales Intelligence com o CSV de demonstração.",
+        "image_note": "Gráfico de quantidade vendida por produto gerado pela execução real do projeto com dados de demonstração. Não é uma captura do dashboard Streamlit."
+      }
+    ],
+    "image_source": {
+      "repository": "GabrielSantanaBR/csv-sales-analyzer",
+      "ref": "e31b131e63059265dcaa8adad44284fac7bffcb0",
+      "code": "src/charts.py",
+      "data": "src/sales.csv",
+      "command": "python src/main.py --charts",
+      "date": "2026-10-14"
+    }
   },
   {
     "repo": "coffee_five_site",

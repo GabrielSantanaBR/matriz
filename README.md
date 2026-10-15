@@ -31,6 +31,8 @@ Space Grotesk, Inter e IBM Plex Mono são servidas localmente. As licenças OFL 
 
 As capturas de Nossas Delícias e Pata & Companhia foram fornecidas pelo autor. Coffee Five é uma captura da proposta de site. Finance Manager usa dados anonimizados. ClientFlow usa uma referência visual adaptada e identificada, que não comprova implementação no protótipo. Os PNGs originais foram mantidos; os WebPs usados nas páginas têm todos os pixels idênticos aos respectivos PNGs. Procedência em `docs/preview-provenance.json`.
 
+O Sales Intelligence apresenta gráficos gerados pela execução do código original com seu CSV demonstrativo. Eles são identificados como saídas do projeto, não como screenshots da interface. Prévias sem captura verificável não receberam telas inventadas. Cada imagem pode ser ampliada pelo card.
+
 ## Desenvolvimento
 
 Requisitos: Node 22+ e Python 3.12+. Não é necessário instalar pacotes.

@@ -1,3 +1,15 @@
+# Prévias verificáveis — 14/10/2026
+
+Foram inspecionados os cinco projetos sem imagem no portfólio. O Sales Intelligence recebeu dois gráficos produzidos pela execução original `python src/main.py --charts`, usando o arquivo público de demonstração. A origem é `csv-sales-analyzer` em `e31b131e63059265dcaa8adad44284fac7bffcb0`. As imagens são saídas do programa, identificadas como tal, e não screenshots do dashboard.
+
+A prévia do card exibe a receita por produto sem cortar eixos ou títulos. A página do projeto também mostra unidades vendidas. Todas as prévias com imagem agora têm um link direto para ampliar o original. PNGs e WebPs possuem pixels idênticos, e os gráficos foram inspecionados visualmente.
+
+Não foram inventadas telas para os demais projetos. O XLSX demonstrativo do Pricing & Sales Manager está truncado no próprio repositório: os bytes foram conferidos também pelo conector GitHub. Movimento, DecisionForge AI e Curtailment Intelligence não possuem capturas versionadas nas revisões consultadas, e a capacidade de captura em navegador continua indisponível. Esses projetos mantêm os diagramas existentes.
+
+O estado anterior a esta atualização está salvo em `backup/previews-2026-10-14`, commit `f5dbbc4b96d4fa1a85361519c5211669598b3187`. Procedência e hashes constam de `docs/preview-provenance.json`.
+
+---
+
 # Revisão de apresentação e contato — 14/10/2026
 
 ## Resultado

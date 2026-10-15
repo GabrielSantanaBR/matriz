@@ -45,5 +45,59 @@
       "assets/previews/nossas-delicias.webp",
       "assets/previews/pata-companhia.webp"
     ]
+  },
+  "real_outputs": {
+    "date": "2026-10-14",
+    "source": {
+      "repository": "GabrielSantanaBR/csv-sales-analyzer",
+      "ref": "e31b131e63059265dcaa8adad44284fac7bffcb0",
+      "code": "src/charts.py",
+      "data": "src/sales.csv",
+      "command": "python src/main.py --charts",
+      "date": "2026-10-14"
+    },
+    "assets": [
+      {
+        "file": "assets/previews/sales-revenue_by_product.png",
+        "sha256": "1be8d5958264d2e093d55b5ba0071eca2dca2f35390c4207bba1e02ba87fc288",
+        "encoding": "assets/previews/sales-revenue_by_product.webp",
+        "dimensions": [
+          1000,
+          600
+        ]
+      },
+      {
+        "file": "assets/previews/sales-quantity_by_product.png",
+        "sha256": "c71e95b469595e378934d64c55246bad550458366d4ed0c78950f2c37907558e",
+        "encoding": "assets/previews/sales-quantity_by_product.webp",
+        "dimensions": [
+          1000,
+          600
+        ]
+      }
+    ],
+    "verification": "Execução do código original sem mudanças; CSV demonstrativo público; WebPs comparados em RGBA com igualdade exata dos pixels.",
+    "omitted": [
+      {
+        "repo": "bakery-manager",
+        "ref": "542ffcf17ff392488673f704d7f5d187323e128d",
+        "reason": "A demo XLSX pública está truncada: contém cabeçalhos locais, mas não possui diretório central ou marcador de fim ZIP. Confirmado também pelo blob obtido via GitHub."
+      },
+      {
+        "repo": "projeto_academia",
+        "ref": "d8e5716f8bbdfb071d94cb42f2ba30ed0eb18079",
+        "reason": "Não há capturas versionadas. A captura da interface exigiria capacidade de navegador indisponível."
+      },
+      {
+        "repo": "decisionforge-ai",
+        "ref": "8deb5e9c2d1470aeaf1a7a9569b08f173517ba14",
+        "reason": "Não há capturas versionadas. A captura da interface exigiria capacidade de navegador indisponível."
+      },
+      {
+        "repo": "curtailment-intelligence",
+        "ref": "09a968d2ebec45f4563974cda643a7c760bd6bbc",
+        "reason": "Não há capturas versionadas. A captura da interface exigiria capacidade de navegador indisponível."
+      }
+    ]
   }
 }
