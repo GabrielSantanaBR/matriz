@@ -1,3 +1,23 @@
+# Demonstrações visuais dos produtos — 14/10/2026
+
+O usuário esclareceu que deseja construir exemplos visuais novos para apresentar os produtos, incluindo representações de planilhas e painéis, utilizando somente suas imagens. Esta rodada atende esse escopo com sete demonstrações autorais renderizadas por código em 1440×900.
+
+- Pricing & Sales Manager: visual de planilha com custos de insumos, precificação, vendas, taxas, margem e gráficos.
+- Sales Intelligence: visual de relatório em planilha com KPIs, ranking e tabela. As métricas usam o CSV público do projeto.
+- DecisionForge AI: painel ilustrativo de indicadores, histórico, qualidade e segmentos.
+- Curtailment Intelligence: geração, restrição e aproveitamento de energia em um cenário sintético.
+- Movimento: alunos, acompanhamento de treinos e evolução de cargas.
+- ClientFlow: agenda própria com clientes demonstrativos; substitui a referência de outro produto.
+- SICMA Mathema: portal educativo e desafio de álgebra com resposta e explicação. Sua descrição foi atualizada conforme a nova `main`, revisão `b3b5816e9a7d6dc4ad89f0e6550a0b7123fb190c`.
+
+As composições são SVGs renderizados em PNG e WebP lossless. Não foram realizadas capturas de navegador, nem criada uma nova planilha XLSX: as planilhas são representações visuais calculadas por código para uso como imagem, conforme solicitado. As legendas e a marca dentro de cada imagem identificam a demonstração. Não são apresentadas como screenshots da aplicação original, uso em produção ou resultados de clientes.
+
+As sete imagens foram revisadas visualmente; foram corrigidos sobreposição do texto do SICMA, unidades de carga, espaçamento, referências da barra de fórmulas e soma do histórico do DecisionForge. Os totais de precificação e de vendas, e as quantidades do cenário energético, reconciliam no builder. PNG e WebP foram comparados em RGBA, com dimensões e pixels idênticos. As prévias exibem toda a composição e têm links para ampliar.
+
+Todos os 11 projetos da seleção possuem imagem. Os gráficos originais de saída do Sales Intelligence permanecem na galeria da página. O builder, seus dados e hashes estão versionados e registrados em `docs/preview-provenance.json`.
+
+---
+
 # Prévias verificáveis — 14/10/2026
 
 Foram inspecionados os cinco projetos sem imagem no portfólio. O Sales Intelligence recebeu dois gráficos produzidos pela execução original `python src/main.py --charts`, usando o arquivo público de demonstração. A origem é `csv-sales-analyzer` em `e31b131e63059265dcaa8adad44284fac7bffcb0`. As imagens são saídas do programa, identificadas como tal, e não screenshots do dashboard.

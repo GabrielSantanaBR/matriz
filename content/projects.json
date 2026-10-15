@@ -55,17 +55,23 @@
     ],
     "runtime_note": "ReferenceError: Cannot access clone before initialization; app.js calls loadState before the const clone assignment.",
     "listed": true,
-    "image": "assets/previews/clientflow-concept.png",
-    "image_width": 1733,
-    "image_height": 908,
-    "image_alt": "Referência visual de um painel de operação com a marca fictícia Bolos & Massas.",
-    "image_note": "Referência visual adaptada do painel de operação de Nossas Delícias. Não representa a interface atual do ClientFlow.",
-    "image_kind": "concept",
+    "image": "assets/previews/demo-clientflow.png",
+    "image_width": 1440,
+    "image_height": 900,
+    "image_alt": "Agenda demonstrativa do ClientFlow com clientes, horários e confirmações.",
+    "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
+    "image_kind": "demonstration",
     "group": "gestao",
     "use": "Agenda e relacionamento com clientes",
     "client_summary": "Protótipo de organização de clientes, agenda, serviços e orçamentos em uma só interface.",
     "display_status": "Protótipo",
-    "image_webp": "assets/previews/clientflow-concept.webp"
+    "image_webp": "assets/previews/demo-clientflow.webp",
+    "image_source": {
+      "method": "SVG renderizado por código",
+      "builder": "scripts/product-previews.mjs",
+      "date": "2026-10-14",
+      "kind": "authored-demonstration"
+    }
   },
   {
     "repo": "decisionforge-ai",
@@ -127,7 +133,20 @@
     "group": "dados",
     "use": "Análise de dados e inteligência artificial",
     "client_summary": "Uma demonstração para explorar dados, identificar padrões e apoiar análises.",
-    "display_status": "Demonstração"
+    "display_status": "Demonstração",
+    "image": "assets/previews/demo-decisionforge.png",
+    "image_webp": "assets/previews/demo-decisionforge.webp",
+    "image_width": 1440,
+    "image_height": 900,
+    "image_kind": "demonstration",
+    "image_alt": "Painel demonstrativo de análise de dados, qualidade e segmentação.",
+    "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
+    "image_source": {
+      "method": "SVG renderizado por código",
+      "builder": "scripts/product-previews.mjs",
+      "date": "2026-10-14",
+      "kind": "authored-demonstration"
+    }
   },
   {
     "repo": "nossas-delicias-site",
@@ -257,7 +276,20 @@
     "group": "dados",
     "use": "Dados aplicados à energia",
     "client_summary": "Uma demonstração de análise e simulação de geração renovável com dados sintéticos.",
-    "display_status": "Demonstração"
+    "display_status": "Demonstração",
+    "image": "assets/previews/demo-curtailment.png",
+    "image_webp": "assets/previews/demo-curtailment.webp",
+    "image_width": 1440,
+    "image_height": 900,
+    "image_kind": "demonstration",
+    "image_alt": "Painel demonstrativo de geração renovável, energia restringida e aproveitamento simulado.",
+    "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
+    "image_source": {
+      "method": "SVG renderizado por código",
+      "builder": "scripts/product-previews.mjs",
+      "date": "2026-10-14",
+      "kind": "authored-demonstration"
+    }
   },
   {
     "repo": "projeto_academia",
@@ -321,7 +353,20 @@
     "group": "gestao",
     "use": "Gestão e treinos para academias",
     "client_summary": "Um projeto para conectar a administração, os professores e os alunos de uma academia.",
-    "display_status": "Versão inicial"
+    "display_status": "Versão inicial",
+    "image": "assets/previews/demo-movimento.png",
+    "image_webp": "assets/previews/demo-movimento.webp",
+    "image_width": 1440,
+    "image_height": 900,
+    "image_kind": "demonstration",
+    "image_alt": "Painel demonstrativo de professor com alunos, treinos e progresso de cargas.",
+    "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
+    "image_source": {
+      "method": "SVG renderizado por código",
+      "builder": "scripts/product-previews.mjs",
+      "date": "2026-10-14",
+      "kind": "authored-demonstration"
+    }
   },
   {
     "repo": "finance-manager",
@@ -451,7 +496,20 @@
     "group": "dados",
     "use": "Custos, preços e margem",
     "client_summary": "Uma planilha demonstrativa que conecta insumos, receitas, formação de preços e vendas.",
-    "display_status": "Planilha demonstrativa"
+    "display_status": "Planilha demonstrativa",
+    "image": "assets/previews/demo-pricing-sales.png",
+    "image_webp": "assets/previews/demo-pricing-sales.webp",
+    "image_width": 1440,
+    "image_height": 900,
+    "image_kind": "demonstration",
+    "image_alt": "Planilha demonstrativa de custos, preços, vendas, margem e gráficos.",
+    "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
+    "image_source": {
+      "method": "SVG renderizado por código",
+      "builder": "scripts/product-previews.mjs",
+      "date": "2026-10-14",
+      "kind": "authored-demonstration"
+    }
   },
   {
     "repo": "csv-sales-analyzer",
@@ -513,14 +571,22 @@
     "use": "Análise de vendas",
     "client_summary": "Um projeto para transformar arquivos de vendas em indicadores, filtros e relatórios.",
     "display_status": "Demonstração",
-    "image": "assets/previews/sales-revenue_by_product.png",
-    "image_webp": "assets/previews/sales-revenue_by_product.webp",
-    "image_width": 1000,
-    "image_height": 600,
-    "image_alt": "Gráfico de receita em reais por produto, gerado pelo Sales Intelligence com o CSV de demonstração.",
-    "image_note": "Gráfico de receita por produto gerado pela execução real do projeto com dados de demonstração. Não é uma captura do dashboard Streamlit.",
-    "image_kind": "output",
+    "image": "assets/previews/demo-sales-intelligence.png",
+    "image_webp": "assets/previews/demo-sales-intelligence.webp",
+    "image_width": 1440,
+    "image_height": 900,
+    "image_alt": "Prévia demonstrativa de relatório de vendas em planilha, com ranking e indicadores.",
+    "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
+    "image_kind": "demonstration",
     "gallery": [
+      {
+        "image": "assets/previews/sales-revenue_by_product.png",
+        "image_webp": "assets/previews/sales-revenue_by_product.webp",
+        "image_width": 1000,
+        "image_height": 600,
+        "image_alt": "Gráfico de receita em reais por produto, gerado pelo Sales Intelligence com o CSV de demonstração.",
+        "image_note": "Gráfico de receita por produto gerado pela execução real do projeto com dados de demonstração. Não é uma captura do dashboard Streamlit."
+      },
       {
         "image": "assets/previews/sales-quantity_by_product.png",
         "image_webp": "assets/previews/sales-quantity_by_product.webp",
@@ -531,12 +597,10 @@
       }
     ],
     "image_source": {
-      "repository": "GabrielSantanaBR/csv-sales-analyzer",
-      "ref": "e31b131e63059265dcaa8adad44284fac7bffcb0",
-      "code": "src/charts.py",
-      "data": "src/sales.csv",
-      "command": "python src/main.py --charts",
-      "date": "2026-10-14"
+      "method": "SVG renderizado por código",
+      "builder": "scripts/product-previews.mjs",
+      "date": "2026-10-14",
+      "kind": "authored-demonstration"
     }
   },
   {
@@ -893,23 +957,77 @@
   },
   {
     "repo": "Sicma-JAVA",
-    "name": "SICMA",
-    "category": "Backend",
-    "status": "Em desenvolvimento",
-    "summary": "Projeto em Java e Spring Boot, com nova versão em preparação.",
+    "name": "SICMA Mathema",
+    "category": "Web",
+    "status": "Portal demonstrativo",
+    "summary": "Portal educacional com desafios de matemática, correção imediata e materiais de estudo.",
     "stack": [
-      "Java 17",
-      "Spring Boot",
-      "Gradle"
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Node.js"
     ],
     "evidence": [
-      "demo/demo/build.gradle",
-      "demo/demo/src/main/java/com/example/demo/DemoApplication.java",
-      "demo/demo/src/main/resources/application.properties"
+      "README.md",
+      "package.json",
+      "public/index.html",
+      "public/app.js",
+      "server.js"
     ],
     "listed": true,
     "page": "sicma.html",
-    "service": "sistemas"
+    "service": "web",
+    "image": "assets/previews/demo-sicma.png",
+    "image_webp": "assets/previews/demo-sicma.webp",
+    "image_width": 1440,
+    "image_height": 900,
+    "image_kind": "demonstration",
+    "image_alt": "Prévia demonstrativa do SICMA Mathema com exercício, alternativas, correção e progresso.",
+    "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
+    "image_source": {
+      "method": "SVG renderizado por código",
+      "builder": "scripts/product-previews.mjs",
+      "date": "2026-10-14",
+      "kind": "authored-demonstration"
+    },
+    "display_status": "Versão demonstrativa",
+    "use": "Portal educativo e treino interativo",
+    "group": "web",
+    "headline": "Matemática para explorar, treinar e compreender.",
+    "client_summary": "Um portal educacional com conteúdos, desafios por tema e nível, explicações e progresso local.",
+    "problem": "Quem estuda matemática precisa de um caminho claro para conhecer os conteúdos, praticar e entender a solução de cada desafio.",
+    "solution": "Um portal web independente que reúne apresentação institucional, metodologia, recursos e treino interativo com 25 problemas autorais.",
+    "flow": [
+      [
+        "Escolher",
+        "O estudante filtra um tema e um nível para começar."
+      ],
+      [
+        "Praticar",
+        "Seleciona uma alternativa e recebe correção com explicação."
+      ],
+      [
+        "Acompanhar",
+        "Respostas, acertos e sequências ficam guardados no próprio dispositivo."
+      ]
+    ],
+    "features": [
+      "25 desafios autorais de matemática",
+      "Filtros por tema e nível",
+      "Correção imediata com explicação",
+      "Sequências e estatísticas locais",
+      "Materiais de estudo para download",
+      "Layout responsivo e navegação por teclado"
+    ],
+    "architecture": "Interface em HTML, CSS e JavaScript com servidor Node.js sem dependências externas. O progresso é salvo no localStorage, sem contas ou envio de respostas para um banco.",
+    "limits": "Recriação independente de um portal educacional, sem recuperação integral da publicação anterior e sem inscrições oficiais. A prévia do portfólio foi criada por código para ilustrar o produto, com estatísticas de exemplo.",
+    "evolution": "Evoluir o catálogo de desafios e os materiais, com revisão pedagógica. Funcionalidades de conta ou sincronização devem ser definidas conforme a necessidade.",
+    "diagram": [
+      "Tema e nível",
+      "Desafio",
+      "Explicação"
+    ],
+    "revision": "b3b5816e9a7d6dc4ad89f0e6550a0b7123fb190c"
   },
   {
     "repo": "Pluvia",

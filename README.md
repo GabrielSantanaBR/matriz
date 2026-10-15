@@ -10,7 +10,7 @@ Portfólio estático em HTML, CSS e JavaScript nativo, com fontes locais e sem d
 
 A home mantém a identidade da MATRIZ e organiza a apresentação em serviços, gestão financeira, projetos, possibilidades de produtos, etapas do trabalho e dúvidas de contratação. Os benefícios são descritos em linguagem de negócio, com convites para conversar ao longo da navegação.
 
-O portfólio permite filtrar dez projetos por sites e lojas, sistemas e gestão ou planilhas e dados. SICMA aparece separadamente como projeto em desenvolvimento. Código e informações de arquitetura permanecem disponíveis em áreas expansíveis. Exercícios de cursos e forks não integram a seleção comercial.
+O portfólio permite filtrar dez projetos por sites e lojas, sistemas e gestão ou planilhas e dados. SICMA Mathema aparece em uma seção própria como portal educacional com treino interativo. Código e informações de arquitetura permanecem disponíveis em áreas expansíveis. Exercícios de cursos e forks não integram a seleção comercial.
 
 As páginas dos projetos preservam os limites e as fontes da inspeção original. Elas não afirmam contratação por marcas citadas, produção comprovada ou funcionalidades além da evidência. Recursos de novos projetos são definidos na proposta.
 
@@ -29,9 +29,11 @@ A logo oficial PNG foi preservada sem alteração, com checksum conferido na aud
 
 Space Grotesk, Inter e IBM Plex Mono são servidas localmente. As licenças OFL estão em `assets/fonts/`.
 
-As capturas de Nossas Delícias e Pata & Companhia foram fornecidas pelo autor. Coffee Five é uma captura da proposta de site. Finance Manager usa dados anonimizados. ClientFlow usa uma referência visual adaptada e identificada, que não comprova implementação no protótipo. Os PNGs originais foram mantidos; os WebPs usados nas páginas têm todos os pixels idênticos aos respectivos PNGs. Procedência em `docs/preview-provenance.json`.
+As capturas de Nossas Delícias e Pata & Companhia foram fornecidas pelo autor. Coffee Five é uma captura da proposta de site. Finance Manager usa dados anonimizados. ClientFlow agora possui uma prévia própria de agenda, criada por código. Os PNGs originais foram mantidos; os WebPs usados nas páginas têm todos os pixels idênticos aos respectivos PNGs. Procedência em `docs/preview-provenance.json`.
 
-O Sales Intelligence apresenta gráficos gerados pela execução do código original com seu CSV demonstrativo. Eles são identificados como saídas do projeto, não como screenshots da interface. Prévias sem captura verificável não receberam telas inventadas. Cada imagem pode ser ampliada pelo card.
+Foram criadas sete demonstrações visuais por código: Pricing & Sales Manager, Sales Intelligence, DecisionForge AI, Curtailment Intelligence, Movimento, ClientFlow e SICMA Mathema. São composições ilustrativas com dados de exemplo, identificadas como demonstrações; não são capturas da aplicação em produção. Os valores de precificação são calculados a partir dos insumos e as métricas de vendas reconciliam o CSV público do projeto. O card permite ampliar cada imagem.
+
+O builder `scripts/product-previews.mjs` usa Sharp do runtime de autoria e produz as imagens já versionadas. O build normal do site não precisa desse renderizador. `content/demo-preview-data.json` registra as entradas do relatório de vendas. A procedência e os modelos dos demais exemplos constam da documentação.
 
 ## Desenvolvimento
 

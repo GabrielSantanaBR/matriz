@@ -1,0 +1,107 @@
+{
+  "sales": {
+    "period": [
+      "2025-01-02",
+      "2025-01-31"
+    ],
+    "rows": 30,
+    "units": 107,
+    "revenue": 15089.3,
+    "products": [
+      {
+        "product": "Office Chair",
+        "category": "Furniture",
+        "units": 3,
+        "revenue": 3599.7,
+        "transactions": 2
+      },
+      {
+        "product": "Monitor 24\"",
+        "category": "Electronics",
+        "units": 4,
+        "revenue": 3599.6,
+        "transactions": 3
+      },
+      {
+        "product": "Headset",
+        "category": "Electronics",
+        "units": 6,
+        "revenue": 1499.4,
+        "transactions": 3
+      },
+      {
+        "product": "Mouse",
+        "category": "Electronics",
+        "units": 18,
+        "revenue": 1078.2,
+        "transactions": 4
+      },
+      {
+        "product": "Webcam",
+        "category": "Electronics",
+        "units": 3,
+        "revenue": 899.7,
+        "transactions": 2
+      },
+      {
+        "product": "Desk Lamp",
+        "category": "Furniture",
+        "units": 6,
+        "revenue": 899.4,
+        "transactions": 2
+      },
+      {
+        "product": "Keyboard",
+        "category": "Electronics",
+        "units": 6,
+        "revenue": 779.4,
+        "transactions": 3
+      },
+      {
+        "product": "USB Cable",
+        "category": "Accessories",
+        "units": 29,
+        "revenue": 577.1,
+        "transactions": 3
+      },
+      {
+        "product": "Laptop Sleeve",
+        "category": "Accessories",
+        "units": 7,
+        "revenue": 559.3,
+        "transactions": 2
+      },
+      {
+        "product": "Mouse Pad",
+        "category": "Accessories",
+        "units": 14,
+        "revenue": 558.6,
+        "transactions": 2
+      },
+      {
+        "product": "Notebook Stand",
+        "category": "Accessories",
+        "units": 6,
+        "revenue": 539.4,
+        "transactions": 2
+      },
+      {
+        "product": "USB Hub",
+        "category": "Accessories",
+        "units": 5,
+        "revenue": 499.5,
+        "transactions": 2
+      }
+    ],
+    "months": [
+      {
+        "month": "2025-01",
+        "revenue": 15089.3,
+        "units": 107,
+        "transactions": 30
+      }
+    ],
+    "source": "csv-sales-analyzer/src/sales.csv",
+    "revision": "e31b131e63059265dcaa8adad44284fac7bffcb0"
+  }
+}

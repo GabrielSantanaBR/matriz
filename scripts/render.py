@@ -70,8 +70,9 @@ def project_screenshots(p):
 def case_tile(p,large=False):
     preview_note={'concept':'Referência visual','anonymized':'Imagem anonimizada'}.get(p.get('image_kind'))
     preview_badge=f'<span class="preview-note">{preview_note}</span>' if preview_note else ''
-    image_class=(' has-image'+(' output-preview' if p.get('image_kind')=='output' else '')) if p.get('image') else ''
-    image_caption='<p class="preview-description">Saída do projeto com dados de demonstração</p>' if p.get('image_kind')=='output' else ''
+    image_class=(' has-image'+(' output-preview' if p.get('image_kind')=='output' else '')+(' demo-preview' if p.get('image_kind')=='demonstration' else '')) if p.get('image') else ''
+    image_caption={'output':'Saída do projeto com dados de demonstração','demonstration':'Prévia demonstrativa do produto'}.get(p.get('image_kind'))
+    image_caption=f'<p class="preview-description">{image_caption}</p>' if image_caption else ''
     zoom=external(p['image'],'Ampliar prévia <span aria-hidden="true">↗</span>','case-discover preview-zoom') if p.get('image') else ''
     if large:return f'''<article class="case large reveal"><a class="case-visual" href="{p['page']}" aria-label="Conhecer o projeto {e(p['name'])}">{visual(p)}</a><div class="case-copy"><p class="label">Projeto em foco / {e(p['category'])}</p><h3><a href="{p['page']}">{e(p['name'])}</a></h3><p>{e(p.get('client_summary',p['summary']))}</p><div class="case-meta"><span class="status-tag">{e(p.get('display_status',p['status']))}</span></div><a class="text-link" href="{p['page']}">Conhecer o projeto <span aria-hidden="true">↗</span></a></div></article>'''
     return f'''<article class="case reveal{image_class}" data-project-group="{e(p.get('group','gestao'))}"><a href="{p['page']}" aria-label="Conhecer o projeto {e(p['name'])}"><div class="case-visual">{visual(p)}{preview_badge}</div>{image_caption}<p class="project-use">{e(p.get('use',p['category']))}</p><div class="case-caption"><h3>{e(p['name'])}</h3><span aria-hidden="true">↗</span></div></a><p>{e(p.get('client_summary',p['summary']))}</p><div class="case-meta"><span class="status-tag">{e(p.get('display_status',p['status']))}</span><a class="case-discover" href="{p['page']}">Conhecer o projeto <span aria-hidden="true">↗</span></a>{zoom}</div></article>'''

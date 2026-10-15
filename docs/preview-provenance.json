@@ -99,5 +99,381 @@
         "reason": "Não há capturas versionadas. A captura da interface exigiria capacidade de navegador indisponível."
       }
     ]
+  },
+  "authored_demonstrations": {
+    "date": "2026-10-14",
+    "authorization": "O usuário pediu construir demonstrações visuais dos produtos, inclusive planilhas e painéis, para utilizar apenas as imagens.",
+    "method": "Composições SVG criadas por código e renderizadas em PNG e WebP lossless. Não são screenshots da aplicação original nem imagens geradas por IA.",
+    "builder": "scripts/product-previews.mjs",
+    "data": "content/demo-preview-data.json",
+    "assets": [
+      {
+        "file": "assets/previews/demo-pricing-sales.png",
+        "webp": "assets/previews/demo-pricing-sales.webp",
+        "sha256": "6759a6d0cbd0fe35f3b8c2cff0393d369ef467b07cbf61f19deeb6c206d0d821",
+        "dimensions": [
+          1440,
+          900
+        ],
+        "description": "Planilha demonstrativa de custos, precificação, vendas e resultado.",
+        "model": {
+          "ingredients": {
+            "farinha": 6.2,
+            "acucar": 5.4,
+            "chocolate": 39,
+            "manteiga": 38,
+            "leite": 7,
+            "ovos": 1.15,
+            "embalagem": 0.85
+          },
+          "products": [
+            {
+              "product": "Brownie",
+              "cost": 4.13025,
+              "price": 8.5,
+              "qty": 168,
+              "fee": 0.08,
+              "revenue": 1428,
+              "directCost": 693.8820000000001,
+              "fees": 114.24000000000001,
+              "profit": 619.8779999999999,
+              "suggested": 8.787765957446808,
+              "margin": 0.4340882352941176
+            },
+            {
+              "product": "Bolo de chocolate",
+              "cost": 6.049166666666666,
+              "price": 15,
+              "qty": 112,
+              "fee": 0.08,
+              "revenue": 1680,
+              "directCost": 677.5066666666667,
+              "fees": 134.4,
+              "profit": 868.0933333333334,
+              "suggested": 12.870567375886523,
+              "margin": 0.5167222222222222
+            },
+            {
+              "product": "Cookie",
+              "cost": 2.6893333333333334,
+              "price": 6.5,
+              "qty": 216,
+              "fee": 0.08,
+              "revenue": 1404,
+              "directCost": 580.896,
+              "fees": 112.32000000000001,
+              "profit": 710.784,
+              "suggested": 5.721985815602837,
+              "margin": 0.5062564102564102
+            },
+            {
+              "product": "Torta de limão",
+              "cost": 4.131625,
+              "price": 12.5,
+              "qty": 92,
+              "fee": 0.08,
+              "revenue": 1150,
+              "directCost": 380.10949999999997,
+              "fees": 92,
+              "profit": 677.8905,
+              "suggested": 8.7906914893617,
+              "margin": 0.58947
+            },
+            {
+              "product": "Muffin",
+              "cost": 2.8715833333333336,
+              "price": 7.9,
+              "qty": 154,
+              "fee": 0.08,
+              "revenue": 1216.6000000000001,
+              "directCost": 442.22383333333335,
+              "fees": 97.32800000000002,
+              "profit": 677.0481666666668,
+              "suggested": 6.109751773049646,
+              "margin": 0.5565084388185654
+            },
+            {
+              "product": "Pão de mel",
+              "cost": 3.2881666666666667,
+              "price": 9.5,
+              "qty": 138,
+              "fee": 0.08,
+              "revenue": 1311,
+              "directCost": 453.767,
+              "fees": 104.88,
+              "profit": 752.353,
+              "suggested": 6.996099290780141,
+              "margin": 0.5738771929824561
+            }
+          ],
+          "revenue": 8189.6,
+          "directCost": 3228.3849999999998,
+          "profit": 4306.0470000000005,
+          "targetMargin": 0.45,
+          "channelFee": 0.08
+        }
+      },
+      {
+        "file": "assets/previews/demo-sales-intelligence.png",
+        "webp": "assets/previews/demo-sales-intelligence.webp",
+        "sha256": "75d44385424decf7a61f71a9944014390b2598525ba8cea02b37102f5f361cc0",
+        "dimensions": [
+          1440,
+          900
+        ],
+        "description": "Relatório demonstrativo em planilha, com métricas e gráficos de vendas.",
+        "model": {
+          "period": [
+            "2025-01-02",
+            "2025-01-31"
+          ],
+          "rows": 30,
+          "units": 107,
+          "revenue": 15089.3,
+          "products": [
+            {
+              "product": "Office Chair",
+              "category": "Furniture",
+              "units": 3,
+              "revenue": 3599.7,
+              "transactions": 2
+            },
+            {
+              "product": "Monitor 24\"",
+              "category": "Electronics",
+              "units": 4,
+              "revenue": 3599.6,
+              "transactions": 3
+            },
+            {
+              "product": "Headset",
+              "category": "Electronics",
+              "units": 6,
+              "revenue": 1499.4,
+              "transactions": 3
+            },
+            {
+              "product": "Mouse",
+              "category": "Electronics",
+              "units": 18,
+              "revenue": 1078.2,
+              "transactions": 4
+            },
+            {
+              "product": "Webcam",
+              "category": "Electronics",
+              "units": 3,
+              "revenue": 899.7,
+              "transactions": 2
+            },
+            {
+              "product": "Desk Lamp",
+              "category": "Furniture",
+              "units": 6,
+              "revenue": 899.4,
+              "transactions": 2
+            },
+            {
+              "product": "Keyboard",
+              "category": "Electronics",
+              "units": 6,
+              "revenue": 779.4,
+              "transactions": 3
+            },
+            {
+              "product": "USB Cable",
+              "category": "Accessories",
+              "units": 29,
+              "revenue": 577.1,
+              "transactions": 3
+            },
+            {
+              "product": "Laptop Sleeve",
+              "category": "Accessories",
+              "units": 7,
+              "revenue": 559.3,
+              "transactions": 2
+            },
+            {
+              "product": "Mouse Pad",
+              "category": "Accessories",
+              "units": 14,
+              "revenue": 558.6,
+              "transactions": 2
+            },
+            {
+              "product": "Notebook Stand",
+              "category": "Accessories",
+              "units": 6,
+              "revenue": 539.4,
+              "transactions": 2
+            },
+            {
+              "product": "USB Hub",
+              "category": "Accessories",
+              "units": 5,
+              "revenue": 499.5,
+              "transactions": 2
+            }
+          ],
+          "months": [
+            {
+              "month": "2025-01",
+              "revenue": 15089.3,
+              "units": 107,
+              "transactions": 30
+            }
+          ],
+          "source": "csv-sales-analyzer/src/sales.csv",
+          "revision": "e31b131e63059265dcaa8adad44284fac7bffcb0"
+        }
+      },
+      {
+        "file": "assets/previews/demo-decisionforge.png",
+        "webp": "assets/previews/demo-decisionforge.webp",
+        "sha256": "fcc3bbbc10104e6033723b1961dc240521c209e147250db26e2a46b6811f3feb",
+        "dimensions": [
+          1440,
+          900
+        ],
+        "description": "Painel demonstrativo de análise, qualidade, segmentos e indicadores.",
+        "model": {
+          "history": [
+            32000,
+            37000,
+            36000,
+            41000,
+            45000,
+            44000,
+            49000,
+            52000,
+            55000,
+            58000,
+            59000,
+            68200
+          ],
+          "segments": [
+            430,
+            350,
+            207
+          ],
+          "rows": 1000,
+          "completeRows": 987
+        }
+      },
+      {
+        "file": "assets/previews/demo-curtailment.png",
+        "webp": "assets/previews/demo-curtailment.webp",
+        "sha256": "d9f36bcdd93000f89160280a675e7f109a48c74696fa351dd97ec34822e70c19",
+        "dimensions": [
+          1440,
+          900
+        ],
+        "description": "Painel demonstrativo de geração, energia restringida e cenário de mitigação.",
+        "model": {
+          "available": [
+            72,
+            81,
+            96,
+            112,
+            134,
+            151,
+            164,
+            158,
+            145,
+            121,
+            91,
+            66
+          ],
+          "realized": [
+            72,
+            81,
+            96,
+            106,
+            113,
+            124,
+            123,
+            129,
+            118,
+            108,
+            91,
+            66
+          ],
+          "loss": 164,
+          "recovered": 88,
+          "remaining": 76
+        }
+      },
+      {
+        "file": "assets/previews/demo-movimento.png",
+        "webp": "assets/previews/demo-movimento.webp",
+        "sha256": "54604e97532947ed62419ea012cd0edc7b3df9d803b25d4a16f607a4056fb6a9",
+        "dimensions": [
+          1440,
+          900
+        ],
+        "description": "Painel demonstrativo do professor com alunos, treinos e progresso de cargas.",
+        "model": {
+          "activeStudents": 30,
+          "weeklySessions": [
+            18,
+            23,
+            24,
+            27
+          ],
+          "loadKg": [
+            60,
+            65,
+            70,
+            72.5
+          ]
+        }
+      },
+      {
+        "file": "assets/previews/demo-clientflow.png",
+        "webp": "assets/previews/demo-clientflow.webp",
+        "sha256": "832aeb03479eb1c06805ccfb7d2c85b3f3a70bd6abf88137d77a54847ddd5451",
+        "dimensions": [
+          1440,
+          900
+        ],
+        "description": "Agenda demonstrativa própria do ClientFlow, com clientes e confirmações.",
+        "model": {
+          "appointments": 12,
+          "confirmed": 9,
+          "pending": 3,
+          "quotes": 4
+        }
+      },
+      {
+        "file": "assets/previews/demo-sicma.png",
+        "webp": "assets/previews/demo-sicma.webp",
+        "sha256": "95f3b6cb36860f921299a76f176226a1fb5b5d75562b50276aaca7be0d2072f6",
+        "dimensions": [
+          1440,
+          900
+        ],
+        "description": "Portal educacional demonstrativo com desafio e explicação de matemática.",
+        "model": {
+          "question": "Se x + 7 = 19, qual é o valor de x?",
+          "answer": 12,
+          "answered": 8,
+          "correct": 6,
+          "accuracy": 0.75,
+          "sourceRevision": "b3b5816e9a7d6dc4ad89f0e6550a0b7123fb190c"
+        }
+      }
+    ],
+    "verification": "Todas as imagens foram inspecionadas visualmente. Os valores de precificação são calculados a partir de receitas e custos sintéticos. O relatório de vendas reconcilia o CSV demonstrativo original. Os demais painéis usam cenários ilustrativos identificados.",
+    "supersedes": "As limitações da rodada de captura anterior não impedem estas demonstrações autorais. O ClientFlow substitui a antiga referência adaptada de outro produto.",
+    "sicma_source": {
+      "repository": "GabrielSantanaBR/Sicma-JAVA",
+      "revision": "b3b5816e9a7d6dc4ad89f0e6550a0b7123fb190c",
+      "evidence": [
+        "README.md",
+        "public/index.html",
+        "public/app.js"
+      ]
+    }
   }
 }
