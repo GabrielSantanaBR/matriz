@@ -1,3 +1,22 @@
+# Seis prévias com composições próprias — 15/10/2026
+
+O usuário pediu diferenciar as seis demonstrações comerciais, que repetiam a estrutura de cartões e painéis. Cada imagem agora apresenta uma atividade específica do produto:
+
+- Pricing & Sales Manager: grade de precificação com entradas amarelas, custo por produto, seleção da célula e calculadora de margem.
+- Sales Intelligence: relatório comercial com faturamento em destaque, ranking em colunas, participação por categoria e conferência dos valores. Os dados continuam sendo o CSV público do projeto.
+- DecisionForge AI: bancada de exploração com dispersão por segmentos, qualidade dos registros e conversa ilustrativa com o assistente.
+- Curtailment Intelligence: mapa esquemático das unidades, restrições horárias em barras empilhadas e cenário de bateria/carga flexível.
+- Movimento: ficha de exercícios, séries e cargas ao lado de um celular com o registro da sessão do aluno.
+- ClientFlow: calendário semanal em destaque e detalhe do atendimento, confirmação e orçamento do cliente selecionado.
+
+As seis imagens foram inspecionadas individualmente e juntas. A imagem do SICMA permanece idêntica à versão anterior. As composições continuam identificadas como demonstrações; os dados e pontos de dispersão ilustrativos não representam capturas de aplicações em produção. SVGs são renderizados por código em PNG e WebP lossless, 1440×900. Os pares de formatos foram comparados em RGBA com pixels idênticos. Os custos, vendas, categorias, energia restringida e aproveitamento reconciliam.
+
+A identidade, layout e comportamento do site foram preservados. Textos alternativos e procedência das seis imagens foram atualizados. `npm test`, `npm run build`, `python3 tests/audit.py --dist` e `git diff --check` passaram. Esta revisão não utilizou QA de navegador; a inspeção visual foi das imagens renderizadas e sua montagem comparativa.
+
+A versão anterior está salva na branch `backup/pre-differentiated-previews-2026-10-15`, commit `d37c5dc2806a9e81428b980fe8029a90f2c940a0`. Os PNGs e WebPs anteriores podem ser recuperados dessa branch.
+
+---
+
 # Demonstrações visuais dos produtos — 14/10/2026
 
 O usuário esclareceu que deseja construir exemplos visuais novos para apresentar os produtos, incluindo representações de planilhas e painéis, utilizando somente suas imagens. Esta rodada atende esse escopo com sete demonstrações autorais renderizadas por código em 1440×900.

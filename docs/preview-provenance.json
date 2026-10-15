@@ -101,7 +101,7 @@
     ]
   },
   "authored_demonstrations": {
-    "date": "2026-10-14",
+    "date": "2026-10-15",
     "authorization": "O usuário pediu construir demonstrações visuais dos produtos, inclusive planilhas e painéis, para utilizar apenas as imagens.",
     "method": "Composições SVG criadas por código e renderizadas em PNG e WebP lossless. Não são screenshots da aplicação original nem imagens geradas por IA.",
     "builder": "scripts/product-previews.mjs",
@@ -110,12 +110,12 @@
       {
         "file": "assets/previews/demo-pricing-sales.png",
         "webp": "assets/previews/demo-pricing-sales.webp",
-        "sha256": "6759a6d0cbd0fe35f3b8c2cff0393d369ef467b07cbf61f19deeb6c206d0d821",
+        "sha256": "9032d605602e5bf7602fe2c39617c9d02d806bf9e194f78ccdf09d771ff729f1",
         "dimensions": [
           1440,
           900
         ],
-        "description": "Planilha demonstrativa de custos, precificação, vendas e resultado.",
+        "description": "Planilha de precificação com células editáveis, custos por produto e calculadora de margem.",
         "model": {
           "ingredients": {
             "farinha": 6.2,
@@ -210,18 +210,20 @@
           "directCost": 3228.3849999999998,
           "profit": 4306.0470000000005,
           "targetMargin": 0.45,
-          "channelFee": 0.08
-        }
+          "channelFee": 0.08,
+          "composition": "worksheet-and-price-calculator"
+        },
+        "date": "2026-10-15"
       },
       {
         "file": "assets/previews/demo-sales-intelligence.png",
         "webp": "assets/previews/demo-sales-intelligence.webp",
-        "sha256": "75d44385424decf7a61f71a9944014390b2598525ba8cea02b37102f5f361cc0",
+        "sha256": "23ba0df560f6ac00a91724030a42a1da13e7f2a701f7d0a1ac46de1b54348319",
         "dimensions": [
           1440,
           900
         ],
-        "description": "Relatório demonstrativo em planilha, com métricas e gráficos de vendas.",
+        "description": "Relatório comercial com faturamento, ranking em colunas, participação por categoria e tabela de conferência.",
         "model": {
           "period": [
             "2025-01-02",
@@ -325,18 +327,37 @@
             }
           ],
           "source": "csv-sales-analyzer/src/sales.csv",
-          "revision": "e31b131e63059265dcaa8adad44284fac7bffcb0"
-        }
+          "revision": "e31b131e63059265dcaa8adad44284fac7bffcb0",
+          "categories": [
+            {
+              "label": "Electronics",
+              "value": 7856.299999999999,
+              "color": "#2e5c95"
+            },
+            {
+              "label": "Furniture",
+              "value": 4499.099999999999,
+              "color": "#80aac3"
+            },
+            {
+              "label": "Accessories",
+              "value": 2733.9,
+              "color": "#e3aa57"
+            }
+          ],
+          "composition": "commercial-report"
+        },
+        "date": "2026-10-15"
       },
       {
         "file": "assets/previews/demo-decisionforge.png",
         "webp": "assets/previews/demo-decisionforge.webp",
-        "sha256": "fcc3bbbc10104e6033723b1961dc240521c209e147250db26e2a46b6811f3feb",
+        "sha256": "e80e896d44c3a328e390ec91157dbb89fb46a7c7237707b15ed27c5ba0069553",
         "dimensions": [
           1440,
           900
         ],
-        "description": "Painel demonstrativo de análise, qualidade, segmentos e indicadores.",
+        "description": "Bancada de análise com dispersão por segmentos, qualidade dos dados e conversa com assistente.",
         "model": {
           "history": [
             32000,
@@ -358,18 +379,21 @@
             207
           ],
           "rows": 1000,
-          "completeRows": 987
-        }
+          "completeRows": 987,
+          "scatter": "Representative illustrative points, not all dataset rows",
+          "composition": "exploration-and-assistant"
+        },
+        "date": "2026-10-15"
       },
       {
         "file": "assets/previews/demo-curtailment.png",
         "webp": "assets/previews/demo-curtailment.webp",
-        "sha256": "d9f36bcdd93000f89160280a675e7f109a48c74696fa351dd97ec34822e70c19",
+        "sha256": "c3ab6bedc194b7ef9173e880c97bdfdf8246c23f8a561bea166e909f6dc28608",
         "dimensions": [
           1440,
           900
         ],
-        "description": "Painel demonstrativo de geração, energia restringida e cenário de mitigação.",
+        "description": "Console operacional com mapa de unidades renováveis, restrições horárias e cenário de bateria e carga flexível.",
         "model": {
           "available": [
             72,
@@ -401,18 +425,23 @@
           ],
           "loss": 164,
           "recovered": 88,
-          "remaining": 76
-        }
+          "remaining": 76,
+          "battery": 26,
+          "flexibleLoad": 62,
+          "riskProbability": 0.68,
+          "composition": "operations-map-and-dispatch"
+        },
+        "date": "2026-10-15"
       },
       {
         "file": "assets/previews/demo-movimento.png",
         "webp": "assets/previews/demo-movimento.webp",
-        "sha256": "54604e97532947ed62419ea012cd0edc7b3df9d803b25d4a16f607a4056fb6a9",
+        "sha256": "e5b339b69063089b7f5243d24bea04a5af70c7502c6d4d010fc5e3f8119dd5b2",
         "dimensions": [
           1440,
           900
         ],
-        "description": "Painel demonstrativo do professor com alunos, treinos e progresso de cargas.",
+        "description": "Ficha de treino do professor com séries e cargas, ao lado de um celular para registrar a sessão do aluno.",
         "model": {
           "activeStudents": 30,
           "weeklySessions": [
@@ -426,24 +455,64 @@
             65,
             70,
             72.5
-          ]
-        }
+          ],
+          "exercises": [
+            [
+              "Agachamento",
+              4,
+              "8",
+              "72,5 kg",
+              "90 s"
+            ],
+            [
+              "Leg press",
+              3,
+              "12",
+              "120 kg",
+              "60 s"
+            ],
+            [
+              "Remada baixa",
+              3,
+              "10",
+              "35 kg",
+              "60 s"
+            ],
+            [
+              "Prancha",
+              3,
+              "45 s",
+              "Corporal",
+              "45 s"
+            ]
+          ],
+          "loggedSets": 2,
+          "totalSets": 4,
+          "composition": "workout-sheet-and-mobile"
+        },
+        "date": "2026-10-15"
       },
       {
         "file": "assets/previews/demo-clientflow.png",
         "webp": "assets/previews/demo-clientflow.webp",
-        "sha256": "832aeb03479eb1c06805ccfb7d2c85b3f3a70bd6abf88137d77a54847ddd5451",
+        "sha256": "90899e402145a47fcbd281bf7d6b8b3d34eaa8e0576a22306a010422772386c2",
         "dimensions": [
           1440,
           900
         ],
-        "description": "Agenda demonstrativa própria do ClientFlow, com clientes e confirmações.",
+        "description": "Agenda semanal com atendimentos por horário e detalhe do cliente selecionado, incluindo confirmação e orçamento.",
         "model": {
           "appointments": 12,
           "confirmed": 9,
           "pending": 3,
-          "quotes": 4
-        }
+          "quotes": 4,
+          "selectedClient": "Cliente 06",
+          "selectedDate": "2026-10-14",
+          "selectedTime": "09:00",
+          "quote": 180,
+          "composition": "weekly-calendar-and-customer-detail"
+        },
+        "date": "2026-10-15"
       },
       {
         "file": "assets/previews/demo-sicma.png",
@@ -474,6 +543,13 @@
         "public/index.html",
         "public/app.js"
       ]
+    },
+    "revision": {
+      "request": "Diferenciar as seis prévias comerciais pela composição e função de cada produto.",
+      "date": "2026-10-15",
+      "backup_branch": "backup/pre-differentiated-previews-2026-10-15",
+      "backup_commit": "d37c5dc2806a9e81428b980fe8029a90f2c940a0",
+      "preserved": "Prévia do SICMA sem alteração de pixels; identidade visual do site preservada."
     }
   }
 }

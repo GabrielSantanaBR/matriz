@@ -58,7 +58,7 @@
     "image": "assets/previews/demo-clientflow.png",
     "image_width": 1440,
     "image_height": 900,
-    "image_alt": "Agenda demonstrativa do ClientFlow com clientes, horários e confirmações.",
+    "image_alt": "Agenda semanal com atendimentos por horário e detalhe do cliente selecionado, incluindo confirmação e orçamento.",
     "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
     "image_kind": "demonstration",
     "group": "gestao",
@@ -69,7 +69,7 @@
     "image_source": {
       "method": "SVG renderizado por código",
       "builder": "scripts/product-previews.mjs",
-      "date": "2026-10-14",
+      "date": "2026-10-15",
       "kind": "authored-demonstration"
     }
   },
@@ -139,12 +139,12 @@
     "image_width": 1440,
     "image_height": 900,
     "image_kind": "demonstration",
-    "image_alt": "Painel demonstrativo de análise de dados, qualidade e segmentação.",
+    "image_alt": "Bancada de análise com dispersão por segmentos, qualidade dos dados e conversa com assistente.",
     "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
     "image_source": {
       "method": "SVG renderizado por código",
       "builder": "scripts/product-previews.mjs",
-      "date": "2026-10-14",
+      "date": "2026-10-15",
       "kind": "authored-demonstration"
     }
   },
@@ -282,12 +282,12 @@
     "image_width": 1440,
     "image_height": 900,
     "image_kind": "demonstration",
-    "image_alt": "Painel demonstrativo de geração renovável, energia restringida e aproveitamento simulado.",
+    "image_alt": "Console operacional com mapa de unidades renováveis, restrições horárias e cenário de bateria e carga flexível.",
     "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
     "image_source": {
       "method": "SVG renderizado por código",
       "builder": "scripts/product-previews.mjs",
-      "date": "2026-10-14",
+      "date": "2026-10-15",
       "kind": "authored-demonstration"
     }
   },
@@ -359,12 +359,12 @@
     "image_width": 1440,
     "image_height": 900,
     "image_kind": "demonstration",
-    "image_alt": "Painel demonstrativo de professor com alunos, treinos e progresso de cargas.",
+    "image_alt": "Ficha de treino do professor com séries e cargas, ao lado de um celular para registrar a sessão do aluno.",
     "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
     "image_source": {
       "method": "SVG renderizado por código",
       "builder": "scripts/product-previews.mjs",
-      "date": "2026-10-14",
+      "date": "2026-10-15",
       "kind": "authored-demonstration"
     }
   },
@@ -502,12 +502,12 @@
     "image_width": 1440,
     "image_height": 900,
     "image_kind": "demonstration",
-    "image_alt": "Planilha demonstrativa de custos, preços, vendas, margem e gráficos.",
+    "image_alt": "Planilha de precificação com células editáveis, custos por produto e calculadora de margem.",
     "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
     "image_source": {
       "method": "SVG renderizado por código",
       "builder": "scripts/product-previews.mjs",
-      "date": "2026-10-14",
+      "date": "2026-10-15",
       "kind": "authored-demonstration"
     }
   },
@@ -575,7 +575,7 @@
     "image_webp": "assets/previews/demo-sales-intelligence.webp",
     "image_width": 1440,
     "image_height": 900,
-    "image_alt": "Prévia demonstrativa de relatório de vendas em planilha, com ranking e indicadores.",
+    "image_alt": "Relatório comercial com faturamento, ranking em colunas, participação por categoria e tabela de conferência.",
     "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
     "image_kind": "demonstration",
     "gallery": [
@@ -599,7 +599,7 @@
     "image_source": {
       "method": "SVG renderizado por código",
       "builder": "scripts/product-previews.mjs",
-      "date": "2026-10-14",
+      "date": "2026-10-15",
       "kind": "authored-demonstration"
     }
   },
