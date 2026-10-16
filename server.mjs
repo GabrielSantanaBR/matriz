@@ -5,9 +5,16 @@ import { extname, resolve, relative } from 'node:path';
 const root = process.cwd();
 const types = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.ico':'image/x-icon','.woff2':'font/woff2','.xml':'application/xml','.txt':'text/plain; charset=utf-8','.json':'application/json','.webmanifest':'application/manifest+json'};
 const research = resolve(root, 'tests/browser/fixtures');
+const isProduction = process.env.NODE_ENV === 'production' || Boolean(process.env.RAILWAY_ENVIRONMENT_ID);
+const port = Number(process.env.PORT) || 4173;
 createServer(async (req, res) => {
   try {
     let pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+    if (isProduction && /^\/(?:__qa|__research)(?:\/|$)/.test(pathname)) {
+      res.writeHead(404, {'Content-Type': 'text/plain; charset=utf-8'});
+      res.end('Not found');
+      return;
+    }
     pathname = pathname.replace(/^\/dataforge-portfolio(?=\/)/, '');
     let directory = root, name = pathname.replace(/^\/+/, '') || 'index.html';
     let mock = false;
@@ -46,4 +53,4 @@ createServer(async (req, res) => {
     res.writeHead(404, {'Content-Type':'text/html; charset=utf-8'});
     res.end(await readFile(resolve(root, '404.html')).catch(() => 'Not found'));
   }
-}).listen(4173, '0.0.0.0', () => console.log('MATRIZ preview ready on port 4173'));
+}).listen(port, '0.0.0.0', () => console.log(`MATRIZ server ready on port ${port}`));
