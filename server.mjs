@@ -36,6 +36,12 @@ createServer(async (req, res) => {
     if ((await stat(file)).isDirectory()) file = resolve(file, 'index.html');
     let body = await readFile(file);
     if (pathname === '/__qa/thanks.html') body = Buffer.from(body.toString().replace(/((?:href|src)=")(?!(?:https?:|#))([^"]+)/g, '$1/$2'));
+    if (isProduction && ['.html', '.xml', '.txt', '.webmanifest'].includes(extname(file))) {
+      body = Buffer.from(body.toString('utf8').replaceAll(
+        'https://gabrielsantanabr.github.io/matriz',
+        'https://matriz.up.railway.app'
+      ));
+    }
     if (mock) {
       body = Buffer.from(body.toString()
         .replaceAll('href="assets/', 'href="/assets/')
