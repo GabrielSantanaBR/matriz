@@ -1,6 +1,7 @@
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { extname, resolve, relative } from 'node:path';
+import { publicText } from './site-response.mjs';
 
 const root = process.cwd();
 const types = {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.ico':'image/x-icon','.woff2':'font/woff2','.xml':'application/xml','.txt':'text/plain; charset=utf-8','.json':'application/json','.webmanifest':'application/manifest+json'};
@@ -15,7 +16,7 @@ createServer(async (req, res) => {
       res.end('Not found');
       return;
     }
-    pathname = pathname.replace(/^\/dataforge-portfolio(?=\/)/, '');
+    pathname = pathname.replace(/^\/(?:dataforge-portfolio|matriz)(?=\/)/, '');
     let directory = root, name = pathname.replace(/^\/+/, '') || 'index.html';
     let mock = false;
     if (name === '__qa/' || name === '__qa/index.html') name = 'tests/browser/index.html';
@@ -29,7 +30,7 @@ createServer(async (req, res) => {
       if (!match) throw new Error('Unavailable fixture');
       directory = resolve(research, match[1]); name = match[2] || 'index.html';
     } else if (!(/^(assets\/|\.well-known\/)/.test(name) || /^[a-z0-9-]+\.(html|xml|txt|webmanifest)$/.test(name))) {
-      res.writeHead(404, {'Content-Type':'text/html; charset=utf-8'}); res.end(await readFile(resolve(root, '404.html'))); return;
+      res.writeHead(404, {'Content-Type':'text/html; charset=utf-8'}); res.end(publicText(await readFile(resolve(root, '404.html')), isProduction)); return;
     }
     let file = resolve(directory, name);
     if (relative(directory, file).startsWith('..') || name.split('/').some(part => part === '.git' || part === '.env')) throw new Error('Invalid path');
@@ -37,10 +38,7 @@ createServer(async (req, res) => {
     let body = await readFile(file);
     if (pathname === '/__qa/thanks.html') body = Buffer.from(body.toString().replace(/((?:href|src)=")(?!(?:https?:|#))([^"]+)/g, '$1/$2'));
     if (isProduction && ['.html', '.xml', '.txt', '.webmanifest'].includes(extname(file))) {
-      body = Buffer.from(body.toString('utf8').replaceAll(
-        'https://gabrielsantanabr.github.io/matriz',
-        'https://matriz.up.railway.app'
-      ));
+      body = publicText(body, true);
     }
     if (mock) {
       body = Buffer.from(body.toString()
@@ -57,6 +55,6 @@ createServer(async (req, res) => {
     res.end(body);
   } catch {
     res.writeHead(404, {'Content-Type':'text/html; charset=utf-8'});
-    res.end(await readFile(resolve(root, '404.html')).catch(() => 'Not found'));
+    res.end(publicText(await readFile(resolve(root, '404.html')).catch(() => Buffer.from('Not found')), isProduction));
   }
 }).listen(port, '0.0.0.0', () => console.log(`MATRIZ server ready on port ${port}`));

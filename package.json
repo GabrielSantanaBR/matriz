@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "private": true,
   "type": "module",
-  "description": "Portfólio e site institucional da MATRIZ: sites personalizados, sistemas financeiros e automação.",
+  "description": "MATRIZ: sistema financeiro, sites, sistemas para negócios e planilhas de controle.",
   "scripts": {
     "dev": "node server.mjs",
     "build": "python3 scripts/build.py",

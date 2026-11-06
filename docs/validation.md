@@ -1,3 +1,25 @@
+# Quatro produtos e revisão comercial — 06/11/2026
+
+A apresentação comercial passou a conter exatamente quatro produtos: Sistema financeiro, Sites, Sistemas para negócios e Planilhas de controle. A fonte editorial é `content/products.json`; cada produto possui página própria, finalidade, exemplo visual, pontos de escopo e pedido de proposta contextualizado. Home, navegação, rodapé, comparação e contato usam os mesmos nomes.
+
+A seleção comercial contém oito exemplos vinculados aos quatro produtos. DecisionForge, Curtailment e SICMA saíram dessa seleção; seus arquivos e URLs foram preservados, com noindex e fora do sitemap. Não houve exclusão de projetos ou modificação de seus repositórios. As sete imagens de demonstração aprovadas permanecem intactas; a arte social foi atualizada para os quatro produtos. Não foram criados preços, depoimentos, clientes ou garantias de resultado.
+
+A revisão pela perspectiva de um pequeno empresário está em `docs/avaliacao-comercial-2026-11-06.md`. Ela distingue clareza de apresentação de evidência de funcionamento e registra pendências comerciais reais: preço, demonstração funcional, suporte e continuidade dos dados.
+
+A contratação explica custos da entrega e recorrentes, prazo, suporte, acessos e dados. O formulário oferece os quatro produtos e uma opção de ajuda; parâmetros antigos de serviços são normalizados. Pedidos curtos e legítimos são aceitos: o mínimo da mensagem foi reduzido de 30 para 10 caracteres, de forma consistente no HTML e na validação. O catálogo e o texto principal passam a aparecer imediatamente, e foi corrigida a duplicação de contato no cabeçalho de computador.
+
+Foi confirmado um erro de compatibilidade na publicação Railway: a 404 referenciava assets com prefixo `/matriz/`, que também devolviam 404. O servidor normaliza os prefixos e adapta links da página de erro, metadados e regras de robots para a raiz do domínio de produção. Dois testes cobrem a adaptação sem mudar os arquivos estáticos destinados ao GitHub Pages.
+
+Validações automáticas: 17 testes Node; auditorias de links, anchors, semântica, conteúdo, hashes, marca, campos e metadados; 26 páginas HTML, 18 rotas indexáveis, quatro páginas de produto e oito exemplos comerciais. Build público separado de código, dados editoriais e testes.
+
+Nesta rodada há revisão de navegador: home e páginas de produto no computador; sete páginas em viewport CSS de 390 px; home, sistemas e comparação em 360 e 768 px. As medições não apontaram overflow horizontal nem imagens carregadas quebradas. Verificações de navegação, menu móvel, filtros de exemplos, ampliação/zoom e preenchimento contextual do contato foram feitas na prévia local. Um envio com falha foi simulado no navegador, com endpoint externo bloqueado; produto, mensagem e botão habilitado foram preservados após a falha. Viewports em iframe verificam layout responsivo; não equivalem a aparelhos físicos ou a todos os navegadores.
+
+O formulário real não foi usado para enviar mensagens. Testes de transporte são simulados. Não há métricas de conversão ou validação de resultados comerciais.
+
+Backup anterior: `backup/pre-four-products-2026-11-06`, commit `745fba4b87935a805954ee644b457c24cbf48391`. A publicação existente em Railway foi preservada, assim como a publicação estática em GitHub Pages.
+
+---
+
 # Experiência do cliente e acabamento técnico — 14/10/2026
 
 Revisão solicitada após a aprovação das seis prévias. A identidade visual e os pixels dessas imagens foram preservados. Foram identificados e corrigidos pontos concretos da experiência:

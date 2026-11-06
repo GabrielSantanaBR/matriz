@@ -61,7 +61,7 @@
     "image_alt": "Agenda semanal com atendimentos por horário e detalhe do cliente selecionado, incluindo confirmação e orçamento.",
     "image_note": "Demonstração visual criada para apresentar o produto, com dados de exemplo. Não é uma captura da versão em produção.",
     "image_kind": "demonstration",
-    "group": "gestao",
+    "group": "sistemas",
     "use": "Agenda e relacionamento com clientes",
     "client_summary": "Protótipo de organização de clientes, agenda, serviços e orçamentos em uma só interface.",
     "display_status": "Protótipo",
@@ -71,14 +71,15 @@
       "builder": "scripts/product-previews.mjs",
       "date": "2026-10-15",
       "kind": "authored-demonstration"
-    }
+    },
+    "product": "sistemas"
   },
   {
     "repo": "decisionforge-ai",
     "name": "DecisionForge AI",
     "category": "IA",
     "status": "Demo de portfólio",
-    "featured": true,
+    "featured": false,
     "page": "decisionforge-ai.html",
     "service": "ia",
     "headline": "Da planilha à leitura do negócio.",
@@ -129,7 +130,7 @@
       "app/main.py",
       "pyproject.toml"
     ],
-    "listed": true,
+    "listed": false,
     "group": "dados",
     "use": "Análise de dados e inteligência artificial",
     "client_summary": "Uma demonstração para explorar dados, identificar padrões e apoiar análises.",
@@ -155,7 +156,7 @@
     "status": "Em evolução",
     "featured": true,
     "page": "nossas-delicias.html",
-    "service": "sistemas",
+    "service": "web",
     "headline": "Da vitrine à gestão da confeitaria.",
     "summary": "Catálogo, pedidos, montagem de bolos e operação interna em uma plataforma Django.",
     "problem": "Vendas por canais diferentes tornam mais difícil conectar pedidos, produção, estoque, custos e recebimentos.",
@@ -210,18 +211,19 @@
     "image_height": 854,
     "image_alt": "Página inicial de Nossas Delícias com catálogo e personalização de bolos.",
     "image_note": "Captura da interface fornecida pelo autor do projeto.",
-    "group": "web",
+    "group": "sites",
     "use": "Catálogo e pedidos para confeitaria",
     "client_summary": "Uma plataforma que reúne catálogo, pedidos e montagem de bolos para uma confeitaria.",
     "display_status": "Em evolução",
-    "image_webp": "assets/previews/nossas-delicias.webp"
+    "image_webp": "assets/previews/nossas-delicias.webp",
+    "product": "sites"
   },
   {
     "repo": "curtailment-intelligence",
     "name": "Curtailment Intelligence",
     "category": "IA",
     "status": "Demo sintética",
-    "featured": true,
+    "featured": false,
     "page": "curtailment-intelligence.html",
     "service": "ia",
     "headline": "Antecipar riscos. Comparar respostas.",
@@ -272,7 +274,7 @@
       "app/services/optimizer.py",
       "docs/PROJECT_STATUS.md"
     ],
-    "listed": true,
+    "listed": false,
     "group": "dados",
     "use": "Dados aplicados à energia",
     "client_summary": "Uma demonstração de análise e simulação de geração renovável com dados sintéticos.",
@@ -298,7 +300,7 @@
     "status": "MVP em branch",
     "featured": true,
     "page": "movimento.html",
-    "service": "mvp",
+    "service": "sistemas",
     "branch": "feat/mvp",
     "headline": "A academia conectada ao treino do aluno.",
     "summary": "Administração, professores e alunos em um MVP de gestão e acompanhamento de treinos.",
@@ -350,7 +352,7 @@
       "prisma/schema.prisma"
     ],
     "listed": true,
-    "group": "gestao",
+    "group": "sistemas",
     "use": "Gestão e treinos para academias",
     "client_summary": "Um projeto para conectar a administração, os professores e os alunos de uma academia.",
     "display_status": "Versão inicial",
@@ -366,7 +368,8 @@
       "builder": "scripts/product-previews.mjs",
       "date": "2026-10-15",
       "kind": "authored-demonstration"
-    }
+    },
+    "product": "sistemas"
   },
   {
     "repo": "finance-manager",
@@ -375,7 +378,7 @@
     "status": "Edição pública reduzida",
     "featured": true,
     "page": "gestao-financeira.html",
-    "service": "sistemas",
+    "service": "financeiro",
     "headline": "Estrutura para o controle financeiro.",
     "summary": "Modelagem de receitas, despesas, contas e permissões em uma base Django genérica.",
     "problem": "Movimentações, responsabilidades e regras de aprovação precisam de uma base consistente para manter a rastreabilidade financeira.",
@@ -432,11 +435,12 @@
     "image_alt": "Painel financeiro com organização, usuário e valores substituídos por exemplos.",
     "image_note": "Interface financeira anonimizada. A edição pública do repositório tem escopo reduzido.",
     "image_kind": "anonymized",
-    "group": "gestao",
+    "group": "financeiro",
     "use": "Gestão financeira",
     "client_summary": "Uma base de gestão para organizar receitas, despesas, contas e permissões de acesso.",
     "display_status": "Edição de portfólio",
-    "image_webp": "assets/previews/finance-manager-anon.webp"
+    "image_webp": "assets/previews/finance-manager-anon.webp",
+    "product": "financeiro"
   },
   {
     "repo": "bakery-manager",
@@ -445,7 +449,7 @@
     "status": "Demo em Excel",
     "featured": true,
     "page": "precificacao-vendas.html",
-    "service": "automacao",
+    "service": "planilhas",
     "headline": "Custos que conversam com as vendas.",
     "summary": "Uma planilha integrada de insumos, receitas, precificação e análise comercial.",
     "problem": "Quando custo, preço e vendas vivem em arquivos separados, torna-se difícil entender a margem de cada produto e canal.",
@@ -493,7 +497,7 @@
       "demo/small-business-pricing-manager-demo.xlsx"
     ],
     "listed": true,
-    "group": "dados",
+    "group": "planilhas",
     "use": "Custos, preços e margem",
     "client_summary": "Uma planilha demonstrativa que conecta insumos, receitas, formação de preços e vendas.",
     "display_status": "Planilha demonstrativa",
@@ -509,7 +513,8 @@
       "builder": "scripts/product-previews.mjs",
       "date": "2026-10-15",
       "kind": "authored-demonstration"
-    }
+    },
+    "product": "planilhas"
   },
   {
     "repo": "csv-sales-analyzer",
@@ -518,7 +523,7 @@
     "status": "Demo de análise",
     "featured": true,
     "page": "analise-vendas.html",
-    "service": "dados",
+    "service": "planilhas",
     "headline": "Um arquivo de vendas. Uma visão utilizável.",
     "summary": "CSV, indicadores, filtros e relatórios em um dashboard de análise de vendas.",
     "problem": "Arquivos de vendas brutos exigem limpeza e cálculos repetidos antes de ajudar a responder perguntas do negócio.",
@@ -567,7 +572,7 @@
       "requirements.txt"
     ],
     "listed": true,
-    "group": "dados",
+    "group": "planilhas",
     "use": "Análise de vendas",
     "client_summary": "Um projeto para transformar arquivos de vendas em indicadores, filtros e relatórios.",
     "display_status": "Demonstração",
@@ -601,7 +606,8 @@
       "builder": "scripts/product-previews.mjs",
       "date": "2026-10-15",
       "kind": "authored-demonstration"
-    }
+    },
+    "product": "planilhas"
   },
   {
     "repo": "coffee_five_site",
@@ -663,10 +669,11 @@
     "image_alt": "Captura do cardápio Coffee Five com navegação, fotografia, busca e filtros por categoria.",
     "image_note": "Proposta de redesign, sem afirmação de contratação ou aprovação comercial. Capturada em 08/09/2026; conteúdo e preços pertencem à demonstração.",
     "listed": true,
-    "group": "web",
+    "group": "sites",
     "use": "Site e cardápio para cafeteria",
     "client_summary": "Uma proposta de site com a identidade da cafeteria e um cardápio fácil de explorar.",
-    "display_status": "Proposta de site"
+    "display_status": "Proposta de site",
+    "product": "sites"
   },
   {
     "repo": "projeto-petshop",
@@ -675,7 +682,7 @@
     "status": "MVP de interface",
     "featured": true,
     "page": "pata-companhia.html",
-    "service": "mvp",
+    "service": "web",
     "headline": "Uma jornada digital para cuidar dos pets.",
     "summary": "Loja, carrinho e agendamento demonstrativos em uma experiência responsiva.",
     "problem": "Produtos e serviços precisam ser encontrados de forma simples para que o tutor consiga montar sua escolha e entender o agendamento.",
@@ -727,11 +734,12 @@
     "image_height": 983,
     "image_alt": "Página inicial de Pata & Companhia com serviços e cuidados para pets.",
     "image_note": "Captura da interface fornecida pelo autor do projeto.",
-    "group": "web",
+    "group": "sites",
     "use": "Loja e agendamento para pet shop",
     "client_summary": "Produtos, carrinho e agendamento em uma demonstração de experiência para pet shops.",
     "display_status": "Demonstração de interface",
-    "image_webp": "assets/previews/pata-companhia.webp"
+    "image_webp": "assets/previews/pata-companhia.webp",
+    "product": "sites"
   },
   {
     "repo": "institutional-site-template",
@@ -974,7 +982,7 @@
       "public/app.js",
       "server.js"
     ],
-    "listed": true,
+    "listed": false,
     "page": "sicma.html",
     "service": "web",
     "image": "assets/previews/demo-sicma.png",
@@ -1027,7 +1035,8 @@
       "Desafio",
       "Explicação"
     ],
-    "revision": "b3b5816e9a7d6dc4ad89f0e6550a0b7123fb190c"
+    "revision": "b3b5816e9a7d6dc4ad89f0e6550a0b7123fb190c",
+    "featured": false
   },
   {
     "repo": "Pluvia",

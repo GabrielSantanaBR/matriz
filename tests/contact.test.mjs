@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {cleanText,validateFields,createPayload,sendContact,LEGACY_SERVICES,SERVICE_LABELS} from '../assets/js/contact-core.js';
 const valid={name:'Pessoa de teste',email:'teste@example.com',phone:'',company:'',budget:'',service:'sistemas',message:'Precisamos organizar pedidos e acompanhar os dados da operação.'};
 test('validates required fields and accepts optional blank phone and budget',()=>{assert.deepEqual(validateFields(valid),{});assert.ok(validateFields({...valid,email:'invalid'}).email);assert.ok(validateFields({...valid,message:' '.repeat(31)}).message);assert.ok(validateFields({...valid,phone:'123'}).phone);assert.ok(validateFields({...valid,service:'__proto__'}).service);});
-test('cleans controls, limits lengths and whitelists the submitted payload',()=>{assert.equal(cleanText(' a\u0000b '),'a b');assert.equal(cleanText('x'.repeat(3000)).length,2500);const data=createPayload({...valid,subject:'Injected',redirect:'https://example.com',access_key:'untrusted'},'public-form-id');assert.equal(data.subject,'Novo contato — MATRIZ');assert.equal(data.access_key,'public-form-id');assert.equal(data.email,valid.email);assert.equal(data.Projeto,'Sistema');assert.ok(!Object.hasOwn(data,'redirect'));});
+test('cleans controls, limits lengths and whitelists the submitted payload',()=>{assert.equal(cleanText(' a\u0000b '),'a b');assert.equal(cleanText('x'.repeat(3000)).length,2500);const data=createPayload({...valid,subject:'Injected',redirect:'https://example.com',access_key:'untrusted'},'public-form-id');assert.equal(data.subject,'Novo contato — MATRIZ');assert.equal(data.access_key,'public-form-id');assert.equal(data.email,valid.email);assert.equal(data.Projeto,'Sistemas para negócios');assert.ok(!Object.hasOwn(data,'redirect'));});
 test('all legacy service URLs map to an available field value',()=>{for(const value of Object.values(LEGACY_SERVICES))assert.ok(Object.hasOwn(SERVICE_LABELS,value));});
 test('a financial enquiry is accepted and keeps its specific service in the payload',()=>{
   const fields={...valid,service:'financeiro'};
@@ -13,3 +13,13 @@ test('a financial enquiry is accepted and keeps its specific service in the payl
 test('only an explicit successful service response completes the submission',async()=>{let request;assert.equal(await sendContact(valid,{fetchImpl:async(url,options)=>{request={url,options};return {ok:true,status:200,json:async()=>({success:true})};}}),true);assert.equal(request.url,'https://api.web3forms.com/submit');assert.equal(request.options.credentials,'omit');assert.equal(request.options.referrerPolicy,'no-referrer');assert.equal(request.options.cache,'no-store');for(const body of [{success:false},{}, {success:'true'}])await assert.rejects(sendContact(valid,{fetchImpl:async()=>({ok:true,status:200,json:async()=>body})}),/SUBMIT_FAILED/);});
 test('handles rejection, invalid JSON and rate limits without reporting success',async()=>{await assert.rejects(sendContact(valid,{fetchImpl:async()=>({ok:false,status:429,json:async()=>({})})}),/RATE_LIMIT/);await assert.rejects(sendContact(valid,{fetchImpl:async()=>({ok:true,status:200,json:async()=>{throw new Error('invalid JSON');}})}),/SUBMIT_FAILED/);await assert.rejects(sendContact(valid,{fetchImpl:async()=>{throw new TypeError('Offline');}}),/Offline/);});
 test('aborts a stalled network request',async()=>{await assert.rejects(sendContact(valid,{timeoutMs:5,fetchImpl:async(_,options)=>new Promise((resolve,reject)=>{options.signal.addEventListener('abort',()=>reject(new DOMException('Timeout','AbortError')));})}),{name:'AbortError'});});
+
+test('contact exposes exactly four products plus help and maps old technical links to them',()=>{
+  assert.deepEqual(Object.keys(SERVICE_LABELS).sort(),['financeiro','outro','planilhas','sistemas','web']);
+  assert.deepEqual(validateFields({...valid,message:'Quero um site para a loja.'}),{});
+  assert.equal(LEGACY_SERVICES.automacao,'planilhas');
+  assert.equal(LEGACY_SERVICES.dados,'planilhas');
+  assert.equal(LEGACY_SERVICES.ia,'sistemas');
+  assert.deepEqual(validateFields({...valid,service:'planilhas'}),{});
+  assert.equal(createPayload({...valid,service:'planilhas'},'public-form-id').Projeto,'Planilhas de controle');
+});

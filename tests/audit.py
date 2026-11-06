@@ -41,7 +41,7 @@ class Page(HTMLParser):
         return [a for t,a in self.nodes if t == tag and all(a.get(k) == v for k,v in attrs.items())]
 
 pages = {p.name: Page(p) for p in sorted(PUBLIC.glob('*.html'))}
-require(len(pages) == 22, 'Expected all 22 public HTML pages')
+require(len(pages) == 26, 'Expected 26 HTML pages, including four product pages')
 for required in ['index.html','prices.html','contact.html','thanks.html','404.html','project.html','privacy.html','security.html','repertoire.html','sicma.html']:
     require(required in pages, f'Missing required route {required}')
 
@@ -105,8 +105,8 @@ for anchor in ['inicio','solucoes','cases','repositorios','processo','proof-titl
 all_projects = json.loads((ROOT/'content/projects.json').read_text())
 projects = [p for p in all_projects if p.get('listed',True)]
 audit = json.loads((ROOT/'docs/repository-audit.json').read_text())
-require(len(projects) == len(repertoire.matching('a',**{'class':'repo-row'})) == 11, 'Curated portfolio requires 11 entries')
-require(sum(bool(p.get('featured')) for p in projects) == 10, 'Expected 10 featured cases')
+require(len(projects) == len(repertoire.matching('a',**{'class':'repo-row'})) == 8, 'Commercial examples must contain eight entries tied to the four products')
+require(sum(bool(p.get('featured')) for p in projects) == 8, 'Expected eight commercial examples')
 require(not any(p.get('fork') or p['category']=='Estudos' for p in projects), 'Course exercises and forks must not appear in the commercial portfolio')
 require(audit['public_count'] == 26 and audit['repertoire_count'] == 25, 'Research counts must match evidence')
 require(not repertoire.matching('a',**{'data-kind':'fork'}), 'Forks must not appear in the selected HTML')
@@ -116,6 +116,20 @@ for p in projects:
     if p.get('page'):
         require(p['page'] in pages and p.get('evidence'), f'Missing case/evidence {p["repo"]}')
 require(next(p for p in projects if p['repo'] == 'projeto_academia').get('branch') == 'feat/mvp', 'Movimento evidence belongs to feat/mvp')
+
+catalog=json.loads((ROOT/'content/products.json').read_text())
+require([p['id'] for p in catalog] == ['financeiro','sites','sistemas','planilhas'], 'Expected the four agreed product families')
+require(len({p['page'] for p in catalog}) == 4, 'Each product needs its own page')
+require(len([a for tag,a in home.nodes if tag=='article' and a.get('data-product')]) == 4, 'Home must offer exactly four products')
+for product in catalog:
+    require(product['page'] in pages, f'Missing product page: {product["name"]}')
+    require(home.matching('article',**{'data-product':product['id']}), f'Missing product: {product["name"]}')
+    require(any(p.get('product')==product['id'] for p in projects), f'Product needs examples: {product["name"]}')
+    require(product['example_repo'] in [p['repo'] for p in projects], f'Product needs an available visual example: {product["name"]}')
+require(all(p.get('product') in {x['id'] for x in catalog} for p in projects), 'Every commercial example must belong to one of the four products')
+for name in ['index.html','prices.html','contact.html']:
+    visible=' '.join(pages[name].text)
+    require(not re.search(r'\b(?:MVP|Backend|BI|API)\b',visible), f'{name}: developer terminology must not become a product choice')
 
 form = pages['contact.html']
 fields = {a.get('name'):a for t,a in form.nodes if t in ['input','textarea','select']}
@@ -128,6 +142,7 @@ for key,a in fields.items():
 require('botcheck' in fields and fields['botcheck'].get('tabindex') == '-1', 'Honeypot missing or keyboard accessible')
 require(form.matching('p',id='form-status',role='status'), 'Accessible form status missing')
 service_values = {a.get('value') for a in form.matching('option')}
+require(service_values == {'','financeiro','web','sistemas','planilhas','outro'}, 'Contact needs four products and a help option')
 for page in pages.values():
     for a in page.matching('a'):
         url = urlsplit(a.get('href',''))
@@ -173,7 +188,7 @@ for old in ['logo-matriz.svg','favicon.svg','social-matriz.png']:
 for font in (PUBLIC/'assets/fonts').glob('*.woff2'): require(font.read_bytes()[:4] == b'wOF2', f'{font.name}: invalid WOFF2')
 locs = {n.text for n in ET.parse(PUBLIC/'sitemap.xml').getroot().iter() if n.tag.endswith('}loc')}
 expected = {BASE+('' if name == 'index.html' else name) for name,page in pages.items() if not page.matching('meta',name='robots',content='noindex,follow')}
-require(locs == expected and len(locs) == 17, 'Sitemap must contain all 17 indexable routes')
+require(locs == expected and len(locs) == 18, 'Sitemap must contain the 18 indexable routes')
 require(f'Sitemap: {BASE}sitemap.xml' in (PUBLIC/'robots.txt').read_text(), 'Wrong robots sitemap')
 require(f'Contact: {BASE}contact.html' in (PUBLIC/'.well-known/security.txt').read_text(), 'security.txt contact')
 secret = re.compile(r'(sk-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{30,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----)')
@@ -187,4 +202,4 @@ if '--dist' in sys.argv:
     require((PUBLIC/'dataforge-portfolio/assets/brand/logo-matriz.png').exists(), 'Deep 404 compatibility assets missing')
     require((PUBLIC/'matriz/assets/brand/logo-matriz.png').exists(), 'Current Pages 404 compatibility assets missing')
 if failures: raise SystemExit('Release audit failed:\n'+'\n'.join(failures))
-print(f'Release audit passed: {len(pages)} pages, 11 selected repositories, 10 featured cases, 17 sitemap URLs; links, anchors, SEO, CSP, form, original logo and assets verified.')
+print(f'Release audit passed: {len(pages)} pages, four products, eight commercial examples, 18 sitemap URLs; links, anchors, SEO, CSP, form, original logo and assets verified.')

@@ -90,7 +90,7 @@
       }
     });
     const status = document.getElementById('project-count');
-    if (status) status.textContent = `${count} ${count === 1 ? 'projeto' : 'projetos'}${group === 'Todos' ? '' : ` · ${button.textContent.trim()}`}`;
+    if (status) status.textContent = `${count} ${count === 1 ? 'exemplo' : 'exemplos'}${group === 'Todos' ? '' : ` · ${button.textContent.trim()}`}`;
   }));
 
   const counters = [...document.querySelectorAll('[data-count]')];

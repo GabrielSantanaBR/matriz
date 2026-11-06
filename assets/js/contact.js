@@ -17,7 +17,7 @@ if (form) {
   form.elements.service.addEventListener('change', updateInterest);
   updateInterest();
   const project = cleanText(params.get('project'),100), plan = cleanText(params.get('plan'),60);
-  if ((project || plan) && !form.elements.message.value) form.elements.message.value = `Tenho interesse em ${project || 'uma solução'}${plan ? `, com ${plan} como referência` : ''}. Gostaria de conversar sobre o escopo. `;
+  if ((project || plan) && !form.elements.message.value) form.elements.message.value = `Tenho interesse em ${project || 'uma solução'}${plan ? `, com ${plan} como referência` : ''}. Gostaria de entender as opções, o prazo e o investimento. `;
   const count = document.getElementById('message-length');
   const updateLength = () => { if (count) count.textContent = `${form.elements.message.value.length.toLocaleString('pt-BR')} / 2.500`; };
   form.elements.message.addEventListener('input', updateLength);

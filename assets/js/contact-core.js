@@ -1,5 +1,5 @@
-export const SERVICE_LABELS = Object.freeze({sistemas:'Sistema',financeiro:'Sistema financeiro',automacao:'Automação',dados:'Dados / BI',ia:'Inteligência Artificial',web:'Site personalizado / Loja online',api:'API / Backend',mvp:'MVP',evolucao:'Evolução tecnológica',outro:'Ainda não sei / Quero orientação'});
-export const LEGACY_SERVICES = Object.freeze({clientflow:'sistemas',finance:'financeiro',custom:'mvp',vertical:'mvp',landing:'web',site:'web','site-panel':'web',commerce:'web',spreadsheet:'automacao',data:'dados',ai:'ia',deploy:'evolucao',security:'evolucao',analytics:'dados',other:'outro'});
+export const SERVICE_LABELS = Object.freeze({financeiro:'Sistema financeiro',web:'Sites',sistemas:'Sistemas para negócios',planilhas:'Planilhas de controle',outro:'Preciso de ajuda para escolher'});
+export const LEGACY_SERVICES = Object.freeze({clientflow:'sistemas',finance:'financeiro',custom:'sistemas',vertical:'sistemas',landing:'web',site:'web',sites:'web','site-panel':'web',commerce:'web',spreadsheet:'planilhas',automacao:'planilhas',dados:'planilhas',data:'planilhas',analytics:'planilhas',ia:'sistemas',ai:'sistemas',api:'sistemas',mvp:'sistemas',evolucao:'sistemas',deploy:'sistemas',security:'sistemas',other:'outro'});
 export const cleanText = (value, max = 2500) => String(value ?? '').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g,' ').replace(/[ \t]{3,}/g,' ').trim().slice(0,max);
 export function validateFields(fields) {
   const errors = {};
@@ -7,8 +7,8 @@ export function validateFields(fields) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanText(fields.email,160))) errors.email='Confira o email informado.';
   const phone = cleanText(fields.phone,25);
   if (phone && (!/^\+?[\d\s().-]+$/.test(phone) || phone.replace(/\D/g,'').length < 10 || phone.replace(/\D/g,'').length > 15)) errors.phone='Informe um telefone com DDD ou deixe este campo vazio.';
-  if (!Object.hasOwn(SERVICE_LABELS,fields.service)) errors.service='Selecione o tipo de projeto.';
-  if (cleanText(fields.message).length < 30) errors.message='Descreva o problema com pelo menos 30 caracteres.';
+  if (!Object.hasOwn(SERVICE_LABELS,fields.service)) errors.service='Selecione um produto ou a opção de ajuda para escolher.';
+  if (cleanText(fields.message).length < 10) errors.message='Conte em uma frase o que você precisa, com pelo menos 10 caracteres.';
   return errors;
 }
 export function createPayload(fields, accessKey) {

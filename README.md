@@ -1,16 +1,18 @@
 # MATRIZ
 
-Sites personalizados, sistemas financeiros e automação para a rotina do seu negócio.
+Quatro produtos: sistema financeiro, sites, sistemas para negócios e planilhas de controle.
 
-**Site:** https://gabrielsantanabr.github.io/matriz/
+**Site:** https://matriz.up.railway.app/
+
+**Publicação estática:** https://gabrielsantanabr.github.io/matriz/
 
 Portfólio estático em HTML, CSS e JavaScript nativo, com fontes locais e sem dependências de execução. Os templates e metadados são gerados por Python. O nome `dataforge-portfolio` aparece apenas em documentação histórica e caminhos de compatibilidade.
 
 ## Experiência
 
-A home mantém a identidade da MATRIZ e organiza a apresentação em serviços, gestão financeira, projetos, possibilidades de produtos, etapas do trabalho e dúvidas de contratação. Os benefícios são descritos em linguagem de negócio, com convites para conversar ao longo da navegação.
+A home apresenta apenas os quatro produtos de `content/products.json`, cada um com página própria, uso, exemplo visual e pedido de proposta contextualizado. O investimento é definido por escopo; a contratação explica custos recorrentes, suporte, entrega, acessos e dados sem inventar preços ou condições.
 
-O portfólio permite filtrar dez projetos por sites e lojas, sistemas e gestão ou planilhas e dados. SICMA Mathema aparece em uma seção própria como portal educacional com treino interativo. Código e informações de arquitetura permanecem disponíveis em áreas expansíveis. Exercícios de cursos e forks não integram a seleção comercial.
+A página de exemplos contém oito referências ligadas aos quatro produtos. IA, análise de energia e SICMA permanecem no histórico e nas URLs antigas, fora da seleção comercial e do sitemap. As páginas de exemplos identificam propostas, prévias ilustrativas e estágios do trabalho. Código e arquitetura ficam em áreas expansíveis.
 
 As páginas dos projetos preservam os limites e as fontes da inspeção original. Elas não afirmam contratação por marcas citadas, produção comprovada ou funcionalidades além da evidência. Recursos de novos projetos são definidos na proposta.
 
@@ -33,7 +35,7 @@ As capturas de Nossas Delícias e Pata & Companhia foram fornecidas pelo autor. 
 
 Foram criadas sete demonstrações visuais por código: Pricing & Sales Manager, Sales Intelligence, DecisionForge AI, Curtailment Intelligence, Movimento, ClientFlow e SICMA Mathema. São composições ilustrativas com dados de exemplo, identificadas como demonstrações; não são capturas da aplicação em produção. Os valores de precificação são calculados a partir dos insumos e as métricas de vendas reconciliam o CSV público do projeto. O card permite ampliar cada imagem.
 
-As seis prévias comerciais possuem composições próprias: planilha e calculadora de preços, relatório comercial, exploração com assistente, mapa de energia e despacho, ficha de treino com celular e agenda com histórico do cliente. A revisão de 15/10/2026 preservou a identidade da MATRIZ e a imagem do SICMA. A versão anterior está em `backup/pre-differentiated-previews-2026-10-15`.
+As seis prévias revisadas em outubro possuem composições próprias: planilha e calculadora de preços, relatório comercial, exploração com assistente, mapa de energia e despacho, ficha de treino com celular e agenda com histórico do cliente. A revisão de 15/10/2026 preservou a identidade da MATRIZ e a imagem do SICMA. A versão anterior está em `backup/pre-differentiated-previews-2026-10-15`.
 
 O builder `scripts/product-previews.mjs` usa Sharp do runtime de autoria e produz as imagens já versionadas. O build normal do site não precisa desse renderizador. `content/demo-preview-data.json` registra as entradas do relatório de vendas. A procedência e os modelos dos demais exemplos constam da documentação.
 
@@ -52,11 +54,12 @@ npm run render
 npm run dev
 ```
 
-Ao alterar `scripts/render.py` ou `content/projects.json`, execute `npm run render`. Os HTML gerados ficam versionados. `npm run build` gera a saída publicável em `dist/`.
+Ao alterar `scripts/render.py`, `content/products.json` ou `content/projects.json`, execute `npm run render`. Os HTML gerados ficam versionados. `npm run build` gera a saída publicável em `dist/`.
 
 | Caminho | Finalidade |
 | --- | --- |
 | `scripts/render.py` | Templates, conteúdo da home e metadados |
+| `content/products.json` | Os quatro produtos, critérios de escolha e exemplos |
 | `content/projects.json` | Evidências, estágios e descrições dos projetos |
 | `assets/css/matriz.css` | Identidade, layouts e breakpoints |
 | `assets/js/site.js` | Menu, filtros e movimento acessível |
