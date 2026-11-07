@@ -1,3 +1,15 @@
+# Apresentação visual dos quatro produtos — 07/11/2026
+
+A vitrine da home usa quatro apresentações amplas, alternando texto e imagem no computador. A navegação inicial organiza as opções pela necessidade do cliente. Nome, benefício, descrição, recursos e próximo passo possuem hierarquia própria; as telas aparecem completas e podem ser ampliadas. O entorno de cada imagem distingue interface financeira, proposta de site, sistema e planilha, mantendo a marca, tipografia e cores da MATRIZ.
+
+As quatro páginas de produto receberam título claro, apresentação visual maior, benefícios explicados e exemplos com miniaturas e estágio identificado. A contratação mantém as condições de escopo, investimento e suporte. A fonte dos textos continua em `content/products.json`; a função compartilhada de apresentação evita divergências entre home e páginas. As imagens aprovadas não foram alteradas.
+
+Validação: `npm test` (17 testes), `npm run build`, `python3 tests/audit.py --dist` e `git diff --check` passaram. No navegador, home e quatro páginas de produto foram verificadas em 360, 390 e 768 px (15 combinações), sem overflow horizontal ou imagens carregadas quebradas. A checagem ignora a imagem sem fonte do diálogo fechado e não trata imagens lazy ainda não carregadas como falhas. Houve inspeção visual no computador e no celular, navegação pelos produtos, ampliação/zoom/fechamento e conferência do produto selecionado no contato. Nenhuma mensagem foi enviada. Os viewports de celular foram simulados em iframe; não equivalem a aparelhos físicos.
+
+Registro visual: `docs/qa/matriz-produtos-design-20261107.jpg`, capturado da versão local validada. Backup: `backup/pre-product-design-2026-11-07`, commit `36640887ec26ab004fc1adcb860e407db30e498e`.
+
+---
+
 # Quatro produtos e revisão comercial — 06/11/2026
 
 A apresentação comercial passou a conter exatamente quatro produtos: Sistema financeiro, Sites, Sistemas para negócios e Planilhas de controle. A fonte editorial é `content/products.json`; cada produto possui página própria, finalidade, exemplo visual, pontos de escopo e pedido de proposta contextualizado. Home, navegação, rodapé, comparação e contato usam os mesmos nomes.

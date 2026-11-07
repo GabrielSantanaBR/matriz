@@ -10,14 +10,41 @@
     "summary": "Reúna receitas, despesas, contas e relatórios para acompanhar o dinheiro do seu negócio.",
     "fit": "Para quem precisa centralizar os lançamentos e acompanhar o caixa com mais clareza.",
     "decision": "Faz sentido quando os lançamentos precisam ficar organizados em um lugar e o controle envolve diferentes pessoas ou rotinas.",
-    "features": ["Receitas, despesas e contas", "Visão do caixa por período", "Relatórios e acessos conforme a operação"],
-    "scope": ["Quais lançamentos e relatórios você precisa acompanhar", "Quem usa o sistema e o que cada pessoa pode acessar", "Como os dados existentes entram e como poderão ser exportados"],
+    "features": [
+      "Receitas, despesas e contas",
+      "Visão do caixa por período",
+      "Relatórios e acessos conforme a operação"
+    ],
+    "scope": [
+      "Quais lançamentos e relatórios você precisa acompanhar",
+      "Quem usa o sistema e o que cada pessoa pode acessar",
+      "Como os dados existentes entram e como poderão ser exportados"
+    ],
     "boundary": "Integrações com bancos, pagamentos e emissão fiscal precisam estar descritas na proposta. A interface de exemplo não significa que esses serviços já estão incluídos.",
     "example_repo": "finance-manager",
-    "examples": ["finance-manager"],
+    "examples": [
+      "finance-manager"
+    ],
     "example_caption": "Exemplo de interface financeira com dados anonimizados.",
     "format": "Sistema configurado conforme o escopo",
-    "question": "O que você precisa controlar no financeiro e quantas pessoas vão usar?"
+    "question": "O que você precisa controlar no financeiro e quantas pessoas vão usar?",
+    "purpose": "Organizar o dinheiro",
+    "pitch": "O caixa sob seu controle.",
+    "visual_label": "Interface financeira",
+    "benefits": [
+      {
+        "title": "Lançamentos organizados",
+        "text": "Receitas, despesas e contas reunidas para acompanhar os movimentos do negócio."
+      },
+      {
+        "title": "Leitura do caixa",
+        "text": "Uma visão por período para entender o que entrou, o que saiu e o saldo disponível."
+      },
+      {
+        "title": "Informação para decidir",
+        "text": "Relatórios e permissões definidos conforme quem usa e o que precisa consultar."
+      }
+    ]
   },
   {
     "id": "sites",
@@ -30,14 +57,43 @@
     "summary": "Apresente sua marca, produtos e serviços em um site pensado para quem visita pelo celular ou computador.",
     "fit": "Para lojas, prestadores de serviço e profissionais que precisam de uma presença própria na internet.",
     "decision": "Faz sentido quando seu cliente precisa encontrar suas informações, conhecer seu trabalho e saber como entrar em contato.",
-    "features": ["Identidade visual da sua marca", "Produtos, serviços e informações claras", "Navegação para celular e computador"],
-    "scope": ["Páginas, conteúdo, fotos e formas de contato", "Domínio, hospedagem e acesso à edição", "Se haverá catálogo, pedidos, pagamentos ou agendamentos"],
+    "features": [
+      "Identidade visual da sua marca",
+      "Produtos, serviços e informações claras",
+      "Navegação para celular e computador"
+    ],
+    "scope": [
+      "Páginas, conteúdo, fotos e formas de contato",
+      "Domínio, hospedagem e acesso à edição",
+      "Se haverá catálogo, pedidos, pagamentos ou agendamentos"
+    ],
     "boundary": "Um site de apresentação e uma loja com pagamentos têm escopos diferentes. Catálogo, venda online, redação e produção de fotos devem ser combinados antes de começar.",
     "example_repo": "coffee_five_site",
-    "examples": ["coffee_five_site", "projeto-petshop", "nossas-delicias-site"],
+    "examples": [
+      "coffee_five_site",
+      "projeto-petshop",
+      "nossas-delicias-site"
+    ],
     "example_caption": "Coffee Five: proposta visual de site para uma cafeteria.",
     "format": "Site criado para a sua marca",
-    "question": "O que você vende ou faz e o que o visitante precisa conseguir fazer no site?"
+    "question": "O que você vende ou faz e o que o visitante precisa conseguir fazer no site?",
+    "purpose": "Apresentar a sua marca",
+    "pitch": "A sua marca merece esse espaço.",
+    "visual_label": "Proposta de site",
+    "benefits": [
+      {
+        "title": "A identidade é sua",
+        "text": "Cores, imagens e composição pensadas para apresentar a personalidade da sua marca."
+      },
+      {
+        "title": "Informações no lugar",
+        "text": "Produtos, serviços e formas de contato organizados para o visitante encontrar o que procura."
+      },
+      {
+        "title": "Do celular ao computador",
+        "text": "Conteúdo e navegação preparados para diferentes tamanhos de tela."
+      }
+    ]
   },
   {
     "id": "sistemas",
@@ -50,14 +106,42 @@
     "summary": "Organize clientes, agenda e processos em sistemas para academias, barbearias e outros negócios.",
     "fit": "Para quem precisa coordenar atendimentos, equipe ou uma rotina que já ficou difícil de controlar manualmente.",
     "decision": "Faz sentido quando várias pessoas participam da operação e precisam consultar ou atualizar as mesmas informações.",
-    "features": ["Clientes, agenda e histórico", "Telas para a equipe e para o cliente", "Rotinas específicas do seu segmento"],
-    "scope": ["O fluxo de atendimento e as tarefas de cada pessoa", "Os cadastros, permissões e telas necessários", "As integrações e a forma de acompanhamento depois da entrega"],
+    "features": [
+      "Clientes, agenda e histórico",
+      "Telas para a equipe e para o cliente",
+      "Rotinas específicas do seu segmento"
+    ],
+    "scope": [
+      "O fluxo de atendimento e as tarefas de cada pessoa",
+      "Os cadastros, permissões e telas necessários",
+      "As integrações e a forma de acompanhamento depois da entrega"
+    ],
     "boundary": "Os exemplos têm estágios diferentes e servem para apresentar possibilidades. O sistema do seu negócio parte de um escopo definido; integrações e aplicativo de celular são combinados à parte quando necessários.",
     "example_repo": "projeto_academia",
-    "examples": ["projeto_academia", "clientflow"],
+    "examples": [
+      "projeto_academia",
+      "clientflow"
+    ],
     "example_caption": "Movimento: prévia ilustrativa de ficha de treino e registro pelo aluno.",
     "format": "Sistema adaptado à sua operação",
-    "question": "Qual é o seu segmento, como funciona o atendimento e o que hoje dá mais trabalho?"
+    "question": "Qual é o seu segmento, como funciona o atendimento e o que hoje dá mais trabalho?",
+    "purpose": "Organizar a operação",
+    "pitch": "Uma rotina que funciona junto.",
+    "visual_label": "Prévia ilustrativa de sistema",
+    "benefits": [
+      {
+        "title": "Atendimento conectado",
+        "text": "Clientes, agenda e histórico organizados conforme o fluxo do seu negócio."
+      },
+      {
+        "title": "Cada pessoa, sua área",
+        "text": "Telas e acessos definidos para a equipe e para o cliente, conforme a necessidade."
+      },
+      {
+        "title": "O seu jeito de trabalhar",
+        "text": "Cadastros e rotinas desenhados a partir do que acontece na operação."
+      }
+    ]
   },
   {
     "id": "planilhas",
@@ -70,13 +154,41 @@
     "summary": "Controle gastos, vendas, custos e preços com planilhas organizadas para a sua rotina.",
     "fit": "Para quem quer um controle direto, com tabelas, cálculos e gráficos fáceis de acompanhar.",
     "decision": "Pode ser um bom primeiro passo quando você quer organizar uma rotina simples e ainda não precisa de um sistema com vários usuários e permissões.",
-    "features": ["Campos de preenchimento organizados", "Fórmulas, resumos e gráficos", "Controle de gastos, vendas ou precificação"],
-    "scope": ["O que você preenche e quais resultados precisa consultar", "A compatibilidade com Excel ou Google Planilhas", "A importação de arquivos e as automatizações desejadas"],
+    "features": [
+      "Campos de preenchimento organizados",
+      "Fórmulas, resumos e gráficos",
+      "Controle de gastos, vendas ou precificação"
+    ],
+    "scope": [
+      "O que você preenche e quais resultados precisa consultar",
+      "A compatibilidade com Excel ou Google Planilhas",
+      "A importação de arquivos e as automatizações desejadas"
+    ],
     "boundary": "Formato, fórmulas e compatibilidade são definidos na entrega. Importações e automações dependem dos arquivos envolvidos. A imagem de exemplo é uma demonstração visual, não um arquivo pronto para baixar.",
     "example_repo": "bakery-manager",
-    "examples": ["bakery-manager", "csv-sales-analyzer"],
+    "examples": [
+      "bakery-manager",
+      "csv-sales-analyzer"
+    ],
     "example_caption": "Prévia ilustrativa de uma planilha de custos e formação de preços.",
     "format": "Planilha preparada para o seu uso",
-    "question": "O que você quer controlar e usa Excel ou Google Planilhas?"
+    "question": "O que você quer controlar e usa Excel ou Google Planilhas?",
+    "purpose": "Simplificar o controle",
+    "pitch": "Menos contas soltas. Mais clareza.",
+    "visual_label": "Planilha demonstrativa",
+    "benefits": [
+      {
+        "title": "Preencher sem se perder",
+        "text": "Campos de entrada organizados para separar os dados que você informa dos cálculos."
+      },
+      {
+        "title": "Enxergar os resultados",
+        "text": "Fórmulas, resumos e gráficos para consultar as informações mais úteis da rotina."
+      },
+      {
+        "title": "Um controle com objetivo",
+        "text": "Gastos, vendas ou precificação: a planilha parte do que você precisa acompanhar."
+      }
+    ]
   }
 ]
