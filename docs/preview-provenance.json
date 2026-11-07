@@ -108,14 +108,14 @@
     "data": "content/demo-preview-data.json",
     "assets": [
       {
-        "file": "assets/previews/demo-pricing-sales.png",
-        "webp": "assets/previews/demo-pricing-sales.webp",
-        "sha256": "9032d605602e5bf7602fe2c39617c9d02d806bf9e194f78ccdf09d771ff729f1",
+        "file": "assets/previews/demo-pricing-sales-v2.png",
+        "webp": "assets/previews/demo-pricing-sales-v2.webp",
+        "sha256": "ff864ebe5f50ec7f19771962121010d6ec39ee19094cba6c78032571210b1307",
         "dimensions": [
           1440,
           900
         ],
-        "description": "Planilha de precificação com células editáveis, custos por produto e calculadora de margem.",
+        "description": "Planilha de precificação com tabela legível, comparação de custo e venda e preço sugerido por fórmula.",
         "model": {
           "ingredients": {
             "farinha": 6.2,
@@ -211,9 +211,15 @@
           "profit": 4306.0470000000005,
           "targetMargin": 0.45,
           "channelFee": 0.08,
-          "composition": "worksheet-and-price-calculator"
+          "comparisonProducts": [
+            "Brownie",
+            "Bolo de chocolate",
+            "Cookie",
+            "Torta de limão"
+          ],
+          "composition": "pricing-worksheet-and-comparison-chart"
         },
-        "date": "2026-10-15"
+        "date": "2026-11-07"
       },
       {
         "file": "assets/previews/demo-sales-intelligence.png",
@@ -434,14 +440,14 @@
         "date": "2026-10-15"
       },
       {
-        "file": "assets/previews/demo-movimento.png",
-        "webp": "assets/previews/demo-movimento.webp",
-        "sha256": "e5b339b69063089b7f5243d24bea04a5af70c7502c6d4d010fc5e3f8119dd5b2",
+        "file": "assets/previews/demo-movimento-v2.png",
+        "webp": "assets/previews/demo-movimento-v2.webp",
+        "sha256": "9dec102794bb4d824b69c5c7b550fd3f9dea7897a1ba4cec3c4a81cc7337969a",
         "dimensions": [
           1440,
           900
         ],
-        "description": "Ficha de treino do professor com séries e cargas, ao lado de um celular para registrar a sessão do aluno.",
+        "description": "Tela de gestão de treino com ficha do aluno, exercícios, registro de séries e evolução de carga, sem moldura de celular.",
         "model": {
           "activeStudents": 30,
           "weeklySessions": [
@@ -488,9 +494,9 @@
           ],
           "loggedSets": 2,
           "totalSets": 4,
-          "composition": "workout-sheet-and-mobile"
+          "composition": "student-workspace-and-session-log"
         },
-        "date": "2026-10-15"
+        "date": "2026-11-07"
       },
       {
         "file": "assets/previews/demo-clientflow.png",
@@ -550,6 +556,13 @@
       "backup_branch": "backup/pre-differentiated-previews-2026-10-15",
       "backup_commit": "d37c5dc2806a9e81428b980fe8029a90f2c940a0",
       "preserved": "Prévia do SICMA sem alteração de pixels; identidade visual do site preservada."
+    },
+    "preview_refresh_20261107": {
+      "request": "Refazer somente as imagens de Sistemas para negócios e Planilhas de controle, mantendo o layout aprovado.",
+      "backup_branch": "backup/pre-two-previews-2026-11-07",
+      "backup_commit": "d4255ae7af6e29647bffbbb4ab653fef17e4eeab",
+      "method": "Novas composições de interface e planilha em SVG, renderizadas em PNG e WebP lossless. As versões anteriores e as demais imagens foram preservadas.",
+      "generator": "node scripts/product-previews.mjs --only=demo-pricing-sales-v2,demo-movimento-v2"
     }
   }
 }

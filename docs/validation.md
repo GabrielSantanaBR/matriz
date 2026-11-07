@@ -1,3 +1,15 @@
+# Duas imagens de produto renovadas — 07/11/2026
+
+A pedido do usuário, foram refeitas somente as prévias de Movimento (Sistemas para negócios) e Pricing & Sales Manager (Planilhas de controle). A primeira apresenta um ambiente de gestão de treinos, com ficha do aluno, tabela de exercícios, registro de séries e gráfico de evolução, sem o telefone desenhado. A segunda simplifica a planilha em uma tabela de custos, preços e margens, com gráfico comparativo e sugestão calculada de preço. As composições foram feitas por código e continuam identificadas como demonstrações, com dados fictícios.
+
+Foram criados arquivos `-v2` em PNG e WebP lossless; os arquivos anteriores e as demais prévias foram preservados. As referências, legendas, textos alternativos e procedência foram atualizados na home, nas duas páginas de produto e nos exemplos correspondentes. O layout, a marca e as demais ofertas ficaram intactos.
+
+Verificações: pares PNG/WebP com pixels RGBA idênticos e dimensões de 1440×900; custos e preços calculados pelo gerador; 17 testes, build e auditoria da saída pública aprovados. Inspeção visual das duas artes completas e da composição na vitrine. Home e duas páginas de produto verificadas em viewport de 390 px, sem overflow horizontal ou imagens carregadas quebradas. Ambas as imagens originais carregaram em 1440 px no visualizador do celular. Não houve alteração ou execução dos sistemas apresentados: são imagens demonstrativas.
+
+Registro visual: `docs/qa/matriz-duas-previas-20261107.jpg`. Backup: `backup/pre-two-previews-2026-11-07`, commit `d4255ae7af6e29647bffbbb4ab653fef17e4eeab`.
+
+---
+
 # Apresentação visual dos quatro produtos — 07/11/2026
 
 A vitrine da home usa quatro apresentações amplas, alternando texto e imagem no computador. A navegação inicial organiza as opções pela necessidade do cliente. Nome, benefício, descrição, recursos e próximo passo possuem hierarquia própria; as telas aparecem completas e podem ser ampliadas. O entorno de cada imagem distingue interface financeira, proposta de site, sistema e planilha, mantendo a marca, tipografia e cores da MATRIZ.

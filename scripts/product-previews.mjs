@@ -9,6 +9,7 @@ const sharp=require('sharp');
 const source=JSON.parse(await fs.readFile(path.join(root,'content/demo-preview-data.json'),'utf8'));
 const out=path.join(root,'assets/previews');
 const scratch='/tmp/matriz-product-previews';
+const selected=process.argv.find(arg=>arg.startsWith('--only='))?.slice(7).split(',');
 await fs.mkdir(scratch,{recursive:true});
 const W=1440,H=900;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
@@ -55,6 +56,7 @@ function spreadsheet(title,accent,tabs,formula='=SUM(Vendas!G2:G7)'){
  rect(0,848,W,52,'#eff3f5');text(23,881,'‹   ›',24,'#6a7e88');let tx=112;tabs.forEach((t,i)=>{const tw=t.length*9+28;if(i===0){rect(tx,854,tw,37,'#fff');line(tx,890,tx+tw,890,accent,3);}text(tx+13,879,t,13,i===0?accent:'#6d7f8a',i===0?600:400);tx+=tw;});text(1398,881,'100%',13,'#667e8b',400,'end');
 }
 async function save(name,description,model={}){
+ if(selected&&!selected.includes(name))return;
  parts.push('</svg>');const svg=parts.join('\n');await fs.writeFile(path.join(scratch,name+'.svg'),svg);
  const input=Buffer.from(svg);await sharp(input).png().toFile(path.join(out,name+'.png'));await sharp(input).webp({lossless:true}).toFile(path.join(out,name+'.webp'));
  const image=await sharp(path.join(out,name+'.png')).metadata();if(image.width!==W||image.height!==H)throw new Error('Incorrect canvas size');
@@ -75,28 +77,31 @@ const productInputs=[
 const pricing=productInputs.map(([product,yieldQty,recipe,labor,price,qty])=>{const ingredientCost=sum(Object.entries(recipe).map(([k,v])=>ingredients[k]*v));const cost=(ingredientCost+labor)/yieldQty+ingredients.embalagem;const fee=.08,revenue=price*qty,directCost=cost*qty,fees=revenue*fee;return{product,cost,price,qty,fee,revenue,directCost,fees,profit:revenue-directCost-fees,suggested:cost/(1-.45-fee),margin:(price-cost-price*fee)/price};});
 const revenue=sum(pricing.map(p=>p.revenue)),directCost=sum(pricing.map(p=>p.directCost)),profit=sum(pricing.map(p=>p.profit));
 if(Math.abs(profit-(revenue-directCost-revenue*.08))>.000001)throw new Error('Pricing reconciliation failed');
-// Pricing is a working price worksheet: a large cell grid, editable inputs and a selected-product calculator.
-spreadsheet('Pricing & Sales Manager','#21664a',['Precificação','Insumos','Receitas','Vendas','Dashboard'],'=C7/(1-Config!B4-Config!B5)');
-text(76,250,'PRECIFICAÇÃO DOS PRODUTOS',25,'#214c39',700);text(76,279,'Confeitaria demonstrativa · custos por unidade e preço de venda',15,'#647e6b');
-pill(678,253,'Células amarelas: entradas','#fff3c7','#7e672b',268);
-const pricingCols=[250,143,146,144,153],pricingX=76,pricingY=312,pricingWidth=sum(pricingCols);
-rect(pricingX,pricingY,pricingWidth,45,'#21664a');
-['Produto','Custo unit.','Preço atual','Preço ideal¹','Margem atual'].forEach((s,i)=>text(pricingX+sum(pricingCols.slice(0,i))+14,pricingY+29,s,16,'#fff',600));
-pricing.forEach((p,i)=>{const y=pricingY+45+i*48;rect(pricingX,y,pricingWidth,48,i===0?'#eaf3eb':i%2?'#f7faf6':'#fff');rect(pricingX+393,y,146,48,'#fff3c7');let x=pricingX;[p.product,currency(p.cost),currency(p.price),currency(p.suggested),percent(p.margin)].forEach((s,j)=>{text(x+14,y+31,s,j===0?17:18,j===4?(p.margin<.45?'#af6630':'#21664a'):'#294f3b',j===0||j===3?600:400);line(x,y,x,y+48,'#dce6dc');x+=pricingCols[j];});line(pricingX,y+48,pricingX+pricingWidth,y+48,'#dce6dc');});
-rect(pricingX+539,pricingY+45,144,48,'none','#26704e');rect(pricingX+679,pricingY+89,6,6,'#26704e');
-text(76,684,'¹ Margem desejada: 45% · taxa do canal: 8%',14,'#58745e');
-text(76,726,'COMPOSIÇÃO DO CUSTO · BROWNIE',14,'#456449',700);
-const brownie=pricing[0],recipeCost=brownie.cost-1-ingredients.embalagem;
-let costStart=76;[[recipeCost,'#4c8964'],[1,'#92b191'],[ingredients.embalagem,'#cfdfc3']].forEach(([v,c])=>{const w=pricingWidth*v/brownie.cost;rect(costStart,745,w,22,c);costStart+=w;});
-[['Insumos',recipeCost,'#4c8964'],['Produção',1,'#92b191'],['Embalagem',ingredients.embalagem,'#cfdfc3']].forEach(([l,v,c],i)=>{circle(82+i*278,796,5,c);text(95+i*278,802,l+' · '+currency(v),15,'#456449');});
-rect(970,224,427,602,'#f1f6ed','#d1dfce',6);text(996,260,'CALCULADORA DE PREÇO',14,'#4e6d50',700);text(996,306,'Brownie',33,'#214c39',700);
-text(996,350,'Custo por unidade',15,'#68836a');text(1370,350,currency(brownie.cost),21,'#214c39',600,'end');line(996,371,1370,371,'#d5e2d1');
-text(996,410,'Margem desejada',17,'#4c694f');rect(1256,383,114,41,'#fff3c7','#e2d5a3',3);text(1313,410,'45%',20,'#6d602c',600,'middle');
-text(996,465,'Taxa de venda',17,'#4c694f');rect(1256,438,114,41,'#fff3c7','#e2d5a3',3);text(1313,465,'8%',20,'#6d602c',600,'middle');
-rect(994,509,378,151,'#21664a','none',5);text(1017,543,'PREÇO SUGERIDO',14,'#b9d4bf',600);text(1017,606,currency(brownie.suggested),52,'#fff',700);text(1017,641,'Custo ÷ (1 − margem − taxa)',14,'#c8e0ca');
-text(996,704,'Preço praticado',16,'#57755c');text(1370,704,currency(brownie.price),24,'#214c39',600,'end');text(996,750,'Ajuste sugerido',16,'#57755c');text(1370,750,'+ '+currency(brownie.suggested-brownie.price),24,'#8a6728',600,'end');
-text(996,794,'Valores fictícios para demonstrar o cálculo',13,'#6b806b');
-await save('demo-pricing-sales','Planilha de precificação com células editáveis, custos por produto e calculadora de margem.',{ingredients,products:pricing,revenue,directCost,profit,targetMargin:.45,channelFee:.08,composition:'worksheet-and-price-calculator'});
+// Pricing v2: a quiet worksheet with a real table, a cost/price chart and one selected formula.
+const sheetInk='#243b32',sheetMuted='#718079',sheetGreen='#21694f';
+begin('#fff');rect(0,0,W,62,'#1e5c46');text(30,41,'▦',27,'#fff');text(80,39,'Precificação e vendas',23,'#fff',600);pill(1192,17,'DEMONSTRAÇÃO','#ffffff','#2d6450',216);
+rect(0,62,W,46,'#f7f9f7');['Arquivo','Editar','Exibir','Inserir','Formatar','Dados'].forEach((label,i)=>text(28+i*119,92,label,16,'#5c6e63'));
+text(1398,92,'Alterações demonstrativas',14,'#75877b',400,'end');line(0,108,W,108,'#dce5de');
+rect(0,109,W,42,'#fff');rect(12,116,91,27,'#f7f9f7','#d8e2da',3);text(57,136,'F5',14,sheetInk,600,'middle');text(124,137,'fx',17,sheetMuted);text(170,137,'=C5/(1-45%-8%)',16,sheetInk);line(0,151,W,151,'#dbe4dd');
+const colEdges=[42,64,316,463,610,756,900,938,1158,1378,1440];
+rect(0,152,W,27,'#f0f4f0');colEdges.slice(0,-1).forEach((x,i)=>{line(x,152,x,179,'#d8e2da');text((x+colEdges[i+1])/2,171,String.fromCharCode(65+i),12,'#718478',400,'middle');});
+rect(0,179,42,668,'#f1f5f1');for(let i=1;i<=13;i++)text(26,163+i*52,String(i),12,'#839489',400,'end');
+// Light sheet grid remains visible only around the formatted ranges.
+for(let y=179;y<847;y+=52)line(42,y,W,y,'#edf1ec');colEdges.forEach(x=>line(x,179,x,847,'#edf1ec'));
+rect(64,187,1336,127,'#fff');text(76,235,'Precificação de produtos',34,sheetInk,600);text(78,274,'Precificação por unidade · confeitaria de demonstração',18,sheetMuted);
+text(1390,232,'MARGEM ALVO',12,sheetMuted,600,'end');text(1390,262,'45%',25,sheetGreen,600,'end');text(1390,290,'Taxa sobre a venda: 8%',14,sheetMuted,400,'end');
+const pricingCols=[252,147,147,146,144],pricingX=64,pricingY=333,pricingWidth=sum(pricingCols);
+rect(pricingX,pricingY,pricingWidth,48,'#e7efe8');['Produto','Custo unit.','Venda','Margem','Sugestão¹'].forEach((label,i)=>text(pricingX+sum(pricingCols.slice(0,i))+16,pricingY+31,label,16,sheetInk,600));
+pricing.slice(0,5).forEach((p,i)=>{const y=pricingY+48+i*58;rect(pricingX,y,pricingWidth,58,i===0?'#edf5ee':'#fff');rect(pricingX+399,y,147,58,'#fff8dd');let x=pricingX;[p.product,currency(p.cost),currency(p.price),percent(p.margin),currency(p.suggested)].forEach((value,j)=>{text(x+16,y+36,value,j===0?18:20,j===3?(p.margin<.45?'#a66c2b':sheetGreen):sheetInk,j===0||j===4?600:400);x+=pricingCols[j];});line(pricingX,y+58,pricingX+pricingWidth,y+58,'#e1e9df');});
+rect(pricingX+692,pricingY+48,144,58,'none',sheetGreen,0);rect(pricingX+832,pricingY+102,7,7,sheetGreen);
+rect(952,319,444,352,'#fff','#e1e8df',2);text(978,357,'Custo e preço de venda',22,sheetInk,600);circle(987,387,5,'#b2c7b8');text(1000,392,'Custo',13,sheetMuted);circle(1107,387,5,sheetGreen);text(1120,392,'Venda',13,sheetMuted);
+const comparison=pricing.slice(0,4),chartLeft=1108,chartWidth=257,chartMax=16;
+comparison.forEach((p,i)=>{const y=419+i*53;text(978,y+18,['Brownie','Bolo','Cookie','Torta'][i],14,sheetMuted);rect(chartLeft,y,chartWidth*p.cost/chartMax,10,'#b2c7b8','none',2);rect(chartLeft,y+15,chartWidth*p.price/chartMax,10,sheetGreen,'none',2);});
+text(chartLeft,655,'R$ 0',11,sheetMuted);text(chartLeft+chartWidth/2,655,'8',11,sheetMuted,400,'middle');text(chartLeft+chartWidth,655,'16',11,sheetMuted,400,'end');
+rect(64,688,836,139,'#fff');text(78,718,'Como ler esta planilha',17,sheetInk,600);rect(79,740,15,15,'#fff2c9','#eadc9c');text(107,753,'Você informa o preço de venda nas células amarelas.',15,sheetMuted);text(78,789,'¹ Sugestão = custo ÷ (1 − margem alvo − taxa de venda).',15,sheetMuted);text(78,817,'Valores fictícios. Fórmulas calculadas para esta demonstração.',12,'#8a978e');
+const brownie=pricing[0];rect(952,702,444,125,'#e7efe8');text(975,732,'SUGESTÃO PARA O BROWNIE',13,sheetGreen,600);text(975,786,currency(brownie.suggested),44,sheetGreen,600);text(1372,787,'por unidade',14,sheetMuted,400,'end');
+rect(0,848,W,52,'#f1f5f0');text(25,880,'‹   ›',22,sheetMuted);rect(104,854,164,39,'#fff');line(104,893,268,893,sheetGreen,3);text(125,879,'Precificação',15,sheetGreen,600);text(301,879,'Insumos',15,sheetMuted);text(438,879,'Receitas',15,sheetMuted);text(575,879,'Vendas',15,sheetMuted);text(1401,879,'100%',14,sheetMuted,400,'end');
+await save('demo-pricing-sales-v2','Planilha de precificação com tabela legível, comparação de custo e venda e preço sugerido por fórmula.',{ingredients,products:pricing,revenue,directCost,profit,targetMargin:.45,channelFee:.08,comparisonProducts:comparison.map(p=>p.product),composition:'pricing-worksheet-and-comparison-chart'});
 
 // Sales is an exportable business report, with vertical ranking columns and a category donut.
 const sales=source.sales;
@@ -172,25 +177,25 @@ available.forEach((v,i)=>{const bh=(energyBase-energyTop)*v/180,rh=(energyBase-e
 circle(1170,685,4,'#79bda0');text(1181,690,'Realizada',12,'#a8c9b8');circle(1292,685,4,'#e6bc65');text(1303,690,'Restrição',12,'#a8c9b8');footer('Dados sintéticos · mapa e cenário de aproveitamento ilustrativos',true);
 await save('demo-curtailment','Console operacional com mapa de unidades renováveis, restrições horárias e cenário de bateria e carga flexível.',{available,realized,loss,recovered,remaining:loss-recovered,battery:26,flexibleLoad:62,riskProbability:.68,composition:'operations-map-and-dispatch'});
 
-// Movimento shows the actual task: prescribing a workout and logging sets on a companion phone.
-begin('#eeeae3');rect(0,0,W,83,'#202422');text(37,51,'MOVIMENTO',27,'#f5eee4',700);text(333,50,'ALUNOS',14,'#aaaead',600);text(479,50,'TREINOS',14,'#ef8a54',700);text(642,50,'EXERCÍCIOS',14,'#aaaead',600);text(833,50,'AVALIAÇÕES',14,'#aaaead',600);pill(1190,26,'DEMONSTRAÇÃO','#40453f','#e3e6dc',210);
-text(43,132,'Prescreva. Acompanhe. Evolua.',31,'#252c28',700);text(44,165,'Visão do professor · Aluno 01 · 22 de setembro de 2026',16,'#7d847b');
-rect(40,192,935,638,'#fffdf8','#d7d6cc',8);rect(40,192,935,109,'#df693a','none',8);rect(40,274,935,27,'#df693a');text(65,233,'FICHA DE TREINO / A',13,'#ffe6cd',700);text(64,279,'Força e estabilidade',33,'#fffaf2',700);text(945,235,'4 exercícios',18,'#fff1df',600,'end');text(945,276,'35–45 min',24,'#fff1df',700,'end');
-text(64,339,'EXERCÍCIO',12,'#8b8b7d',700);text(497,339,'SÉRIES',12,'#8b8b7d',700);text(601,339,'REPS',12,'#8b8b7d',700);text(709,339,'CARGA',12,'#8b8b7d',700);text(837,339,'PAUSA',12,'#8b8b7d',700);line(64,358,951,358,'#dcded3');
+// Movimento v2: a desktop workspace with a student record, a large workout table and an inline session log.
+const appInk='#252b34',appMuted='#7b8490',appOrange='#dc7445',appLine='#e4e7eb';
+begin('#f6f7f9');rect(0,0,218,H,'#20262f');rect(28,29,32,32,appOrange,'none',7);text(44,52,'m',22,'#fff',600,'middle');text(72,52,'movimento',20,'#f5f5f6',600);text(30,100,'GESTÃO DE TREINOS',11,'#87909e',600);
+const sideNav=['Visão geral','Alunos','Treinos','Exercícios'];sideNav.forEach((label,i)=>{const y=145+i*61;if(i===1){rect(16,y-29,186,47,'#333d48','none',7);rect(16,y-19,3,27,appOrange,'none',1);}circle(39,y-8,5,i===1?appOrange:'#667381');text(58,y,label,17,i===1?'#fff':'#9ea8b5',i===1?600:400);});
+line(24,764,194,764,'#3a424c');circle(44,804,18,'#39424e');text(44,810,'P',14,'#c3ccd8',600,'middle');text(74,800,'Professor',14,'#eef0f4',600);text(74,822,'Demonstração',11,'#929eac');
+rect(218,0,W-218,77,'#fff');line(218,77,W,77,appLine);text(256,46,'Alunos',15,appMuted);text(334,46,'/',15,'#c0c6cd');text(359,46,'Aluno 01',15,appInk,600);pill(1184,24,'DEMONSTRAÇÃO','#f1f3f5','#7d8792',218);
+text(255,139,'Aluno 01',36,appInk,600);pill(453,113,'Treino ativo','#e7f0e8','#467952',127);text(256,178,'Ficha de treino e acompanhamento do aluno',18,appMuted);
+rect(1213,113,190,47,appOrange,'none',7);text(1308,143,'Salvar alterações',15,'#fff',600,'middle');
+[['Treino atual',256],['Progresso',416],['Histórico',555]].forEach(([label,x],i)=>text(x,233,label,16,i===0?appInk:appMuted,i===0?600:400));line(256,253,1404,253,appLine);line(256,253,363,253,appOrange,3);
+rect(256,282,796,441,'#fff',appLine,9);text(285,327,'Força e estabilidade',28,appInk,600);text(285,359,'Treino A · 4 exercícios · 35–45 min',16,appMuted);
+const tx=[285,695,822,917];['EXERCÍCIO','SÉRIES','REPS','CARGA'].forEach((v,i)=>text(tx[i],405,v,11,appMuted,600));line(284,421,1023,421,appLine);
 const exercises=[['Agachamento',4,'8','72,5 kg','90 s'],['Leg press',3,'12','120 kg','60 s'],['Remada baixa',3,'10','35 kg','60 s'],['Prancha',3,'45 s','Corporal','45 s']];
-exercises.forEach(([name,sets,reps,load,rest],i)=>{const y=371+i*71;if(i===0)rect(55,y-4,905,66,'#faf0e5','none',4);circle(85,y+29,18,i===0?'#df693a':'#e8e9df');text(85,y+35,String(i+1).padStart(2,'0'),13,i===0?'#fff':'#777f70',700,'middle');text(119,y+36,name,22,'#343d31',600);text(520,y+36,String(sets),22,'#57614f',500,'middle');text(620,y+36,reps,22,'#57614f',500,'middle');text(710,y+36,load,20,'#57614f',600);text(851,y+36,rest,20,'#57614f');line(64,y+66,951,y+66,'#e6e7dc');});
-text(65,704,'EVOLUÇÃO · AGACHAMENTO',13,'#8b8b7d',700);chart(49,716,449,106,[60,65,70,72.5],['01/09','08/09','15/09','22/09'],{color:'#df693a',max:80,ticks:2});
-line(534,688,534,809,'#e1e2d7');text(571,717,'+12,5 kg',31,'#df693a',700);text(572,750,'de carga no período demonstrativo',16,'#87907e');text(572,789,'Observação: priorizar a execução.',16,'#65715b');
-// Draw the phone as a second, deliberately different interaction surface.
-rect(1040,112,351,724,'#1b201d','none',43);rect(1052,125,327,696,'#faf8f0','none',34);rect(1149,136,136,22,'#1b201d','none',11);text(1080,182,'09:41',12,'#66705e',600);text(1352,182,'100%',12,'#66705e',500,'end');
-text(1076,225,'SEU TREINO',12,'#919782',700);text(1076,263,'Treino A',32,'#303b2d',700);text(1076,293,'Aluno 01 · Força',16,'#8d9580');
-rect(1071,316,289,165,'#303b2d','none',14);text(1091,345,'EM ANDAMENTO',11,'#c1c9a7',700);text(1091,382,'Agachamento',23,'#fffdf4',600);text(1091,433,'72,5',42,'#ecc88e',700);text(1203,432,'kg',19,'#c1c9a7');text(1091,461,'4 séries × 8 repetições',15,'#c1c9a7');
-text(1076,519,'Séries desta sessão',17,'#525e47',600);
-for(let i=0;i<4;i++){const x=1083+i*71;circle(x+22,558,22,i<2?'#d86a3a':'#eeeadb',i===2?'#d86a3a':'none',2);text(x+22,565,i<2?'✓':String(i+1),19,i<2?'#fff':'#9b9e88',600,'middle');}
-text(1076,614,'2 de 4 séries registradas',15,'#8b927d');rect(1071,637,289,48,'#ebe8da','none',8);text(1091,667,'Próxima série',14,'#6f785e');text(1340,667,'8 reps',18,'#414e37',600,'end');
-rect(1071,708,289,60,'#d86a3a','none',10);text(1216,746,'Registrar série',20,'#fff9eb',700,'middle');text(1216,800,'TREINO   /   PROGRESSO   /   PERFIL',10,'#8b927d',600,'middle');
-footer('Demonstração de prescrição e registro de treino · aluno e cargas fictícios');
-await save('demo-movimento','Ficha de treino do professor com séries e cargas, ao lado de um celular para registrar a sessão do aluno.',{activeStudents:30,weeklySessions:[18,23,24,27],loadKg:[60,65,70,72.5],exercises,loggedSets:2,totalSets:4,composition:'workout-sheet-and-mobile'});
+exercises.forEach(([name,sets,reps,load],i)=>{const y=423+i*66;if(i===0)rect(271,y,765,64,'#fcf3ed','none',4);rect(285,y+16,30,30,i===0?'#f4ddcf':'#eff1f4','none',6);text(300,y+37,String(i+1).padStart(2,'0'),11,i===0?'#bc6a3d':'#88929e',600,'middle');text(329,y+39,name,21,appInk,600);text(tx[1]+16,y+39,String(sets),21,appInk,400,'middle');text(tx[2]+16,y+39,reps,21,appInk,400,'middle');text(tx[3],y+39,load,19,appInk,600);line(285,y+65,1022,y+65,appLine);});
+rect(1080,282,324,441,'#fff',appLine,9);text(1105,321,'REGISTRO DO ALUNO',11,appMuted,600);text(1105,361,'Agachamento',23,appInk,600);text(1105,392,'Série em andamento',15,appMuted);text(1105,468,'72,5',54,appInk,600);text(1251,467,'kg',22,appMuted);
+for(let i=0;i<4;i++){rect(1105+i*71,505,60,9,i<2?appOrange:'#e9edf1','none',4);text(1135+i*71,543,i<2?'✓':String(i+1),16,i<2?appOrange:'#9ba4af',600,'middle');}
+text(1105,581,'2 de 4 séries registradas',15,appMuted);rect(1105,607,274,49,appOrange,'none',7);text(1242,638,'Registrar série',16,'#fff',600,'middle');text(1242,694,'4 séries × 8 repetições',14,appMuted,400,'middle');
+rect(256,747,1148,114,'#fff',appLine,9);text(284,783,'EVOLUÇÃO DE CARGA',11,appMuted,600);text(284,821,'Agachamento',20,appInk,600);text(484,821,'+12,5 kg',22,appOrange,600);chart(628,753,746,101,[60,65,70,72.5],['01/09','08/09','15/09','22/09'],{color:appOrange,max:80,ticks:2});
+text(256,887,'Demonstração visual · aluno, registros e cargas fictícios',12,appMuted);text(1404,887,'MATRIZ / sistemas para negócios',12,appMuted,400,'end');
+await save('demo-movimento-v2','Tela de gestão de treino com ficha do aluno, exercícios, registro de séries e evolução de carga, sem moldura de celular.',{activeStudents:30,weeklySessions:[18,23,24,27],loadKg:[60,65,70,72.5],exercises,loggedSets:2,totalSets:4,composition:'student-workspace-and-session-log'});
 
 // ClientFlow is a full weekly calendar with a selected appointment and a customer detail drawer.
 begin('#f3f5f0');rect(0,0,W,84,'#fff');text(34,51,'ClientFlow',27,'#234f47',700);[['Agenda',265],['Clientes',411],['Orçamentos',560],['Serviços',754]].forEach(([s,x],i)=>text(x,49,s,16,i===0?'#277a68':'#8b9690',i===0?600:400));line(263,66,321,66,'#277a68',3);pill(1187,26,'DEMONSTRAÇÃO','#e8efeb','#557468',212);

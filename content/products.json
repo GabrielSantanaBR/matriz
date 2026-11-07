@@ -122,7 +122,7 @@
       "projeto_academia",
       "clientflow"
     ],
-    "example_caption": "Movimento: prévia ilustrativa de ficha de treino e registro pelo aluno.",
+    "example_caption": "Movimento: prévia ilustrativa de gestão de treinos e acompanhamento do aluno.",
     "format": "Sistema adaptado à sua operação",
     "question": "Qual é o seu segmento, como funciona o atendimento e o que hoje dá mais trabalho?",
     "purpose": "Organizar a operação",
@@ -170,7 +170,7 @@
       "bakery-manager",
       "csv-sales-analyzer"
     ],
-    "example_caption": "Prévia ilustrativa de uma planilha de custos e formação de preços.",
+    "example_caption": "Prévia ilustrativa de precificação, margens e comparação entre custo e venda.",
     "format": "Planilha preparada para o seu uso",
     "question": "O que você quer controlar e usa Excel ou Google Planilhas?",
     "purpose": "Simplificar o controle",
