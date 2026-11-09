@@ -1,3 +1,17 @@
+# Acabamento visual e navegação — 09/11/2026
+
+A primeira tela recebeu uma hierarquia mais direta: título e descrição com leitura mais clara, menos textos repetidos e acesso aos quatro produtos logo após a apresentação. O símbolo oficial da MATRIZ foi preservado, com escala ajustada ao espaço disponível e sem partículas decorativas adicionais. A faixa laranja suave e a distribuição fluida aprovadas permanecem.
+
+Botões, setas, imagens e estados de navegação receberam acabamento consistente: raio discreto, sombras leves, foco visível e indicação de página atual. Setas verticais indicam atalhos dentro da página, horizontais indicam navegação interna e diagonais permanecem nos destinos externos. As páginas de exemplos e contratação têm aberturas mais compactas. O contato usa título mais direto e formulário em uma superfície única, com campos e estados de foco mais definidos.
+
+A navegação entre os quatro produtos acompanha a rolagem no computador; os destinos consideram a altura do cabeçalho e das abas. No Chromium, o topo das abas ficou em 88 px, sua base em 152 px e o destino de exemplos em 174 px, sem esconder o título. O caminho de Sistemas para negócios ao contato preservou produto e contexto. Menu móvel abriu e fechou com Escape; o filtro Planilhas exibiu dois exemplos e a ampliação carregou a imagem de 1440 px. Nenhuma mensagem externa foi enviada.
+
+Validação: os 17 testes Node e a auditoria da fonte passaram; build, auditoria de dist e git diff --check passaram após o ajuste final das setas. Foram verificadas 32 combinações: home, quatro produtos, contato, exemplos e contratação em 360, 768, 1366 e 3840 px, sem overflow horizontal nem imagens carregadas quebradas. A inspeção visual cobriu home desktop e 390 px, contato e exemplos do produto. Viewports CSS em iframe e Chromium; aparelhos físicos, Safari e controles reais de zoom não foram testados. Não há medição de conversão.
+
+Registros: `docs/qa/matriz-visual-finish-home-20261109.jpg`, `docs/qa/matriz-visual-finish-contact-20261109.jpg` e `docs/qa/matriz-visual-finish-checks-20261109.json`. Backup anterior: `backup/pre-visual-finish-2026-11-09`, commit `26877bfdf54d896fe2c0f7c31604854e16ca8689`.
+
+---
+
 # Faixa laranja e distribuição fluida — 09/11/2026
 
 A faixa de contato voltou a ser laranja, conforme a preferência do usuário. Foi usado um tom menos saturado (#d99463), com texto escuro, botão escuro e menor altura no computador. O laranja principal da marca permanece #ff8a45 nos demais pontos do site.
