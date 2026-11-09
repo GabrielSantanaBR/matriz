@@ -1,3 +1,17 @@
+# Limpeza da apresentação comercial — 09/11/2026
+
+A home reúne contratação e processo em uma seção de três etapas: conversa, proposta e entrega. As dúvidas passaram de cinco para quatro perguntas, mantendo a escolha da solução, custos recorrentes, maturidade dos exemplos, suporte, acessos e dados. As condições completas continuam na página de contratação. O contato compartilhado usa fundo escuro e um botão laranja; o rodapé mantém privacidade e segurança em um grupo próprio. A barra decorativa de progresso do cabeçalho foi retirada.
+
+Os oito exemplos usam imagem ampliável, título, descrição curta, uma indicação de natureza/estágio e um link de detalhes. Foram retirados os rótulos repetidos, etiquetas com moldura e links duplicados por cartão. Títulos comerciais em português foram acrescentados sem mudar nomes dos repositórios, URLs ou conteúdo técnico dos projetos. Os filtros passaram a usar abas discretas. As referências técnicas continuam disponíveis em uma área recolhida. Nenhuma imagem aprovada foi modificada.
+
+Na verificação de navegação foi encontrado um problema anterior: o CTA inferior de um caso abria um contato genérico. Ele agora leva o produto e o exemplo ao formulário. No navegador, partir de Precificação e vendas selecionou Planilhas e preencheu a referência na mensagem. Nenhum envio real foi realizado.
+
+Validação: 17 testes Node, auditoria da fonte, build, auditoria da saída pública e `git diff --check` aprovados após a correção. Foram conferidas 15 combinações de viewport (360, 390 e 768 px) em home, exemplos, um produto, contratação e contato, sem overflow horizontal ou imagens carregadas quebradas. Os cinco filtros retornaram 1, 3, 2, 2 e 8 exemplos; a imagem ampliada carregou em 1440 px. Também foram verificados detalhes de projeto, acordeão de dúvidas e pedido contextual. Os viewports móveis são simulados em iframe, não aparelhos físicos; não há medição de conversão.
+
+Registros visuais: `docs/qa/matriz-projetos-final-clean-20261109.jpg` e `docs/qa/matriz-home-final-clean-20261109.jpg`, da versão local validada. Backup anterior: `backup/pre-clean-presentation-2026-11-09`, commit `bef8a5cd5f230f555f576e802a737bfa5a95ada9`.
+
+---
+
 # Duas imagens de produto renovadas — 07/11/2026
 
 A pedido do usuário, foram refeitas somente as prévias de Movimento (Sistemas para negócios) e Pricing & Sales Manager (Planilhas de controle). A primeira apresenta um ambiente de gestão de treinos, com ficha do aluno, tabela de exercícios, registro de séries e gráfico de evolução, sem o telefone desenhado. A segunda simplifica a planilha em uma tabela de custos, preços e margens, com gráfico comparativo e sugestão calculada de preço. As composições foram feitas por código e continuam identificadas como demonstrações, com dados fictícios.
