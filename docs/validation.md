@@ -1,3 +1,17 @@
+# Faixa laranja e distribuição fluida — 09/11/2026
+
+A faixa de contato voltou a ser laranja, conforme a preferência do usuário. Foi usado um tom menos saturado (#d99463), com texto escuro, botão escuro e menor altura no computador. O laranja principal da marca permanece #ff8a45 nos demais pontos do site.
+
+O limite global de 1440 px do contêiner foi retirado. As áreas passam a usar a largura disponível com margens proporcionais, mantendo limites de leitura em textos específicos. A home preserva a apresentação alternada nas larguras usuais, passa a duas colunas de produtos a partir de 1800 px e quatro a partir de 3000 px. A grade de exemplos usa auto-fit; os exemplos nas páginas de produto também se ajustam à largura. Não foram usados zoom CSS, transformações para compensar zoom nem interceptação dos controles do navegador.
+
+A prévia manual recebeu opções de 2560, 3840 e 5120 px. Foram verificadas 32 combinações de layout: home, exemplos e Sites em 1920/2560/3840/5120 px; home, exemplos, Sites, contato e contratação em 360/390/768/1366 px. Não houve overflow horizontal ou imagens carregadas quebradas. A home apresentou 2/2/4/4 colunas de produtos, e a lista de exemplos 3/5/7/8 colunas nas quatro larguras amplas. O contêiner preenche a largura da página em vez de permanecer limitado à coluna central anterior.
+
+Os 17 testes Node, build, auditorias da fonte e do dist e git diff --check passaram. As larguras são simuladas em iframe. Uma tentativa de atalho de zoom no navegador remoto não alterou a escala; portanto, o reflow foi verificado pelas larguras CSS, sem alegar validação dos controles de zoom de um navegador físico. As interações não foram alteradas e nenhum contato foi enviado.
+
+Registros visuais: `docs/qa/matriz-soft-orange-20261109.jpg` (faixa, navegador normal) e `docs/qa/matriz-fluid-wide-20261109.jpg` (home em viewport de teste de 1920 px). Backup: `backup/pre-fluid-layout-2026-11-09`, commit `4bad40acc301c3516d03f9ce7f30a27ae3f16030`.
+
+---
+
 # Limpeza da apresentação comercial — 09/11/2026
 
 A home reúne contratação e processo em uma seção de três etapas: conversa, proposta e entrega. As dúvidas passaram de cinco para quatro perguntas, mantendo a escolha da solução, custos recorrentes, maturidade dos exemplos, suporte, acessos e dados. As condições completas continuam na página de contratação. O contato compartilhado usa fundo escuro e um botão laranja; o rodapé mantém privacidade e segurança em um grupo próprio. A barra decorativa de progresso do cabeçalho foi retirada.
