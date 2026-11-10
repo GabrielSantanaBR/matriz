@@ -1,3 +1,19 @@
+# Clareza, exemplos e apresentação humana — 10/11/2026
+
+A abertura passou a dizer “Sites e sistemas para a rotina do seu negócio”, seguida dos quatro produtos. A logo oficial foi reduzida de 430 para 250 px no computador; no celular, a marca do cabeçalho permanece e a repetição grande da abertura sai da leitura. Os atalhos aos produtos e o link direto aos exemplos aparecem antes. A faixa laranja suave e o layout fluido aprovados foram preservados.
+
+Os oito exemplos receberam público e uso cotidiano, com textos próprios em `customer_context` de `content/projects.json`. O contexto acompanha as prévias da home, as páginas de produto e a vitrine de exemplos. Demonstrações, propostas e interfaces anonimizadas mantêm suas identificações. Legendas, estados, descrições e textos auxiliares tiveram tamanho e contraste ampliados, sem alterar as imagens aprovadas.
+
+A home apresenta Gabriel Santana como responsável, com texto de apresentação, acesso ao perfil profissional e contato. A identidade textual usa iniciais; nenhuma foto de equipe foi inventada. Uma foto real adequada não foi localizada entre os materiais disponíveis. A página de contato permite começar por uma conversa no LinkedIn ou ir ao formulário. O botão identifica o destino para evitar uma troca de canal inesperada.
+
+`content/studio.json` centraliza a apresentação e o contato público. O campo WhatsApp permanece vazio porque não foi fornecido um número com DDD, mesmo após a solicitação. Enquanto vazio, nenhum botão de WhatsApp ou número fictício é publicado. A integração preparada valida o formato brasileiro e monta a mensagem com produto e exemplo quando disponíveis; ativa os acessos na apresentação, contato, rodapé e faixa compartilhada quando um número válido for informado. Foram verificadas configuração vazia, composição contextual e rejeição de quatro formatos inválidos, sem abrir ou enviar mensagens. A foto e a ativação do WhatsApp dependem do envio desses materiais pelo responsável.
+
+Validação: os 17 testes Node e a auditoria da fonte passaram. Build, auditorias da fonte e da saída pública e `git diff --check` passaram após o ajuste final do texto. No Chromium, 32 combinações (home, quatro produtos, contato, exemplos e contratação em 360, 768, 1366 e 3840 px) não apresentaram overflow horizontal nem imagens carregadas quebradas. Houve inspeção adicional da home em 390 px e da quebra final do título em 360 px. O menu móvel abriu e fechou por Escape; o filtro Planilhas exibiu dois exemplos; a imagem ampliada carregou em 1440 px. O CTA inferior de Sistemas preservou produto e mensagem no contato. Nenhum envio real foi realizado. Viewports CSS em iframe, sem aparelhos físicos, Safari ou medição de conversão.
+
+Registros: `docs/qa/matriz-clarity-home-20261110.jpg`, `docs/qa/matriz-clarity-about-20261110.jpg` e `docs/qa/matriz-clarity-checks-20261110.json`. Backup local e remoto da versão anterior: `backup/pre-clarity-trust-2026-11-10`, commit `631cef5012b824977cab56cd0134406a5847ae97`.
+
+---
+
 # Acabamento visual e navegação — 09/11/2026
 
 A primeira tela recebeu uma hierarquia mais direta: título e descrição com leitura mais clara, menos textos repetidos e acesso aos quatro produtos logo após a apresentação. O símbolo oficial da MATRIZ foi preservado, com escala ajustada ao espaço disponível e sem partículas decorativas adicionais. A faixa laranja suave e a distribuição fluida aprovadas permanecem.

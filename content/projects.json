@@ -75,7 +75,11 @@
     "product": "sistemas",
     "card_title": "ClientFlow",
     "card_summary": "Clientes, agenda e orçamentos em um só lugar.",
-    "card_note": "Prévia ilustrativa"
+    "card_note": "Prévia ilustrativa",
+    "customer_context": {
+      "audience": "Negócios que trabalham com horários, serviços e clientes.",
+      "routine": "O fluxo proposto reúne cliente, serviço e horário em uma agenda."
+    }
   },
   {
     "repo": "decisionforge-ai",
@@ -222,7 +226,11 @@
     "product": "sites",
     "card_title": "Nossas Delícias",
     "card_summary": "Catálogo, pedidos e montagem de bolos para uma confeitaria.",
-    "card_note": "Em evolução"
+    "card_note": "Em evolução",
+    "customer_context": {
+      "audience": "Confeitarias com produtos personalizados e pedidos variados.",
+      "routine": "O cliente conhece os doces e percorre a montagem do seu pedido."
+    }
   },
   {
     "repo": "curtailment-intelligence",
@@ -378,7 +386,11 @@
     "product": "sistemas",
     "card_title": "Movimento",
     "card_summary": "Treinos e acompanhamento de alunos para academias.",
-    "card_note": "Prévia ilustrativa"
+    "card_note": "Prévia ilustrativa",
+    "customer_context": {
+      "audience": "Academias, professores e alunos.",
+      "routine": "O professor organiza a ficha e o aluno registra séries, cargas e repetições."
+    }
   },
   {
     "repo": "finance-manager",
@@ -452,7 +464,11 @@
     "product": "financeiro",
     "card_title": "Gestão financeira",
     "card_summary": "Receitas, despesas e contas em uma visão organizada do financeiro.",
-    "card_note": "Interface anonimizada"
+    "card_note": "Interface anonimizada",
+    "customer_context": {
+      "audience": "Negócios com receitas, despesas e mais de uma pessoa no controle.",
+      "routine": "Registrar entradas e saídas e consultar o caixa por período."
+    }
   },
   {
     "repo": "bakery-manager",
@@ -529,7 +545,11 @@
     "product": "planilhas",
     "card_title": "Precificação e vendas",
     "card_summary": "Custos e margens organizados para formar preços de venda.",
-    "card_note": "Planilha demonstrativa"
+    "card_note": "Planilha demonstrativa",
+    "customer_context": {
+      "audience": "Quem produz e vende alimentos ou outros produtos.",
+      "routine": "Informar custos e comparar preço de venda, taxas e margem por produto."
+    }
   },
   {
     "repo": "csv-sales-analyzer",
@@ -625,7 +645,11 @@
     "product": "planilhas",
     "card_title": "Análise de vendas",
     "card_summary": "Arquivos de vendas transformados em gráficos e relatórios.",
-    "card_note": "Demonstração"
+    "card_note": "Demonstração",
+    "customer_context": {
+      "audience": "Quem recebe arquivos de vendas e precisa entender os resultados.",
+      "routine": "Importar as vendas e comparar produtos, categorias e períodos."
+    }
   },
   {
     "repo": "coffee_five_site",
@@ -694,7 +718,11 @@
     "product": "sites",
     "card_title": "Coffee Five",
     "card_summary": "Identidade da cafeteria e cardápio em uma navegação simples.",
-    "card_note": "Proposta visual"
+    "card_note": "Proposta visual",
+    "customer_context": {
+      "audience": "Cafeterias com um cardápio que precisa ser fácil de encontrar.",
+      "routine": "O visitante busca produtos e explora as categorias do cardápio."
+    }
   },
   {
     "repo": "projeto-petshop",
@@ -763,7 +791,11 @@
     "product": "sites",
     "card_title": "Pata & Companhia",
     "card_summary": "Catálogo, carrinho e agendamento para a rotina de um pet shop.",
-    "card_note": "Demonstração de interface"
+    "card_note": "Demonstração de interface",
+    "customer_context": {
+      "audience": "Pet shops que apresentam produtos e serviços pela internet.",
+      "routine": "O tutor explora o catálogo, monta o carrinho e conhece o agendamento."
+    }
   },
   {
     "repo": "institutional-site-template",

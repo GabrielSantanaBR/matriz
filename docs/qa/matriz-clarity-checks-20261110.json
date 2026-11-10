@@ -1,0 +1,230 @@
+{
+  "date": "2026-11-10",
+  "checks": [
+    {
+      "page": "index.html",
+      "viewport": "360×800",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "sistema-financeiro.html",
+      "viewport": "360×800",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "sites.html",
+      "viewport": "360×800",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "sistemas-para-negocios.html",
+      "viewport": "360×800",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "planilhas-de-controle.html",
+      "viewport": "360×800",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "contact.html",
+      "viewport": "360×800",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "repertoire.html",
+      "viewport": "360×800",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "prices.html",
+      "viewport": "360×800",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "index.html",
+      "viewport": "768×1024",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "sistema-financeiro.html",
+      "viewport": "768×1024",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "sites.html",
+      "viewport": "768×1024",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "sistemas-para-negocios.html",
+      "viewport": "768×1024",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "planilhas-de-controle.html",
+      "viewport": "768×1024",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "contact.html",
+      "viewport": "768×1024",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "repertoire.html",
+      "viewport": "768×1024",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "prices.html",
+      "viewport": "768×1024",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "index.html",
+      "viewport": "1366×768",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "sistema-financeiro.html",
+      "viewport": "1366×768",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "sites.html",
+      "viewport": "1366×768",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "sistemas-para-negocios.html",
+      "viewport": "1366×768",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "planilhas-de-controle.html",
+      "viewport": "1366×768",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "contact.html",
+      "viewport": "1366×768",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "repertoire.html",
+      "viewport": "1366×768",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "prices.html",
+      "viewport": "1366×768",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "index.html",
+      "viewport": "3840×2160",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "sistema-financeiro.html",
+      "viewport": "3840×2160",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "sites.html",
+      "viewport": "3840×2160",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "sistemas-para-negocios.html",
+      "viewport": "3840×2160",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "planilhas-de-controle.html",
+      "viewport": "3840×2160",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "contact.html",
+      "viewport": "3840×2160",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "repertoire.html",
+      "viewport": "3840×2160",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    },
+    {
+      "page": "prices.html",
+      "viewport": "3840×2160",
+      "overflow": [],
+      "broken": [],
+      "fonts": "loaded"
+    }
+  ],
+  "limits": "Chromium; viewports CSS em iframe. Nenhum contato externo enviado. WhatsApp sem número: não publicado."
+}

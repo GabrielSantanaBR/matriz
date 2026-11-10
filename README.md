@@ -99,3 +99,9 @@ Os registros históricos e a referência `backup/pre-matriz-2026-09-07` continua
 ## Atribuições
 
 Marca e materiais foram fornecidos pelo responsável pelo projeto. Referências visuais mantêm o contexto das respectivas páginas. Este repositório não concede direitos sobre marcas de terceiros nem atribui uma nova licença geral.
+
+## Apresentação e conversa direta
+
+A apresentação de Gabriel e os canais públicos ficam em `content/studio.json`. O campo `whatsapp` vazio mantém o LinkedIn como canal direto e não cria links de WhatsApp. Para ativar, informe o número autorizado para divulgação no formato `55` + DDD + número, somente dígitos. O render rejeita formatos inválidos e compõe mensagens contextualizadas na faixa das páginas de produto/projeto. Não existe número de demonstração publicado.
+
+Os campos `customer_context` em `content/projects.json` descrevem para quem cada exemplo serve e o uso na rotina. Preserve os avisos de demonstração e estágio ao editar os textos. A apresentação atual usa iniciais, sem foto fictícia de equipe.
