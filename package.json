@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "private": true,
   "type": "module",
-  "description": "MATRIZ: sistema financeiro, sites, sistemas para negócios e planilhas de controle.",
+  "description": "MATRIZ: sistema financeiro, sites, sistemas para negócios, planilhas de controle e gestão de tráfego pago no Google Ads.",
   "scripts": {
     "dev": "node server.mjs",
     "build": "python3 scripts/build.py",

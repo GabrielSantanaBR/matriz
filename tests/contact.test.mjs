@@ -14,8 +14,8 @@ test('only an explicit successful service response completes the submission',asy
 test('handles rejection, invalid JSON and rate limits without reporting success',async()=>{await assert.rejects(sendContact(valid,{fetchImpl:async()=>({ok:false,status:429,json:async()=>({})})}),/RATE_LIMIT/);await assert.rejects(sendContact(valid,{fetchImpl:async()=>({ok:true,status:200,json:async()=>{throw new Error('invalid JSON');}})}),/SUBMIT_FAILED/);await assert.rejects(sendContact(valid,{fetchImpl:async()=>{throw new TypeError('Offline');}}),/Offline/);});
 test('aborts a stalled network request',async()=>{await assert.rejects(sendContact(valid,{timeoutMs:5,fetchImpl:async(_,options)=>new Promise((resolve,reject)=>{options.signal.addEventListener('abort',()=>reject(new DOMException('Timeout','AbortError')));})}),{name:'AbortError'});});
 
-test('contact exposes exactly four products plus help and maps old technical links to them',()=>{
-  assert.deepEqual(Object.keys(SERVICE_LABELS).sort(),['financeiro','outro','planilhas','sistemas','web']);
+test('contact exposes four products, paid traffic and help and maps old technical links to them',()=>{
+  assert.deepEqual(Object.keys(SERVICE_LABELS).sort(),['financeiro','outro','planilhas','sistemas','trafego','web']);
   assert.deepEqual(validateFields({...valid,message:'Quero um site para a loja.'}),{});
   assert.equal(LEGACY_SERVICES.automacao,'planilhas');
   assert.equal(LEGACY_SERVICES.dados,'planilhas');

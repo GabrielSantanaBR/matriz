@@ -1,6 +1,6 @@
 # MATRIZ
 
-Quatro produtos: sistema financeiro, sites, sistemas para negócios e planilhas de controle.
+Sistema financeiro, sites, sistemas para negócios, planilhas de controle e gestão de tráfego pago no Google Ads.
 
 **Site:** https://matriz.up.railway.app/
 
@@ -10,7 +10,9 @@ Portfólio estático em HTML, CSS e JavaScript nativo, com fontes locais e sem d
 
 ## Experiência
 
-A home apresenta apenas os quatro produtos de `content/products.json`, cada um com página própria, uso, exemplo visual e pedido de proposta contextualizado. O investimento é definido por escopo; a contratação explica custos recorrentes, suporte, entrega, acessos e dados sem inventar preços ou condições.
+A home apresenta os quatro produtos de `content/products.json`, cada um com página própria, uso, exemplo visual e pedido de proposta contextualizado. O investimento é definido por escopo; a contratação explica custos recorrentes, suporte, entrega, acessos e dados sem inventar preços ou condições.
+
+O serviço de tráfego pago aparece na home, na navegação, no rodapé, na contratação e em `trafego-pago.html`. Inclui até duas campanhas de pesquisa no Google Ads, segmentação por região, medição de conversões, otimizações semanais e relatório mensal. A gestão é mensal sob proposta, com verba de mídia paga diretamente ao Google. Não inclui redes sociais, posts ou produção de fotos e vídeos. O formulário aceita e preserva o interesse `trafego`. Não há casos ou resultados de campanhas inventados.
 
 A página de exemplos contém oito referências ligadas aos quatro produtos. IA, análise de energia e SICMA permanecem no histórico e nas URLs antigas, fora da seleção comercial e do sitemap. As páginas de exemplos identificam propostas, prévias ilustrativas e estágios do trabalho. Código e arquitetura ficam em áreas expansíveis.
 
@@ -76,7 +78,7 @@ npm run build
 python3 tests/audit.py --dist
 ```
 
-A auditoria verifica 22 páginas, 17 URLs indexáveis, links, fragmentos, semântica, metadados, CSP, campos, assets e preservação da logo. Os nove testes Node cobrem contato, respostas inválidas, timeout, categoria financeira, movimento reduzido e filtros do portfólio.
+A auditoria verifica 27 páginas, 19 URLs indexáveis, links, fragmentos, semântica, metadados, CSP, campos, assets e preservação da logo. Os 18 testes Node cobrem contato, respostas inválidas, timeout, categoria financeira, movimento reduzido e filtros do portfólio.
 
 Nesta revisão de 14/10/2026, o navegador de QA não estava disponível. Breakpoints foram revisados no código; as capturas de setembro representam a versão anterior. Não foi enviado contato externo real. A validação do transporte é simulada e não confirma recebimento na caixa de email.
 

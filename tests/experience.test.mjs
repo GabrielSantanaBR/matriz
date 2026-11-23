@@ -143,3 +143,13 @@ test('failed contact remains editable, explains retry cooldown and redirects onl
   assert.equal(f.requests[1].payload.Projeto,'Sistema financeiro');
   assert.equal(f.button.disabled,false);
 });
+
+
+test('paid traffic links preselect the enquiry and submit the matching service',async()=>{
+  const f=contactFixture({service:'',message:'',search:'?service=trafego&project=Tr%C3%A1fego%20pago'});
+  assert.equal(f.form.elements.service.value,'trafego');
+  assert.match(f.form.elements.message.value,/Tenho interesse em Tráfego pago/);
+  await f.submit();
+  assert.equal(f.requests.length,1);
+  assert.equal(f.requests[0].payload.Projeto,'Tráfego pago');
+});

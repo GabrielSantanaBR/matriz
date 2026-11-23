@@ -41,8 +41,8 @@ class Page(HTMLParser):
         return [a for t,a in self.nodes if t == tag and all(a.get(k) == v for k,v in attrs.items())]
 
 pages = {p.name: Page(p) for p in sorted(PUBLIC.glob('*.html'))}
-require(len(pages) == 26, 'Expected 26 HTML pages, including four product pages')
-for required in ['index.html','prices.html','contact.html','thanks.html','404.html','project.html','privacy.html','security.html','repertoire.html','sicma.html']:
+require(len(pages) == 27, 'Expected 27 HTML pages, including four products and paid traffic')
+for required in ['index.html','prices.html','contact.html','thanks.html','404.html','project.html','privacy.html','security.html','repertoire.html','sicma.html','trafego-pago.html']:
     require(required in pages, f'Missing required route {required}')
 
 def local_target(source, value):
@@ -142,7 +142,7 @@ for key,a in fields.items():
 require('botcheck' in fields and fields['botcheck'].get('tabindex') == '-1', 'Honeypot missing or keyboard accessible')
 require(form.matching('p',id='form-status',role='status'), 'Accessible form status missing')
 service_values = {a.get('value') for a in form.matching('option')}
-require(service_values == {'','financeiro','web','sistemas','planilhas','outro'}, 'Contact needs four products and a help option')
+require(service_values == {'','financeiro','web','sistemas','planilhas','trafego','outro'}, 'Contact needs four products, paid traffic and help')
 for page in pages.values():
     for a in page.matching('a'):
         url = urlsplit(a.get('href',''))
@@ -188,7 +188,7 @@ for old in ['logo-matriz.svg','favicon.svg','social-matriz.png']:
 for font in (PUBLIC/'assets/fonts').glob('*.woff2'): require(font.read_bytes()[:4] == b'wOF2', f'{font.name}: invalid WOFF2')
 locs = {n.text for n in ET.parse(PUBLIC/'sitemap.xml').getroot().iter() if n.tag.endswith('}loc')}
 expected = {BASE+('' if name == 'index.html' else name) for name,page in pages.items() if not page.matching('meta',name='robots',content='noindex,follow')}
-require(locs == expected and len(locs) == 18, 'Sitemap must contain the 18 indexable routes')
+require(locs == expected and len(locs) == 19, 'Sitemap must contain the 19 indexable routes')
 require(f'Sitemap: {BASE}sitemap.xml' in (PUBLIC/'robots.txt').read_text(), 'Wrong robots sitemap')
 require(f'Contact: {BASE}contact.html' in (PUBLIC/'.well-known/security.txt').read_text(), 'security.txt contact')
 secret = re.compile(r'(sk-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{30,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----)')
@@ -202,4 +202,4 @@ if '--dist' in sys.argv:
     require((PUBLIC/'dataforge-portfolio/assets/brand/logo-matriz.png').exists(), 'Deep 404 compatibility assets missing')
     require((PUBLIC/'matriz/assets/brand/logo-matriz.png').exists(), 'Current Pages 404 compatibility assets missing')
 if failures: raise SystemExit('Release audit failed:\n'+'\n'.join(failures))
-print(f'Release audit passed: {len(pages)} pages, four products, eight commercial examples, 18 sitemap URLs; links, anchors, SEO, CSP, form, original logo and assets verified.')
+print(f'Release audit passed: {len(pages)} pages, four products, paid traffic, eight commercial examples, 19 sitemap URLs; links, anchors, SEO, CSP, form, original logo and assets verified.')
