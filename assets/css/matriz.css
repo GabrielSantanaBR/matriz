@@ -801,3 +801,15 @@ body.preview-open{overflow:hidden}
 .traffic-costs dt{font-size:21px}
 .traffic-costs dd{margin-top:9px}
 @media(max-width:680px){.catalog-index{column-gap:16px}.traffic-scope-grid{row-gap:30px}.traffic-page .traffic-investment{padding:28px 20px;margin-block:12px}.traffic-costs>div+div{margin-top:24px}.technical-details{padding-inline:14px}}
+/* A shorter introduction leads straight to the offers and their examples. */
+.page-home .hero-layout{padding-bottom:8px}
+.page-home .hero-graphic{padding-bottom:0}
+.page-home .catalog-section{padding-top:48px}
+.catalog-section .section-top{display:block;margin-bottom:12px}
+.page-home .catalog-product{padding-block:48px}
+.page-home .catalog-summary{font-size:16px;margin-top:18px;max-width:50ch}
+.page-home .catalog-features{margin-block:18px 24px}
+.four-products .product-showcase figcaption{min-height:0}
+.traffic-summary ul{margin-top:0}
+.product-detail section[id]{scroll-margin-top:0}
+@media(max-width:680px){.page-home .catalog-section{padding-top:28px}.page-home .catalog-product{padding-block:32px}.page-home .catalog-summary{margin-top:16px}.catalog-section .section-top{margin-bottom:0}.page-home .hero-layout{padding-bottom:0}}

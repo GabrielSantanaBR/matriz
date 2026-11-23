@@ -10,7 +10,7 @@ Portfólio estático em HTML, CSS e JavaScript nativo, com fontes locais e sem d
 
 ## Experiência
 
-A home apresenta os quatro produtos de `content/products.json`, cada um com página própria, uso, exemplo visual e pedido de proposta contextualizado. O investimento é definido por escopo; a contratação explica custos recorrentes, suporte, entrega, acessos e dados sem inventar preços ou condições.
+A home resume os quatro produtos de `content/products.json`, com descrição curta, recursos principais e uma prévia por produto. Detalhes, exemplos completos e pedidos de proposta contextualizados ficam nas páginas específicas. A contratação explica custos recorrentes, suporte, entrega, acessos e dados; o investimento é definido pelo escopo.
 
 O serviço de tráfego pago aparece na home, na navegação, no rodapé, na contratação e em `trafego-pago.html`. Inclui até duas campanhas de pesquisa no Google Ads, segmentação por região, medição de conversões, otimizações semanais e relatório mensal. A gestão é mensal sob proposta, com verba de mídia paga diretamente ao Google. Não inclui redes sociais, posts ou produção de fotos e vídeos. O formulário aceita e preserva o interesse `trafego`. Não há casos ou resultados de campanhas inventados.
 
