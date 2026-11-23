@@ -766,3 +766,38 @@ body.preview-open{overflow:hidden}
 @media(min-width:961px) and (max-width:1150px){.main-nav{gap:14px}.main-nav a{font-size:13px}.header-inner{gap:18px}.header-cta{font-size:13px;padding-inline:12px}}
 @media(max-width:960px){.traffic-highlight-layout,.traffic-hero-layout,.traffic-investment{grid-template-columns:1fr;gap:38px}.traffic-summary{padding-left:0;border-left:0;border-top:1px solid #604334;padding-top:25px}.traffic-highlight h2{max-width:760px}.traffic-path{max-width:760px}.traffic-addons{grid-template-columns:1fr;gap:28px}.traffic-scope-grid{gap:28px}.traffic-page .case-section{padding-block:48px}}
 @media(max-width:680px){.traffic-highlight{padding-block:48px}.traffic-highlight h2{font-size:34px}.traffic-highlight .actions{align-items:stretch;flex-direction:column}.traffic-highlight .button{width:100%}.traffic-hero-link{margin-top:14px;font-size:14px}.traffic-page .traffic-hero-layout h1{font-size:clamp(39px,11vw,60px)}.traffic-page .traffic-lead{font-size:24px}.traffic-page .page-hero{padding-bottom:40px}.traffic-page .case-section{padding-block:40px}.traffic-page h2{font-size:34px}.traffic-path{padding:24px 20px}.traffic-path strong{font-size:20px}.traffic-scope-grid{grid-template-columns:1fr}.traffic-page .actions{align-items:stretch;flex-direction:column;gap:14px}.traffic-page .button{width:100%}.traffic-page .text-link{min-height:44px}.traffic-page .faq-item>p{padding-right:0}.traffic-page .traffic-note{font-size:14px}.traffic-contract .actions{align-items:flex-start;flex-direction:column}}
+/* Space and type establish content groups; rules remain on controls and data tables. */
+.section,.case-section,.catalog-index,.product-navigation,.catalog-product,
+.product-benefits li,.scope-list li,.segment-grid article,.proposal-points>div,
+.product-alternative,.example-context,.case-card-footer,.process-followup,
+.contact-entry,.contact-alternative,.contact-steps li,.privacy-layout section,
+.technical-details,.faq-item,.faq-item:last-child,.studio-note{border-top:0;border-bottom:0}
+.catalog-index>a:nth-child(n),.product-navigation>a:nth-child(n){border:0}
+.product-kicker>span{border-right:0;padding-right:0}
+.page-home .clean-process .process-step{border-top:0;padding-top:12px}
+.page-repertoire .filter-bar{border-bottom:0}
+.text-link,.product-showcase figcaption>a,.preview-caption-row>a{border-bottom:0}
+.text-link:hover,.product-showcase figcaption>a:hover,.preview-caption-row>a:hover{text-decoration:underline;text-underline-offset:5px}
+.catalog-index{column-gap:24px}
+.product-benefits li,.proposal-points>div{padding-block:16px}
+.scope-list li{padding-block:10px}
+.segment-grid article{padding-top:8px}
+.example-context{padding-top:6px}
+.case-card-footer{padding-top:0}
+.faq-item+.faq-item{margin-top:8px}
+.faq-item summary{padding-block:18px}
+.faq-item[open] summary{color:var(--hot)}
+.technical-details{background:#111315;border-radius:8px;padding-inline:20px}
+.traffic-highlight{border:0}
+.traffic-summary{border:0;padding-left:0}
+.traffic-summary li{border-bottom:0;padding-block:9px}
+.traffic-path{border:0;border-top:2px solid var(--hot);border-radius:8px}
+.traffic-path li{border-bottom:0;padding-block:16px}
+.traffic-scope-grid{row-gap:44px}
+.traffic-scope-grid article,.traffic-addons article{border-top:0;padding-top:0}
+.traffic-page .traffic-investment{background:#121416;border-radius:12px;padding:clamp(28px,3.5vw,56px);margin-block:20px}
+.traffic-costs>div{border-top:0;padding:0}
+.traffic-costs>div+div{margin-top:28px}
+.traffic-costs dt{font-size:21px}
+.traffic-costs dd{margin-top:9px}
+@media(max-width:680px){.catalog-index{column-gap:16px}.traffic-scope-grid{row-gap:30px}.traffic-page .traffic-investment{padding:28px 20px;margin-block:12px}.traffic-costs>div+div{margin-top:24px}.technical-details{padding-inline:14px}}
