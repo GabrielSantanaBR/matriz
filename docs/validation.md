@@ -1,3 +1,15 @@
+# Revisão da jornada do cliente — 25/11/2026
+
+A home apresenta as quatro ofertas em uma grade responsiva com imagem, descrição e um link de detalhes. Recursos repetidos e barras simulando uma interface saíram das prévias; a identificação de demonstrações e dados anonimizados permanece. O laranja da marca continua nos títulos, ações e estados de navegação. A apresentação de Gabriel foi integrada às etapas da contratação.
+
+As páginas de produto mostram público, recursos e exemplos, com decisões da proposta em um bloco expansível. A página de contratação explica o processo, os custos e o suporte. Tráfego pago mantém até duas campanhas de pesquisa, ajustes semanais, relatório mensal, verba de mídia separada e limites do serviço. O contato prioriza o formulário e mantém o perfil profissional como referência secundária. Os oito projetos e as URLs existentes foram preservados.
+
+Validação: build, 18 testes Node, auditorias de fonte e dist e diff sem erros de whitespace. No navegador, nove combinações passaram sem overflow: home em 360, 768, 1024 e 1920 px; Sites, tráfego, contratação, contato e projetos em 360 px. A ampliação de imagem abriu, os detalhes da proposta expandiram e o CTA de Sites selecionou corretamente o serviço no formulário. Nenhum envio externo real foi realizado.
+
+Na viewport de computador de 1363 px, a altura da home caiu de aproximadamente 5657 para 3918 px; tráfego pago, de 4054 para 2766 px; contratação, de 3780 para 2322 px. São observações de layout no Chromium, não medidas de velocidade ou conversão. As larguras menores foram verificadas em iframe; sem teste em aparelhos físicos ou Safari.
+
+---
+
 # Clareza, exemplos e apresentação humana — 10/11/2026
 
 A abertura passou a dizer “Sites e sistemas para a rotina do seu negócio”, seguida dos quatro produtos. A logo oficial foi reduzida de 430 para 250 px no computador; no celular, a marca do cabeçalho permanece e a repetição grande da abertura sai da leitura. Os atalhos aos produtos e o link direto aos exemplos aparecem antes. A faixa laranja suave e o layout fluido aprovados foram preservados.

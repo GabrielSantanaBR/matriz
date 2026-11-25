@@ -813,3 +813,47 @@ body.preview-open{overflow:hidden}
 .traffic-summary ul{margin-top:0}
 .product-detail section[id]{scroll-margin-top:0}
 @media(max-width:680px){.page-home .catalog-section{padding-top:28px}.page-home .catalog-product{padding-block:32px}.page-home .catalog-summary{margin-top:16px}.catalog-section .section-top{margin-bottom:0}.page-home .hero-layout{padding-bottom:0}}
+/* Customer-facing overview: compact proof, clear service choices, one next step. */
+.page-home .catalog-section .section-top{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px}
+.page-home .catalog-section .section-top>.text-link{color:var(--hot);flex-shrink:0}
+.page-home .four-products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 44px;align-items:start}
+.page-home .four-products .catalog-product{display:flex;flex-direction:column;gap:18px;align-items:stretch;padding:0;min-width:0}
+.page-home .four-products .catalog-product-copy{display:block;order:1;min-width:0}
+.page-home .four-products .product-showcase{order:0;margin:0}
+.page-home .four-products .product-screen-image{aspect-ratio:2/1;padding:16px;min-height:0}
+.page-home .four-products .product-screen-image img{width:100%;height:100%;object-fit:contain}
+.page-home .four-products figcaption{min-height:0;font-size:13px;line-height:1.65;margin-top:10px}
+.page-home .catalog-product h3{font-size:clamp(25px,2.4vw,34px);line-height:1.2;letter-spacing:-.025em}
+.page-home .catalog-summary{margin-top:12px;max-width:56ch;font-size:16px;line-height:1.75}
+.offer-link{color:var(--hot);margin-top:12px;font-size:15px}
+.studio-contact{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:36px;padding-top:28px}
+.studio-contact .label{font-size:12px;margin-bottom:8px}
+.studio-contact h3{font-size:24px;margin-bottom:5px}
+.studio-contact p:not(.label){font-size:14px}
+.studio-contact .text-link{font-size:14px;color:var(--muted)}
+.page-home .clean-process .section-top{align-items:end;margin-bottom:28px}
+.page-home .clean-process .section-top>.text-link{justify-self:end;color:var(--hot)}
+.page-home .process-step h3{font-size:23px}
+.product-related{margin-top:28px;font-size:16px;line-height:1.8}
+.product-related a{color:var(--hot);text-decoration:underline;text-underline-offset:4px}
+.product-boundary-copy{font-size:16px;line-height:1.8;max-width:60ch}
+.product-contract{align-self:start}
+.product-contract .scope-list{margin-block:8px 20px}
+.product-contract>.text-link{margin-bottom:18px;color:var(--hot);font-size:14px}
+.product-contract>summary{font-size:16px;line-height:1.5}
+.purchase-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+.purchase-steps h3{font-size:24px;margin-bottom:14px}
+.purchase-steps p{font-size:16px;line-height:1.8;max-width:40ch}
+.purchase-page .purchase-layout>div>p{font-size:16px;line-height:1.8;max-width:55ch}
+.purchase-page .traffic-contract>.text-link{color:var(--hot);margin-top:12px}
+.traffic-hero-layout{display:block;max-width:950px}
+.traffic-page .traffic-hero-layout .traffic-lead{font-size:clamp(20px,2vw,26px);line-height:1.6;max-width:720px}
+.traffic-scope-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+.traffic-page .traffic-investment>div>p{max-width:55ch}
+.page-contact .page-hero{padding-bottom:28px}
+.page-contact .contact-aside h2{font-size:25px}
+.contact-alternative strong{display:block;font:600 23px/1.4 var(--display);margin-bottom:6px}
+.contact-alternative .text-link{color:var(--hot);font-size:14px}
+@media(min-width:1900px){.page-home .four-products{grid-template-columns:repeat(4,minmax(0,1fr));gap:36px}.page-home .catalog-product h3{font-size:30px}}
+@media(max-width:960px){.traffic-scope-grid{grid-template-columns:1fr;gap:24px}.purchase-steps{gap:28px}.page-home .four-products{gap:38px 28px}.page-home .catalog-product h3{font-size:26px}}
+@media(max-width:680px){.page-home .four-products{grid-template-columns:1fr;gap:36px}.page-home .catalog-section .section-top{align-items:start;flex-direction:column;gap:12px;margin-bottom:24px}.page-home .four-products .product-screen-image{padding:12px}.page-home .catalog-product h3{font-size:27px}.studio-contact{align-items:start;flex-direction:column;gap:12px;margin-top:24px;padding-top:20px}.page-home .clean-process .section-top{display:flex;align-items:start;flex-direction:column;gap:12px}.purchase-steps{grid-template-columns:1fr;gap:24px}.purchase-steps p{max-width:65ch}.page-contact .page-hero{padding-bottom:20px}}
